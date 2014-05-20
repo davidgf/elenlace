@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20140520131328) do
 
   create_table "users", force: true do |t|
     t.string   "username"
-    t.string   "type"
+    t.string   "role"
     t.integer  "table_id"
     t.text     "description"
     t.datetime "created_at"

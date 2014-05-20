@@ -16,8 +16,8 @@
     <%= f.text_field :username %>
   </div>
   <div class="field">
-    <%= f.label :type %><br>
-    <%= f.text_field :type %>
+    <%= f.label :role %><br>
+    <%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
   </div>
   <div class="field">
     <%= f.label :table_id %><br>
