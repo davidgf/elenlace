@@ -1,0 +1,31 @@
+<h1>Listing dances</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Partner</th>
+      <th>Time</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dances.each do |dance| %>
+      <tr>
+        <td><%= dance.user %></td>
+        <td><%= dance.partner %></td>
+        <td><%= dance.time %></td>
+        <td><%= link_to 'Show', dance %></td>
+        <td><%= link_to 'Edit', edit_dance_path(dance) %></td>
+        <td><%= link_to 'Destroy', dance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dance', new_dance_path %>

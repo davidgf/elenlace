@@ -1,4 +1,6 @@
 Bodorrio::Application.routes.draw do
+  resources :dances
+
   resources :users
 
   resources :tables

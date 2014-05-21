@@ -18,4 +18,9 @@ FactoryGirl.define do
         username "invitado"
         role "guest"
     end
+
+    factory :dance do
+        association :user, factory: :groom
+        association :partner, factory: :guest
+    end
 end

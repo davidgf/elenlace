@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
     validates :username, presence: true
     validate :role_not_changed
     belongs_to :table
+    has_many :dances
+    has_many :partners, through: :dances
 
     ROLES = %w[admin groom guest]
 
