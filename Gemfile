@@ -43,3 +43,7 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+group :development, :test do
+    gem 'debugger'
+    gem 'factory_girl_rails'
+end
