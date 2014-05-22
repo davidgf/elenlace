@@ -29,4 +29,18 @@ FactoryGirl.define do
         message "MyText"
         datetime "2014-05-22 17:23:17"
     end
+
+    factory :location do
+        name "MyString"
+        description "MyText"
+        address "MyText"
+        lat 1.5
+        long 1.5
+    end
+
+    factory :event do
+        association :location, factory: :location
+        datetime "2014-05-22 18:01:33"
+        description "MyText"
+    end
 end
