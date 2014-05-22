@@ -23,4 +23,10 @@ FactoryGirl.define do
         association :user, factory: :groom
         association :partner, factory: :guest
     end
+
+    factory :message do
+        association :user, factory: :guest
+        message "MyText"
+        datetime "2014-05-22 17:23:17"
+    end
 end

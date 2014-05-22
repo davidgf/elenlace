@@ -1,4 +1,6 @@
 Bodorrio::Application.routes.draw do
+  resources :messages
+
   resources :dances
 
   resources :users
