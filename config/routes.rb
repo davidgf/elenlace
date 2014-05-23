@@ -1,4 +1,6 @@
 Bodorrio::Application.routes.draw do
+  resources :pictures
+
   resources :events
 
   resources :messages

@@ -43,4 +43,10 @@ FactoryGirl.define do
         datetime "2014-05-22 18:01:33"
         description "MyText"
     end
+
+    factory :picture do
+        association :user, factory: :guest
+        name "MyString"
+    end
+
 end
