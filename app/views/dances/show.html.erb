@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @dance.user %>
+</p>
+
+<p>
+  <strong>Partner:</strong>
+  <%= @dance.partner %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @dance.time %>
+</p>
+
+<%= link_to 'Edit', edit_dance_path(@dance) %> |
+<%= link_to 'Back', dances_path %>
