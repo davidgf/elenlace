@@ -7,7 +7,7 @@
 
 <p>
   <strong>User:</strong>
-  <%= @message.user %>
+  <%= @message.user.username %>
 </p>
 
 <p>
@@ -15,5 +15,17 @@
   <%= @message.datetime %>
 </p>
 
+<p>
+  <strong>Upvotes:</strong>
+  <%= @message.votes_for.up.size %>
+</p>
+
+<p>
+  <strong>Downvotes:</strong>
+  <%= @message.votes_for.down.size %>
+</p>
+
 <%= link_to 'Edit', edit_message_path(@message) %> |
+<%= link_to 'Upvote', upvote_message_path(@message), method: :post %> |
+<%= link_to 'Downvote', downvote_message_path(@message), method: :post %> |
 <%= link_to 'Back', messages_path %>
