@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  before_action :set_message, only: [:show, :edit, :update, :destroy]
+  before_action :set_message, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
 
   # GET /messages
   # GET /messages.json
@@ -58,6 +58,22 @@ class MessagesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to messages_url }
       format.json { head :no_content }
+    end
+  end
+
+  def upvote
+    @message.upvote_by current_user
+    respond_to do |format|
+      format.html { redirect_to @message }
+      format.json
+    end
+  end
+
+  def downvote
+    @message.downvote_by current_user
+    respond_to do |format|
+      format.html { redirect_to @message }
+      format.json
     end
   end
 

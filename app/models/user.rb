@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
     has_many :dances
     has_many :partners, through: :dances
     has_many :messages
+    acts_as_voter
 
     ROLES = %w[admin groom guest]
 
