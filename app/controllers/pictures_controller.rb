@@ -1,5 +1,5 @@
 class PicturesController < ApplicationController
-  before_action :set_picture, only: [:show, :edit, :update, :destroy]
+  before_action :set_picture, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
 
   # GET /pictures
   # GET /pictures.json
@@ -58,6 +58,22 @@ class PicturesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to pictures_url }
       format.json { head :no_content }
+    end
+  end
+
+  def upvote
+    @picture.upvote_by current_user
+    respond_to do |format|
+      format.html { redirect_to @picture }
+      format.json
+    end
+  end
+
+  def downvote
+    @picture.downvote_by current_user
+    respond_to do |format|
+      format.html { redirect_to @picture }
+      format.json
     end
   end
 

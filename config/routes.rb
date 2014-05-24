@@ -1,9 +1,19 @@
 Bodorrio::Application.routes.draw do
-  resources :pictures
+  resources :pictures do
+    member do
+      post 'upvote'
+      post 'downvote'
+    end
+  end
 
   resources :events
 
-  resources :messages
+  resources :messages do
+    member do
+      post 'upvote'
+      post 'downvote'
+    end
+  end
 
   resources :dances
 

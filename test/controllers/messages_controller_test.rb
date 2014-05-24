@@ -46,4 +46,19 @@ class MessagesControllerTest < ActionController::TestCase
 
     assert_redirected_to messages_path
   end
+
+  test "should upvote message" do
+    assert_difference('@message.votes_for.up.size', +1) do
+      post :upvote, id: @message
+    end
+    assert_redirected_to message_path(assigns(:message))
+  end
+
+  test "should downvote message" do
+    assert_difference('@message.votes_for.down.size', +1) do
+      post :downvote, id: @message
+    end
+    assert_redirected_to message_path(assigns(:message))
+  end
+
 end
