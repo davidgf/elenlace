@@ -46,4 +46,18 @@ class PicturesControllerTest < ActionController::TestCase
 
     assert_redirected_to pictures_path
   end
+
+  test "should upvote picture" do
+    assert_difference('@picture.votes_for.up.size', +1) do
+      post :upvote, id: @picture
+    end
+    assert_redirected_to picture_path(assigns(:picture))
+  end
+
+  test "should downvote picture" do
+    assert_difference('@picture.votes_for.down.size', +1) do
+      post :downvote, id: @picture
+    end
+    assert_redirected_to picture_path(assigns(:picture))
+  end
 end
