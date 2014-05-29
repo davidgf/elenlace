@@ -24,11 +24,22 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
+    case user_params[:role]
+    when 'admin'
+      @user = Admin.new(user_params)
+    when 'groom'
+      @user = Groom.new(user_params)
+    when 'guest'
+      @user = Guest.new(user_params)
+    when 'Bride'
+      @user = Bride.new(user_params)
+    else
+      @user = User.new(user_params)
+    end
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to user_path(@user), notice: 'User was successfully created.' }
         format.json { render action: 'show', status: :created, location: @user }
       else
         format.html { render action: 'new' }
@@ -42,7 +53,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to user_path(@user), notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

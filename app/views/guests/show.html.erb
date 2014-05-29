@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Username:</strong>
+  <%= @guest.username %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @guest.type %>
+</p>
+
+<p>
+  <strong>Table:</strong>
+  <%= @guest.table %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @guest.description %>
+</p>
+
+<%= link_to 'Edit', edit_wedding_guest_path(@wedding.id, @guest.id) %> |
+<%= link_to 'Back', wedding_guests_path %>

@@ -1,4 +1,8 @@
 Bodorrio::Application.routes.draw do
+  resources :weddings do
+    resources :guests
+  end
+
   resources :pictures do
     member do
       post 'upvote'

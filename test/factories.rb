@@ -1,22 +1,30 @@
 FactoryGirl.define do
+    
+    factory :wedding do
+    end
 
     factory :user do
         username "usuario"
     end
 
-    factory :admin, class: User do
+    factory :admin do
         username "administrador"
-        role "admin"
     end
 
-    factory :groom, class: User do
+    factory :groom do
+        association :wedding, factory: :wedding
         username "novio"
-        role "groom"
     end
 
-    factory :guest, class: User do
+    factory :bride do
+        association :wedding, factory: :wedding
+        username "novia"
+    end
+
+
+    factory :guest do
+        association :wedding, factory: :wedding
         username "invitado"
-        role "guest"
     end
 
     factory :dance do

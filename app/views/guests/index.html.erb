@@ -1,0 +1,26 @@
+<h1>Listing guests</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @guests.each do |guest| %>
+      <tr>
+        <td><%= guest.username %></td>
+        <td><%= link_to 'Show', [@wedding, guest] %></td>
+        <td><%= link_to 'Edit', edit_wedding_guest_path(@wedding, guest) %></td>
+        <td><%= link_to 'Destroy', [@wedding, guest], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Guest', new_wedding_guest_path %>

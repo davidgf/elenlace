@@ -8,18 +8,22 @@ class User < ActiveRecord::Base
     has_many :messages
     acts_as_voter
 
-    ROLES = %w[admin groom guest]
+    ROLES = %w[admin groom bride guest]
 
     def is_admin?
-        return self.role == 'admin'
+        return false
     end
 
     def is_guest?
-        return self.role == 'guest'
+        return false
     end
     
     def is_groom?
-        return self.role == 'groom'
+        return false
+    end
+    
+    def is_bride?
+        return false
     end
 
 private
