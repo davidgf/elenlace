@@ -1,5 +1,7 @@
 Bodorrio::Application.routes.draw do
-  resources :weddings
+  resources :weddings do
+    resources :guests
+  end
 
   resources :pictures do
     member do
