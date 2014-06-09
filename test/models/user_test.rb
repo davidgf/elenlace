@@ -16,12 +16,6 @@ class UserTest < ActiveSupport::TestCase
     assert_not guest.save, "Guest saved without wedding"
   end
 
-  test "should not update role" do
-    user = FactoryGirl.create(:user)
-    user.role = "something else"
-    assert_not user.save, "Role updated"
-  end
-
   test "should have right role" do
     admin = FactoryGirl.build(:admin)
     groom = FactoryGirl.build(:groom)

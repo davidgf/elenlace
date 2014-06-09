@@ -11,6 +11,11 @@ FactoryGirl.define do
         username "administrador"
     end
 
+    factory :wedding_user do
+        association :wedding, factory: :wedding
+        username "usuario boda"
+    end
+
     factory :groom do
         association :wedding, factory: :wedding
         username "novio"
