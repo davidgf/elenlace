@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140527150107) do
+ActiveRecord::Schema.define(version: 20140609190110) do
 
   create_table "dances", force: true do |t|
     t.integer  "user_id"
@@ -76,6 +76,8 @@ ActiveRecord::Schema.define(version: 20140527150107) do
     t.datetime "updated_at"
     t.string   "type"
     t.integer  "wedding_id"
+    t.string   "auth_token"
+    t.string   "password"
   end
 
   add_index "users", ["table_id"], name: "index_users_on_table_id"

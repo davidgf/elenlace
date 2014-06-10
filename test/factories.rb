@@ -14,22 +14,26 @@ FactoryGirl.define do
     factory :wedding_user do
         association :wedding, factory: :wedding
         username "usuario boda"
+        password "wupass"
     end
 
     factory :groom do
         association :wedding, factory: :wedding
         username "novio"
+        password "groompass"
     end
 
     factory :bride do
         association :wedding, factory: :wedding
         username "novia"
+        password "bridepass"
     end
 
 
     factory :guest do
         association :wedding, factory: :wedding
         username "invitado"
+        password "guestpass"
     end
 
     factory :dance do

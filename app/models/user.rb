@@ -20,10 +20,4 @@ class User < ActiveRecord::Base
         return false
     end
 
-private
-    def role_not_changed
-        if role_changed? && self.persisted?
-            errors.add(:role, "Changing role is not allowed")
-        end
-    end
 end

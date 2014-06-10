@@ -7,6 +7,15 @@ class UserTest < ActiveSupport::TestCase
     assert_not user.save, "Saved without name"
   end
 
+  test "should save" do
+    groom = FactoryGirl.build(:groom)
+    bride = FactoryGirl.build(:bride)
+    guest = FactoryGirl.build(:guest)
+    assert groom.save, "Groom not saved"
+    assert bride.save, "Bride not saved"
+    assert guest.save, "Guest not saved"
+  end
+
   test "should not save without wedding" do
     groom = FactoryGirl.build(:groom, wedding: nil)
     bride = FactoryGirl.build(:bride, wedding: nil)
