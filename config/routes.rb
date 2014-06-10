@@ -1,4 +1,6 @@
 Bodorrio::Application.routes.draw do
+  get "log_in" => "sessions#new"
+  resources :sessions
   resources :weddings do
     resources :guests
   end

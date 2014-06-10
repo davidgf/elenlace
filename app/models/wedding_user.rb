@@ -2,7 +2,6 @@ class WeddingUser < User
     
     validates :wedding, presence: true
     validates :password, presence: true
-    # validates :auth_token, presence: true
     validates :password, uniqueness: { scope: :wedding, message: "Should be unique"}
     validate :role_not_changed
     belongs_to :wedding
@@ -13,6 +12,10 @@ class WeddingUser < User
     acts_as_voter
     before_create do 
         self.auth_token = SecureRandom.urlsafe_base64
+    end
+
+    def self.authenticate(wedding_id, password)
+        WeddingUser.where(wedding_id: wedding_id).find_by_password(password)
     end
 
 private

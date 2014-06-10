@@ -25,4 +25,15 @@ class WeddingUserTest < ActiveSupport::TestCase
     wedding_user.save
     assert_not_nil wedding_user.auth_token, "Auth token not generated"
   end
+
+  test "should authenticate with correct pass" do
+    wedding_user = FactoryGirl.create(:wedding_user, password: "pass")
+    wedding_user_auth = WeddingUser.authenticate(wedding_user.wedding_id, "pass")
+    assert_equal wedding_user, wedding_user_auth, "User not authenticated"
+  end
+
+  test "should now authenticate with wrong pass" do
+    wedding_user = FactoryGirl.create(:wedding_user, password: "pass")
+    assert_nil WeddingUser.authenticate(wedding_user.wedding_id, "wrong pass"), "User authenticated"
+  end
 end
