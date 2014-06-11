@@ -3,6 +3,8 @@ require 'test_helper'
 class MessagesControllerTest < ActionController::TestCase
   setup do
     @message = FactoryGirl.create(:message)
+    user = FactoryGirl.create(:wedding_user)
+    cookies[:auth_token] = user.auth_token
   end
 
   test "should get index" do

@@ -3,6 +3,8 @@ require 'test_helper'
 class PicturesControllerTest < ActionController::TestCase
   setup do
     @picture = FactoryGirl.create(:picture)
+    user = FactoryGirl.create(:wedding_user)
+    cookies[:auth_token] = user.auth_token
   end
 
   test "should get index" do
