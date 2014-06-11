@@ -1,8 +1,4 @@
-class Guest < User
-
-    validates :wedding, presence: true
-    
-    belongs_to :wedding
+class Guest < WeddingUser
 
     def is_guest?
         return true

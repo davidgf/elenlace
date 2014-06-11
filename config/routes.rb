@@ -1,6 +1,10 @@
 Bodorrio::Application.routes.draw do
+  get "pages/home"
+  get "log_in" => "sessions#new"
+  get "log_out" => "sessions#destroy"
   resources :weddings do
     resources :guests
+    resources :sessions
   end
 
   resources :pictures do
@@ -29,7 +33,7 @@ Bodorrio::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'pages#home'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

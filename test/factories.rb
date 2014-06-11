@@ -11,29 +11,38 @@ FactoryGirl.define do
         username "administrador"
     end
 
+    factory :wedding_user do
+        association :wedding, factory: :wedding
+        username "usuario boda"
+        password "wupass"
+    end
+
     factory :groom do
         association :wedding, factory: :wedding
         username "novio"
+        password "groompass"
     end
 
     factory :bride do
         association :wedding, factory: :wedding
         username "novia"
+        password "bridepass"
     end
 
 
     factory :guest do
         association :wedding, factory: :wedding
         username "invitado"
+        password "guestpass"
     end
 
     factory :dance do
-        association :user, factory: :groom
+        association :wedding_user, factory: :groom
         association :partner, factory: :guest
     end
 
     factory :message do
-        association :user, factory: :guest
+        association :wedding_user, factory: :guest
         message "MyText"
         datetime "2014-05-22 17:23:17"
     end
@@ -53,7 +62,7 @@ FactoryGirl.define do
     end
 
     factory :picture do
-        association :user, factory: :guest
+        association :wedding_user, factory: :guest
         name "MyString"
     end
 

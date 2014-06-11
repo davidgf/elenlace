@@ -15,18 +15,6 @@
     <%= f.label :username %><br>
     <%= f.text_field :username %>
   </div>
-  <div class="field">
-    <%= f.label :role %><br>
-    <%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
-  </div>
-  <div class="field">
-    <%= f.label :table_id %><br>
-    <%= f.text_field :table_id %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

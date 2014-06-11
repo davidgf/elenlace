@@ -25,6 +25,7 @@ class DancesController < ApplicationController
   # POST /dances.json
   def create
     @dance = Dance.new(dance_params)
+    @dance.wedding_user = current_user
 
     respond_to do |format|
       if @dance.save
@@ -69,6 +70,6 @@ class DancesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dance_params
-      params.require(:dance).permit(:user_id, :partner_id, :time)
+      params.require(:dance).permit(:partner_id, :time)
     end
 end

@@ -20,7 +20,7 @@ class GuestsControllerTest < ActionController::TestCase
 
   test "should create guest" do
     assert_difference('Guest.count') do
-      post :create, wedding_id: @guest.wedding, guest: {  description: @guest.description, table_id: @guest.table_id, role: @guest.role, username: @guest.username }
+      post :create, wedding_id: @guest.wedding, guest: {  description: @guest.description, table_id: @guest.table_id, role: @guest.role, username: @guest.username, password: "somepass" }
     end
 
     assert_not_nil assigns(:wedding)
