@@ -2,18 +2,6 @@
 
 one:
   username: MyString
-  role: admin
-  table_id: 
-  description: MyText
 
 two:
   username: MyString
-  role: groom
-  table_id: 
-  description: MyText
-
-two:
-  username: MyString
-  role: guest
-  table_id: 
-  description: MyText

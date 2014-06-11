@@ -37,12 +37,12 @@ FactoryGirl.define do
     end
 
     factory :dance do
-        association :user, factory: :groom
+        association :wedding_user, factory: :groom
         association :partner, factory: :guest
     end
 
     factory :message do
-        association :user, factory: :guest
+        association :wedding_user, factory: :guest
         message "MyText"
         datetime "2014-05-22 17:23:17"
     end
@@ -62,7 +62,7 @@ FactoryGirl.define do
     end
 
     factory :picture do
-        association :user, factory: :guest
+        association :wedding_user, factory: :guest
         name "MyString"
     end
 

@@ -1,5 +1,6 @@
-class WeddingUser < User
-    
+class WeddingUser < ActiveRecord::Base
+
+    validates :username, presence: true
     validates :wedding, presence: true
     validates :password, presence: true
     validates :password, uniqueness: { scope: :wedding, message: "Should be unique"}
@@ -12,6 +13,22 @@ class WeddingUser < User
     acts_as_voter
     before_create do 
         self.auth_token = SecureRandom.urlsafe_base64
+    end
+
+    def is_admin?
+        return false
+    end
+
+    def is_guest?
+        return false
+    end
+    
+    def is_groom?
+        return false
+    end
+    
+    def is_bride?
+        return false
     end
 
     def self.authenticate(wedding_id, password)
