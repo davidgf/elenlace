@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = WeddingUser.authenticate(@wedding.id, params[:password])
+    user = Attendee.authenticate(@wedding.id, params[:password])
     if user
         cookies.permanent[:auth_token] = user.auth_token
         redirect_to root_url

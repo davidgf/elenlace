@@ -1,4 +1,4 @@
-class WeddingUser < ActiveRecord::Base
+class Attendee < ActiveRecord::Base
 
     validates :username, presence: true
     validates :wedding, presence: true
@@ -32,7 +32,7 @@ class WeddingUser < ActiveRecord::Base
     end
 
     def self.authenticate(wedding_id, password)
-        WeddingUser.where(wedding_id: wedding_id).find_by_password(password)
+        self.where(wedding_id: wedding_id).find_by_password(password)
     end
 
 private

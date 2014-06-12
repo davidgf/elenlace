@@ -7,6 +7,6 @@ class ApplicationController < ActionController::Base
   
 private
   def current_user
-    @current_user ||= WeddingUser.find_by_auth_token(cookies[:auth_token]) if cookies[:auth_token]
+    @current_user ||= Attendee.find_by_auth_token(cookies[:auth_token]) if cookies[:auth_token]
   end
 end

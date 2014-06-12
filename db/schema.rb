@@ -11,18 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140611100046) do
+ActiveRecord::Schema.define(version: 20140612114347) do
+
+  create_table "attendees", force: true do |t|
+    t.string   "auth_token"
+    t.string   "password"
+    t.string   "username"
+    t.string   "role"
+    t.integer  "table_id"
+    t.integer  "wedding_id"
+    t.text     "description"
+    t.string   "type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "attendees", ["table_id"], name: "index_attendees_on_table_id"
+  add_index "attendees", ["wedding_id"], name: "index_attendees_on_wedding_id"
 
   create_table "dances", force: true do |t|
-    t.integer  "wedding_user_id"
+    t.integer  "attendee_id"
     t.integer  "partner_id"
     t.time     "time"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "dances", ["attendee_id"], name: "index_dances_on_attendee_id"
   add_index "dances", ["partner_id"], name: "index_dances_on_partner_id"
-  add_index "dances", ["wedding_user_id"], name: "index_dances_on_wedding_user_id"
 
   create_table "events", force: true do |t|
     t.datetime "datetime"
@@ -44,22 +60,22 @@ ActiveRecord::Schema.define(version: 20140611100046) do
 
   create_table "messages", force: true do |t|
     t.text     "message"
-    t.integer  "wedding_user_id"
+    t.integer  "attendee_id"
     t.datetime "datetime"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "messages", ["wedding_user_id"], name: "index_messages_on_wedding_user_id"
+  add_index "messages", ["attendee_id"], name: "index_messages_on_attendee_id"
 
   create_table "pictures", force: true do |t|
     t.string   "name"
-    t.integer  "wedding_user_id"
+    t.integer  "attendee_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "pictures", ["wedding_user_id"], name: "index_pictures_on_wedding_user_id"
+  add_index "pictures", ["attendee_id"], name: "index_pictures_on_attendee_id"
 
   create_table "tables", force: true do |t|
     t.string   "name"
@@ -88,22 +104,6 @@ ActiveRecord::Schema.define(version: 20140611100046) do
 
   add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
   add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
-
-  create_table "wedding_users", force: true do |t|
-    t.string   "auth_token"
-    t.string   "password"
-    t.string   "username"
-    t.string   "role"
-    t.integer  "table_id"
-    t.integer  "wedding_id"
-    t.text     "description"
-    t.string   "type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "wedding_users", ["table_id"], name: "index_wedding_users_on_table_id"
-  add_index "wedding_users", ["wedding_id"], name: "index_wedding_users_on_wedding_id"
 
   create_table "weddings", force: true do |t|
     t.datetime "created_at"

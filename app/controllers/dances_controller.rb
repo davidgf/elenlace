@@ -25,7 +25,7 @@ class DancesController < ApplicationController
   # POST /dances.json
   def create
     @dance = Dance.new(dance_params)
-    @dance.wedding_user = current_user
+    @dance.attendee = current_user
 
     respond_to do |format|
       if @dance.save

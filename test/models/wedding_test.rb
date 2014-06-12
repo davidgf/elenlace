@@ -6,7 +6,7 @@ class WeddingTest < ActiveSupport::TestCase
     bride = FactoryGirl.build(:bride)
     guest = FactoryGirl.build(:guest)
     wedding = FactoryGirl.create(:wedding, bride: bride, groom: groom, guests: [guest])
-    assert_difference('WeddingUser.count', -3) do
+    assert_difference('Attendee.count', -3) do
       wedding.destroy
     end
   end
