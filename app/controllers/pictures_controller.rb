@@ -1,10 +1,12 @@
 class PicturesController < ApplicationController
-  before_action :set_picture, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
+  before_action :require_user
+  before_action :set_wedding
+  load_and_authorize_resource except: :new
 
   # GET /pictures
   # GET /pictures.json
   def index
-    @pictures = Picture.all
+    @pictures = @wedding.pictures
   end
 
   # GET /pictures/1
@@ -63,7 +65,7 @@ class PicturesController < ApplicationController
   end
 
   def upvote
-    @picture.upvote_by current_user
+    @picture.upvote_by current_user.becomes(Attendee)
     respond_to do |format|
       format.html { redirect_to @picture }
       format.json
@@ -71,7 +73,7 @@ class PicturesController < ApplicationController
   end
 
   def downvote
-    @picture.downvote_by current_user
+    @picture.downvote_by current_user.becomes(Attendee)
     respond_to do |format|
       format.html { redirect_to @picture }
       format.json

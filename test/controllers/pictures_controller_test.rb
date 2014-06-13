@@ -2,8 +2,8 @@ require 'test_helper'
 
 class PicturesControllerTest < ActionController::TestCase
   setup do
-    @picture = FactoryGirl.create(:picture)
-    user = FactoryGirl.create(:attendee)
+    user = FactoryGirl.create(:guest)
+    @picture = FactoryGirl.create(:picture, attendee: user)
     cookies[:auth_token] = user.auth_token
   end
 

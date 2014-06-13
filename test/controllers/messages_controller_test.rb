@@ -2,8 +2,8 @@ require 'test_helper'
 
 class MessagesControllerTest < ActionController::TestCase
   setup do
-    @message = FactoryGirl.create(:message)
-    user = FactoryGirl.create(:attendee)
+    user = FactoryGirl.create(:guest)
+    @message = FactoryGirl.create(:message, attendee: user)
     cookies[:auth_token] = user.auth_token
   end
 

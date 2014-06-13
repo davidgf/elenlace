@@ -1,10 +1,11 @@
 class DancesController < ApplicationController
-  before_action :set_dance, only: [:show, :edit, :update, :destroy]
+  before_action :require_user
+  load_and_authorize_resource except: :new
 
   # GET /dances
   # GET /dances.json
   def index
-    @dances = Dance.all
+    @dances = current_user.dances
   end
 
   # GET /dances/1

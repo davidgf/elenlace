@@ -73,8 +73,4 @@ class GuestsController < ApplicationController
     def guest_params
       params.require(:guest).permit(:username, :description, :table_id, :password)
     end
-
-    def set_wedding
-      @wedding = Wedding.find(params[:wedding_id])
-    end
 end

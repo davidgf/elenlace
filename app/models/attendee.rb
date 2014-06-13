@@ -10,6 +10,7 @@ class Attendee < ActiveRecord::Base
     has_many :dances
     has_many :partners, through: :dances
     has_many :messages
+    has_many :pictures
     acts_as_voter
     before_create do 
         self.auth_token = SecureRandom.urlsafe_base64
