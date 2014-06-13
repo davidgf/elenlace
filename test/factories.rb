@@ -11,7 +11,7 @@ FactoryGirl.define do
         username "administrador"
     end
 
-    factory :wedding_user do
+    factory :attendee do
         association :wedding, factory: :wedding
         username "usuario boda"
         password "wupass"
@@ -37,12 +37,12 @@ FactoryGirl.define do
     end
 
     factory :dance do
-        association :wedding_user, factory: :groom
+        association :attendee, factory: :groom
         association :partner, factory: :guest
     end
 
     factory :message do
-        association :wedding_user, factory: :guest
+        association :attendee, factory: :guest
         message "MyText"
         datetime "2014-05-22 17:23:17"
     end
@@ -62,7 +62,7 @@ FactoryGirl.define do
     end
 
     factory :picture do
-        association :wedding_user, factory: :guest
+        association :attendee, factory: :guest
         name "MyString"
     end
 

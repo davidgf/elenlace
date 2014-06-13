@@ -1,10 +1,13 @@
 class MessagesController < ApplicationController
-  before_action :set_message, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
+  before_action :require_user
+  before_action :set_wedding
+  load_and_authorize_resource except: :new
+
 
   # GET /messages
   # GET /messages.json
   def index
-    @messages = Message.all
+    @messages = @wedding.messages
   end
 
   # GET /messages/1
@@ -25,7 +28,7 @@ class MessagesController < ApplicationController
   # POST /messages.json
   def create
     @message = Message.new(message_params)
-    @message.wedding_user = current_user
+    @message.attendee = current_user
 
     respond_to do |format|
       if @message.save
@@ -63,7 +66,7 @@ class MessagesController < ApplicationController
   end
 
   def upvote
-    @message.upvote_by current_user
+    @message.upvote_by current_user.becomes(Attendee)
     respond_to do |format|
       format.html { redirect_to @message }
       format.json
@@ -71,7 +74,7 @@ class MessagesController < ApplicationController
   end
 
   def downvote
-    @message.downvote_by current_user
+    @message.downvote_by current_user.becomes(Attendee)
     respond_to do |format|
       format.html { redirect_to @message }
       format.json
@@ -86,6 +89,6 @@ class MessagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def message_params
-      params.require(:message).permit(:message, :datetime)
+      params.require(:message).permit(:message)
     end
 end

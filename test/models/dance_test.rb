@@ -3,7 +3,7 @@ require 'test_helper'
 class DanceTest < ActiveSupport::TestCase
   
   test "should not save without user" do
-    dance = FactoryGirl.build(:dance, wedding_user: nil)
+    dance = FactoryGirl.build(:dance, attendee: nil)
     assert_not dance.save, "Saved without user"
   end
 

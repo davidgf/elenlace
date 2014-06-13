@@ -2,8 +2,8 @@ require 'test_helper'
 
 class MessagesControllerTest < ActionController::TestCase
   setup do
-    @message = FactoryGirl.create(:message)
-    user = FactoryGirl.create(:wedding_user)
+    user = FactoryGirl.create(:guest)
+    @message = FactoryGirl.create(:message, attendee: user)
     cookies[:auth_token] = user.auth_token
   end
 
@@ -20,7 +20,7 @@ class MessagesControllerTest < ActionController::TestCase
 
   test "should create message" do
     assert_difference('Message.count') do
-      post :create, message: { datetime: @message.datetime, message: @message.message, wedding_user_id: @message.wedding_user_id }
+      post :create, message: { datetime: @message.datetime, message: @message.message, attendee_id: @message.attendee_id }
     end
 
     assert_redirected_to message_path(assigns(:message))
@@ -37,7 +37,7 @@ class MessagesControllerTest < ActionController::TestCase
   end
 
   test "should update message" do
-    patch :update, id: @message, message: { datetime: @message.datetime, message: @message.message, wedding_user_id: @message.wedding_user_id }
+    patch :update, id: @message, message: { datetime: @message.datetime, message: @message.message, attendee_id: @message.attendee_id }
     assert_redirected_to message_path(assigns(:message))
   end
 

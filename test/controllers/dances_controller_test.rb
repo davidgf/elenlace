@@ -2,9 +2,9 @@ require 'test_helper'
 
 class DancesControllerTest < ActionController::TestCase
   setup do
+    @user = FactoryGirl.create(:guest, password: "pass2")
     @partner = FactoryGirl.create(:guest, password: "pass1")
-    user = FactoryGirl.create(:guest, password: "pass2")
-    cookies[:auth_token] = user.auth_token
+    cookies[:auth_token] = @user.auth_token
   end
 
   test "should get index" do
@@ -27,25 +27,25 @@ class DancesControllerTest < ActionController::TestCase
   end
 
   test "should show dance" do
-    @dance = FactoryGirl.create(:dance)
+    @dance = FactoryGirl.create(:dance, attendee: @user)
     get :show, id: @dance
     assert_response :success
   end
 
   test "should get edit" do
-    @dance = FactoryGirl.create(:dance)
+    @dance = FactoryGirl.create(:dance, attendee: @user)
     get :edit, id: @dance
     assert_response :success
   end
 
   test "should update dance" do
-    @dance = FactoryGirl.create(:dance)
+    @dance = FactoryGirl.create(:dance, attendee: @user)
     patch :update, id: @dance, dance: { partner_id: @partner.id, time: @dance.time }
     assert_redirected_to dance_path(assigns(:dance))
   end
 
   test "should destroy dance" do
-    @dance = FactoryGirl.create(:dance)
+    @dance = FactoryGirl.create(:dance, attendee: @user)
     assert_difference('Dance.count', -1) do
       delete :destroy, id: @dance
     end

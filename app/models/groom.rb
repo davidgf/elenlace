@@ -1,4 +1,4 @@
-class Groom < WeddingUser
+class Groom < Attendee
 
     def is_groom?
         return true
