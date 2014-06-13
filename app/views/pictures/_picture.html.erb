@@ -1,0 +1,17 @@
+<div class="col-sm-6 col-md-4">
+  <div class="thumbnail">
+    <div class="media">
+      <%= link_to account_path(picture.attendee), class: 'pull-left' do %>
+          <img class="media-object" src="" alt="Sandra">
+      <% end %>
+      <div class="media-body">
+        <h3 class="media-heading"><%= picture.attendee.username %></h3>
+      </div>
+    </div>
+    <%= image_tag "dys.png" %>
+    <div class="caption">
+      <p><small><%= picture.created_at %></small></p>
+      <p><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-thumbs-up"></span> Me gusta</a> <a href="#" class="btn btn-default" role="button"><span class="glyphicon glyphicon-thumbs-down"></span> No me gusta</a></p>
+    </div>
+  </div>
+</div>

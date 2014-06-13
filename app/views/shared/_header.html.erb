@@ -14,27 +14,27 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li class="active">
+            <li class="<%= 'active' if params[:controller] == 'pages' %>">
                 <%= link_to root_path do %>
                     <span class="glyphicon glyphicon-heart"></span> Novios
                 <% end %>
             </li>
-            <li>
+            <li class="<%= 'active' if params[:controller] == 'messages' %>">
                 <%= link_to messages_path do %>
                     <span class="glyphicon glyphicon-comment"></span> Mensajes
                 <% end %>
             </li>
-            <li>
+            <li class="<%= 'active' if params[:controller] == 'pictures' %>">
                 <%= link_to pictures_path do %>
                     <span class="glyphicon glyphicon-picture"></span> Fotos
                 <% end %>
             </li>
-            <li>
+            <li class="<%= 'active' if params[:controller] == 'dances' %>">
                 <%= link_to dances_path do %>
                     <span class="glyphicon glyphicon-bullhorn"></span> Baile
                 <% end %>
             </li>
-            <li class="dropdown">
+            <li class="dropdown <%= 'active' if ['guests', 'tables'].include? params[:controller] %>">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-info-sign"></span> Info <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="info-general.html"><span class="glyphicon glyphicon-unchecked"></span> General</a></li>
@@ -48,6 +48,9 @@
                     <%= link_to tables_path do %>
                         <span class="glyphicon glyphicon-cutlery"></span> Mesas
                     <% end %>
+                </li>
+                <li>
+                    <%= link_to 'Salir', log_out_path %>
                 </li>
               </ul>
             </li>

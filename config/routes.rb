@@ -15,6 +15,7 @@ Bodorrio::Application.routes.draw do
   end
 
   resources :events
+  resources :accounts
 
   resources :messages do
     member do
