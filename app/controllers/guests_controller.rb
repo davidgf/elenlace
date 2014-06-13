@@ -1,11 +1,11 @@
 class GuestsController < ApplicationController
-  before_action :set_guest, only: [:show, :edit, :update, :destroy]
-  before_action :set_wedding
+  before_action :require_user
+  load_and_authorize_resource
 
   # GET /guests
   # GET /guests.json
   def index
-    @guests = Guest.all
+    @guests = current_user.wedding.guests
   end
 
   # GET /guests/1
@@ -15,7 +15,6 @@ class GuestsController < ApplicationController
 
   # GET /guests/new
   def new
-    @guest = @wedding.guests.build
   end
 
   # GET /guests/1/edit
@@ -26,11 +25,11 @@ class GuestsController < ApplicationController
   # POST /guests.json
   def create
     @guest = Guest.new(guest_params)
-    @guest.wedding = @wedding
+    @guest.wedding = current_user.wedding
 
     respond_to do |format|
       if @guest.save
-        format.html { redirect_to [@wedding, @guest], notice: 'Guest was successfully created.' }
+        format.html { redirect_to @guest, notice: 'Guest was successfully created.' }
         format.json { render action: 'show', status: :created, location: @guest }
       else
         format.html { render action: 'new' }
@@ -44,7 +43,7 @@ class GuestsController < ApplicationController
   def update
     respond_to do |format|
       if @guest.update(guest_params)
-        format.html { redirect_to [@wedding, @guest], notice: 'Guest was successfully updated.' }
+        format.html { redirect_to @guest, notice: 'Guest was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -58,7 +57,7 @@ class GuestsController < ApplicationController
   def destroy
     @guest.destroy
     respond_to do |format|
-      format.html { redirect_to wedding_guests_path }
+      format.html { redirect_to guests_path }
       format.json { head :no_content }
     end
   end
