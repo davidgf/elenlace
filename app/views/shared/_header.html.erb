@@ -1,0 +1,66 @@
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <%= link_to root_path, class: "navbar-brand" do %>
+            <%= image_tag "dys.png" %>
+            <span>Diego &<br>Sandra</span>
+          <% end %>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active">
+                <%= link_to root_path do %>
+                    <span class="glyphicon glyphicon-heart"></span> Novios
+                <% end %>
+            </li>
+            <li>
+                <%= link_to messages_path do %>
+                    <span class="glyphicon glyphicon-comment"></span> Mensajes
+                <% end %>
+            </li>
+            <li>
+                <%= link_to pictures_path do %>
+                    <span class="glyphicon glyphicon-picture"></span> Fotos
+                <% end %>
+            </li>
+            <li>
+                <%= link_to dances_path do %>
+                    <span class="glyphicon glyphicon-bullhorn"></span> Baile
+                <% end %>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-info-sign"></span> Info <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="info-general.html"><span class="glyphicon glyphicon-unchecked"></span> General</a></li>
+                <li><a href="info-planing.html"><span class="glyphicon glyphicon-calendar"></span> Planing</a></li>
+                <li>
+                    <%= link_to guests_path do %>
+                        <span class="glyphicon glyphicon-list-alt"></span> Invitados
+                    <% end %>
+                </li>
+                <li>
+                    <%= link_to tables_path do %>
+                        <span class="glyphicon glyphicon-cutlery"></span> Mesas
+                    <% end %>
+                </li>
+              </ul>
+            </li>
+            <li>
+
+            <% if current_user %>
+                <%= link_to guest_path(current_user) do %>
+                    <span class="glyphicon glyphicon-user"></span> Mi perfil
+                <% end %>
+            <% end %>
+            </li>
+          </ul>
+
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>

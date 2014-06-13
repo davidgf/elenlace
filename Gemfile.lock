@@ -27,6 +27,8 @@ GEM
       tzinfo (~> 0.3.37)
     acts_as_votable (0.9.0)
     arel (4.0.2)
+    bootstrap-sass (3.1.1.1)
+      sass (~> 3.2)
     builder (3.1.4)
     cancancan (1.8.2)
     coffee-rails (4.0.1)
@@ -120,6 +122,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_votable
+  bootstrap-sass
   cancancan
   coffee-rails (~> 4.0.0)
   factory_girl_rails
