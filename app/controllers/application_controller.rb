@@ -13,7 +13,7 @@ private
   def require_user
     unless current_user
         flash.now.alert = "Invalid email or password"
-        redirect_to root_path
+        redirect_to log_in_path
     end
   end
 

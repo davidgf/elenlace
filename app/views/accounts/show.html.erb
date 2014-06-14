@@ -1,0 +1,16 @@
+
+<div class="row">
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <img src="" alt="Foto de perfil" class="img-rounded">
+        <div class="caption">
+          <h2><%= current_user.username %></h2>
+          <p><%= current_user.description %></p>
+          <p><small><strong>¿Quién es?</strong> <%= current_user.role || "who knows?" %></small></p>
+        </div>
+      </div>
+    </div>
+</div>
+
+<%= link_to "Edit", edit_account_path %> |
+<%= link_to "Log out", log_out_path %>
