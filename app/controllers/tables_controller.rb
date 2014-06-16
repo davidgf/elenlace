@@ -1,10 +1,11 @@
 class TablesController < ApplicationController
+  before_action :require_user
   before_action :set_table, only: [:show, :edit, :update, :destroy]
 
   # GET /tables
   # GET /tables.json
   def index
-    @tables = Table.all
+    @tables = current_user.wedding.tables
   end
 
   # GET /tables/1
