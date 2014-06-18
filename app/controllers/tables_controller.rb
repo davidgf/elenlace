@@ -1,6 +1,7 @@
 class TablesController < ApplicationController
   before_action :require_user
   before_action :set_table, only: [:show, :edit, :update, :destroy]
+  before_action :set_autocomplete_data, only: [:new, :edit]
 
   # GET /tables
   # GET /tables.json
@@ -68,8 +69,12 @@ class TablesController < ApplicationController
       @table = Table.find(params[:id])
     end
 
+    def set_autocomplete_data
+      @autocomplete_data = current_user.wedding.attendees.map { |a| a.username }
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def table_params
-      params.require(:table).permit(:name)
+      params.require(:table).permit(:name, :attendees)
     end
 end

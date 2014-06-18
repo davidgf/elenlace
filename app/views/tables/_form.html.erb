@@ -1,3 +1,10 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_tag do %>
+    window.autocomplete_source = <%= raw @autocomplete_data.to_json %>;
+  <% end %>
+  <%= javascript_include_tag "autocompletion" %>
+<% end %>
+
 <%= form_for(@table) do |f| %>
   <% if @table.errors.any? %>
     <div id="error_explanation">
@@ -14,6 +21,12 @@
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
+  </div>
+
+  <div class="table-attendee">
+    <%= label_tag :attendee %><br>
+    <%= text_field_tag :attendee, nil, class: 'typeahead' %>
+    <div class="typeahead-selected-value"><span></span></div> 
   </div>
   <div class="actions">
     <%= f.submit %>

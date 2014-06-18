@@ -5,6 +5,9 @@
         <%= table.name %>
       </h4>
     </a>
+    <% if can? :update, table %>
+      <%= link_to 'Editar', edit_table_path(table) %>
+    <% end %>
   </div>
   <div id="collapseOne" class="panel-collapse collapse in">
     <div class="panel-body">
