@@ -1,9 +1,3 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @table.name %>
-</p>
-
-<%= link_to 'Edit', edit_table_path(@table) %> |
-<%= link_to 'Back', tables_path %>
+<%= render partial: 'table', object: @table %>

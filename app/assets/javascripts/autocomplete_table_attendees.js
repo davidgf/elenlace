@@ -49,13 +49,13 @@ $(function(){
     addAutocompleteHandlers($('.typeahead'));
 
     $('a.add-new-attendee').click(function(){
-      var lastAttendee = $('div.table-attendee').last();
+      var lastAttendee = $('.table-attendee').last();
       var $newAttendeeHtml = $($('#new-attendee-template').html());
       lastAttendee.after($newAttendeeHtml);
       addAutocompleteHandlers($newAttendeeHtml.find('.typeahead'));
     });
 
     $('body').on('click', 'a.remove-attendee', function(ev){
-      $(this).parents('div.table-attendee').remove();
+      $(this).parents('.table-attendee').remove();
     });
 });

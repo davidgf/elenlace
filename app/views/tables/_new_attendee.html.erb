@@ -1,13 +1,16 @@
-
-  <div class="table-attendee <%= 'value-selected' if local_assigns.has_key? :attendee %>">
-    <%= text_field_tag :attendee, nil, class: 'typeahead', id: nil %>
-    <div class="typeahead-selected-value">
-      <span><%= attendee.username if local_assigns.has_key? :attendee %></span>
-      <% if local_assigns.has_key? :attendee %>
-        <%= hidden_field_tag 'table[attendee_ids][]', nil, class: 'selected-value-hidden', value: attendee.id %>
-      <% else %>
-        <%= hidden_field_tag 'table[attendee_ids][]', nil, class: 'selected-value-hidden' %>
-      <% end %>
-      <%= link_to 'Eliminar', 'javascript:void(0)', class: 'remove-attendee' %>
+<tr class="table-attendee <%= 'value-selected' if local_assigns.has_key? :attendee %>">
+  <td>
+    <div class="">
+      <%= text_field_tag :attendee, nil, class: 'typeahead form-control', id: nil %>
+      <div class="typeahead-selected-value">
+        <span><%= attendee.username if local_assigns.has_key? :attendee %></span>
+        <% if local_assigns.has_key? :attendee %>
+          <%= hidden_field_tag 'table[attendee_ids][]', nil, class: 'selected-value-hidden', value: attendee.id %>
+        <% else %>
+          <%= hidden_field_tag 'table[attendee_ids][]', nil, class: 'selected-value-hidden' %>
+        <% end %>
+        <%= link_to 'Eliminar', 'javascript:void(0)', class: 'remove-attendee' %>
+      </div>
     </div>
-  </div>
+  </td>
+</tr>

@@ -27,6 +27,7 @@ class TablesController < ApplicationController
   # POST /tables.json
   def create
     @table = Table.new(table_params)
+    @table.wedding = current_user.wedding
 
     respond_to do |format|
       if @table.save
