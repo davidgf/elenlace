@@ -2,6 +2,9 @@
   <%= javascript_tag do %>
     window.autocomplete_source = <%= raw @autocomplete_data.to_json %>;
   <% end %>
+  <script id="new-attendee-template" type="text/template">
+    <%= render 'new_attendee' %>
+  </script>
   <%= javascript_include_tag "autocompletion" %>
 <% end %>
 
@@ -23,11 +26,12 @@
     <%= f.text_field :name %>
   </div>
 
-  <div class="table-attendee">
-    <%= label_tag :attendee %><br>
-    <%= text_field_tag :attendee, nil, class: 'typeahead' %>
-    <div class="typeahead-selected-value"><span></span></div> 
-  </div>
+  <%= label_tag :attendees %>
+  <%= link_to 'Add new', 'javascript:void(0)', class: 'add-new-attendee' %><br>
+  <% @table.attendees.each do |attendee| %>
+    <%= render 'new_attendee', {attendee: attendee} %>
+  <% end %>
+  <%= render 'new_attendee' %>
   <div class="actions">
     <%= f.submit %>
   </div>

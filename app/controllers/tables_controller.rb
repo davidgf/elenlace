@@ -70,11 +70,11 @@ class TablesController < ApplicationController
     end
 
     def set_autocomplete_data
-      @autocomplete_data = current_user.wedding.attendees.map { |a| a.username }
+      @autocomplete_data = current_user.wedding.attendees.map { |a| {label: a.username, value: a.id} }
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def table_params
-      params.require(:table).permit(:name, :attendees)
+      params.require(:table).permit(:name, attendee_ids: [])
     end
 end
