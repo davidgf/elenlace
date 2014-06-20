@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140612114347) do
+ActiveRecord::Schema.define(version: 20140616163055) do
 
   create_table "attendees", force: true do |t|
     t.string   "auth_token"
@@ -81,7 +81,10 @@ ActiveRecord::Schema.define(version: 20140612114347) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "wedding_id"
   end
+
+  add_index "tables", ["wedding_id"], name: "index_tables_on_wedding_id"
 
   create_table "users", force: true do |t|
     t.string   "username"

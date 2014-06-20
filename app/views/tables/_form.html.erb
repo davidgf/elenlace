@@ -1,3 +1,14 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_tag do %>
+    window.autocomplete_source = <%= raw @autocomplete_data.to_json %>;
+  <% end %>
+  <script id="new-attendee-template" type="text/template">
+    <%= render 'new_attendee' %>
+  </script>
+  <%= javascript_include_tag "autocompletion" %>
+<% end %>
+
+
 <%= form_for(@table) do |f| %>
   <% if @table.errors.any? %>
     <div id="error_explanation">
@@ -10,12 +21,34 @@
       </ul>
     </div>
   <% end %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <a data-toggle="collapse" data-parent="#accordion">
+        <h4 class="panel-title">
+          <%= f.label :name %><br>
+          <%= f.text_field :name, class: 'form-control' %>
+        </h4>
+      </a>
+      <%= link_to 'Add new', 'javascript:void(0)', class: 'add-new-attendee' %>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in">
+      <div class="panel-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Invitados</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @table.attendees.each do |attendee| %>
+                <%= render 'new_attendee', {attendee: attendee} %>
+            <% end %>
+            <%= render 'new_attendee' %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.submit %>
 <% end %>

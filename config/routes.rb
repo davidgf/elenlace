@@ -15,6 +15,7 @@ Bodorrio::Application.routes.draw do
   end
 
   resources :events
+  resource :account, only: [:show, :edit, :update]
 
   resources :messages do
     member do

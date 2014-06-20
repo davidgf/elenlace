@@ -11,5 +11,15 @@ class ActiveSupport::TestCase
   # -- they do not yet inherit this setting
   fixtures :all
 
+  def set_current_attendee(type)
+    attendee = FactoryGirl.create(type)
+    cookies[:auth_token] = attendee.auth_token
+    return attendee
+  end
+
+  def ensure_not_authenticated
+    cookies.delete(:auth_token)
+  end
+
   # Add more helper methods to be used by all tests here...
 end

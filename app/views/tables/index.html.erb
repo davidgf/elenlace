@@ -1,26 +1,12 @@
 <h1>Listing tables</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<div class="panel-group" id="accordion">
 
-  <tbody>
-    <% @tables.each do |table| %>
-      <tr>
-        <td><%= table.name %></td>
-        <td><%= link_to 'Show', table %></td>
-        <td><%= link_to 'Edit', edit_table_path(table) %></td>
-        <td><%= link_to 'Destroy', table, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% @tables.each do |table| %>
+  <%= render partial: 'table', object: table %>
+<% end %>
+
+</div>
 
 <br>
 

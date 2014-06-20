@@ -1,10 +1,12 @@
 class TablesController < ApplicationController
+  before_action :require_user
   before_action :set_table, only: [:show, :edit, :update, :destroy]
+  before_action :set_autocomplete_data, only: [:new, :edit]
 
   # GET /tables
   # GET /tables.json
   def index
-    @tables = Table.all
+    @tables = current_user.wedding.tables
   end
 
   # GET /tables/1
@@ -25,6 +27,7 @@ class TablesController < ApplicationController
   # POST /tables.json
   def create
     @table = Table.new(table_params)
+    @table.wedding = current_user.wedding
 
     respond_to do |format|
       if @table.save
@@ -67,8 +70,12 @@ class TablesController < ApplicationController
       @table = Table.find(params[:id])
     end
 
+    def set_autocomplete_data
+      @autocomplete_data = current_user.wedding.attendees.map { |a| {label: a.username, value: a.id} }
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def table_params
-      params.require(:table).permit(:name)
+      params.require(:table).permit(:name, attendee_ids: [])
     end
 end

@@ -6,4 +6,5 @@ class Wedding < ActiveRecord::Base
     has_many :messages, through: :attendees
     has_many :pictures, through: :attendees
     has_many :dances, through: :attendees
+    has_many :tables
 end
