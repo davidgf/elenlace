@@ -1,8 +1,8 @@
  <div class="col-sm-6 col-md-4">
   <div class="thumbnail">
     <div class="media">
-      <%= link_to account_path(message.attendee), class: 'pull-left' do %>
-          <img class="media-object" src="" alt="Sandra">
+      <%= link_to guest_path(message.attendee), class: 'pull-left' do %>
+          <%= image_tag message.attendee.avatar.url(:thumb), class: "media-object", alt: message.attendee.username %>
       <% end %>
       <div class="media-body">
         <h3 class="media-heading"><%= message.attendee.username %></h3>

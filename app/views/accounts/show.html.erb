@@ -2,7 +2,7 @@
 <div class="row">
     <div class="col-sm-6 col-md-4">
       <div class="thumbnail">
-        <img src="" alt="Foto de perfil" class="img-rounded">
+        <%= image_tag current_user.avatar.url, class: "img-rounded", alt: current_user.username %>
         <div class="caption">
           <h2><%= current_user.username %></h2>
           <p><%= current_user.description %></p>

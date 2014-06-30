@@ -31,6 +31,8 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'acts_as_votable'
 
+gem 'paperclip'
+
 gem 'cancancan'
 
 group :doc do
