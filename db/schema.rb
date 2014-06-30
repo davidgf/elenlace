@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140620162558) do
+ActiveRecord::Schema.define(version: 20140630164556) do
 
   create_table "attendees", force: true do |t|
     t.string   "auth_token"
@@ -77,9 +77,14 @@ ActiveRecord::Schema.define(version: 20140620162558) do
     t.integer  "attendee_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "pictures", ["attendee_id"], name: "index_pictures_on_attendee_id"
+
 
   create_table "tables", force: true do |t|
     t.string   "name"

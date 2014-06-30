@@ -8,7 +8,7 @@
         <h3 class="media-heading"><%= picture.attendee.username %></h3>
       </div>
     </div>
-    <%= image_tag "dys.png" %>
+    <%= image_tag picture.image.url(:medium) %>
     <div class="caption">
       <p><small><%= picture.created_at %></small></p>
       <p><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-thumbs-up"></span> Me gusta</a> <a href="#" class="btn btn-default" role="button"><span class="glyphicon glyphicon-thumbs-down"></span> No me gusta</a></p>
