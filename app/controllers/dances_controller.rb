@@ -7,6 +7,7 @@ class DancesController < ApplicationController
   # GET /dances.json
   def index
     @dances = current_user.dances
+    @matches = Dance.matches_of current_user
   end
 
   # GET /dances/1

@@ -7,7 +7,7 @@ class Attendee < ActiveRecord::Base
     validate :role_not_changed
     belongs_to :wedding
     belongs_to :table
-    has_many :dances
+    has_many :dances, dependent: :destroy
     has_many :partners, through: :dances
     has_many :messages
     has_many :pictures
