@@ -11,4 +11,13 @@ class DanceTest < ActiveSupport::TestCase
     dance = FactoryGirl.build(:dance, partner: nil)
     assert_not dance.save, "Saved without partner"
   end
+
+  test "the partner should be unique" do
+      attendee = FactoryGirl.create(:guest)
+      partner = FactoryGirl.create(:guest)
+      dance = FactoryGirl.create(:dance, attendee: attendee, partner: partner)
+      dupe_dance = FactoryGirl.build(:dance, attendee: attendee, partner: partner)
+      assert_not dupe_dance.save, "Dance was saved with same partner"
+  end
+
 end
