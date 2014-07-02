@@ -1,5 +1,7 @@
 Bodorrio::Application.routes.draw do
   get "pages/home"
+  get "wedding" => "pages#wedding"
+  get "events" => "pages#events"
   get "log_in" => "sessions#new"
   get "log_out" => "sessions#destroy"
   resources :weddings do

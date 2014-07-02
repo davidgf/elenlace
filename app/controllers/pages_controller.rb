@@ -8,4 +8,10 @@ class PagesController < ApplicationController
     @pictures = @wedding.pictures.where(attendee_id: [@wedding.bride, @wedding.groom])
     @resources = @messages + @pictures
   end
+
+  def wedding
+  end
+
+  def events
+  end
 end
