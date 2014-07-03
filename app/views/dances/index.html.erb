@@ -86,13 +86,13 @@
         <td>
           <%= link_to upvote_song_path(song), method: :post, class: "btn btn-link",
                 role: "button", disabled: disabled do %>
-            <span class="glyphicon glyphicon-thumbs-up"></span> Me gusta (<%= song.get_upvotes.size %>)
+            <span class="glyphicon glyphicon-thumbs-up"></span> Me gusta (<%= song.cached_votes_up %>)
           <% end %>
         </td>
         <td>
           <%= link_to downvote_song_path(song), method: :post, class: "btn btn-link",
                 role: "button", disabled: disabled  do %>
-            <span class="glyphicon glyphicon-thumbs-down"></span> No me gusta (<%= song.get_downvotes.size %>)
+            <span class="glyphicon glyphicon-thumbs-down"></span> No me gusta (<%= song.cached_votes_down %>)
           <% end %>
         </td>
       </tr>

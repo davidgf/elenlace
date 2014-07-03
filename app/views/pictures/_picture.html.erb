@@ -17,11 +17,11 @@
           <% disabled = current_user.voted_for?(picture) ? "disabled" : nil %>
           <%= link_to upvote_picture_path(picture), method: :post, class: "btn btn-primary",
                 role: "button", disabled: disabled do %>
-            <span class="glyphicon glyphicon-thumbs-up"></span> Me gusta (<%= picture.get_upvotes.size %>)
+            <span class="glyphicon glyphicon-thumbs-up"></span> Me gusta (<%= picture.cached_votes_up %>)
           <% end %>
           <%= link_to downvote_picture_path(picture), method: :post, class: "btn btn-default",
                 role: "button", disabled: disabled do %>
-            <span class="glyphicon glyphicon-thumbs-down"></span> No me gusta (<%= picture.get_downvotes.size %>)
+            <span class="glyphicon glyphicon-thumbs-down"></span> No me gusta (<%= picture.cached_votes_down %>)
           <% end %>
         </p>
       </div>

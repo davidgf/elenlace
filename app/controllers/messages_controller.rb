@@ -1,13 +1,11 @@
 class MessagesController < ApplicationController
   before_action :require_user
   before_action :set_wedding
-  load_and_authorize_resource except: :new
-
+  load_and_authorize_resource
 
   # GET /messages
   # GET /messages.json
   def index
-    @messages = @wedding.messages
   end
 
   # GET /messages/1
@@ -17,7 +15,6 @@ class MessagesController < ApplicationController
 
   # GET /messages/new
   def new
-    @message = Message.new
   end
 
   # GET /messages/1/edit
@@ -32,7 +29,7 @@ class MessagesController < ApplicationController
     respond_to do |format|
       if @message.save
         @message.create_activity :create, owner: @message.attendee if (current_user.is_groom? or current_user.is_bride?)
-        format.html { redirect_to @message, notice: 'Message was successfully created.' }
+        format.html { redirect_to messages_path, notice: 'Message was successfully created.' }
         format.json { render action: 'show', status: :created, location: @message }
       else
         format.html { render action: 'new' }

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140703115636) do
+ActiveRecord::Schema.define(version: 20140703140752) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -85,9 +85,13 @@ ActiveRecord::Schema.define(version: 20140703115636) do
     t.datetime "datetime"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "cached_votes_up",   default: 0
+    t.integer  "cached_votes_down", default: 0
   end
 
   add_index "messages", ["attendee_id"], name: "index_messages_on_attendee_id"
+  add_index "messages", ["cached_votes_down"], name: "index_messages_on_cached_votes_down"
+  add_index "messages", ["cached_votes_up"], name: "index_messages_on_cached_votes_up"
 
 # Could not dump table "pictures" because of following NoMethodError
 #   undefined method `[]' for nil:NilClass
@@ -98,7 +102,12 @@ ActiveRecord::Schema.define(version: 20140703115636) do
     t.integer  "wedding_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "cached_votes_up",   default: 0
+    t.integer  "cached_votes_down", default: 0
   end
+
+  add_index "songs", ["cached_votes_down"], name: "index_songs_on_cached_votes_down"
+  add_index "songs", ["cached_votes_up"], name: "index_songs_on_cached_votes_up"
 
   create_table "tables", force: true do |t|
     t.string   "name"
