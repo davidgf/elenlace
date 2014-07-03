@@ -58,3 +58,33 @@
 <br>
 
 <%= link_to 'New Dance', new_dance_path %>
+
+
+<div class="page-header">
+  <h1>Vota las canciones</h1>
+</div>
+
+<%= link_to 'New Song', new_song_path %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Artista</th>
+      <th>Canción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @songs.each_with_index do |song, index| %>
+      <tr>
+        <td class="success" rowspan="2"><%= index+1 %></td>
+        <td><%= song.artist %></td>
+        <td><%= song.title %></td>
+      </tr>
+      <tr>
+        <td><a href="#" class="btn btn-link" role="button"><span class="glyphicon glyphicon-thumbs-up"></span> Me gusta</a></td>
+        <td><a href="#" class="btn btn-link" role="button"><span class="glyphicon glyphicon-thumbs-down"></span> No me gusta</a></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

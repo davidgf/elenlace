@@ -1,5 +1,6 @@
 class DancesController < ApplicationController
   before_action :require_user
+  before_action :set_wedding, only: :index
   load_and_authorize_resource except: :new
   before_action :set_autocomplete_data, only: [:new, :edit]
 
@@ -8,6 +9,7 @@ class DancesController < ApplicationController
   def index
     @dances = current_user.dances
     @matches = Dance.matches_of current_user
+    @songs = @wedding.songs
   end
 
   # GET /dances/1

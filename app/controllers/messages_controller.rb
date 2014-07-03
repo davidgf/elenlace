@@ -27,7 +27,6 @@ class MessagesController < ApplicationController
   # POST /messages
   # POST /messages.json
   def create
-    @message = Message.new(message_params)
     @message.attendee = current_user
 
     respond_to do |format|

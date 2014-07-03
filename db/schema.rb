@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140703110605) do
+ActiveRecord::Schema.define(version: 20140703115636) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -91,6 +91,14 @@ ActiveRecord::Schema.define(version: 20140703110605) do
 
 # Could not dump table "pictures" because of following NoMethodError
 #   undefined method `[]' for nil:NilClass
+
+  create_table "songs", force: true do |t|
+    t.string   "artist"
+    t.string   "title"
+    t.integer  "wedding_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "tables", force: true do |t|
     t.string   "name"
