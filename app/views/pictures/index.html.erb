@@ -1,7 +1,9 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "infinite_scroll" %>
+<% end %>
+
 <h1>Listing pictures</h1>
 
-<% @pictures.each do |picture| %>
-      <%= render partial: 'picture', object: picture %>
-<% end %>
+<%= render partial: 'pictures', object: @pictures %>
 
 <%= link_to 'New Picture', new_picture_path %>

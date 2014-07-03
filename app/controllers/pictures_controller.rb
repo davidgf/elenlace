@@ -1,12 +1,19 @@
 class PicturesController < ApplicationController
   before_action :require_user
   before_action :set_wedding
-  load_and_authorize_resource except: :new
+  load_and_authorize_resource
 
   # GET /pictures
   # GET /pictures.json
   def index
-    @pictures = @wedding.pictures
+    @pictures = @pictures.order('created_at DESC').page(params[:page])
+    respond_to do |format|
+      format.html {
+          if request.xhr?
+            render partial: 'pictures', object: @pictures, layout: false
+          end
+        }
+    end
   end
 
   # GET /pictures/1
@@ -16,7 +23,6 @@ class PicturesController < ApplicationController
 
   # GET /pictures/new
   def new
-    @picture = Picture.new
   end
 
   # GET /pictures/1/edit
@@ -32,7 +38,7 @@ class PicturesController < ApplicationController
     respond_to do |format|
       if @picture.save
         @picture.create_activity :create, owner: @picture.attendee if (current_user.is_groom? or current_user.is_bride?)
-        format.html { redirect_to @picture, notice: 'Picture was successfully created.' }
+        format.html { redirect_to pictures_path, notice: 'Picture was successfully created.' }
         format.json { render action: 'show', status: :created, location: @picture }
       else
         format.html { render action: 'new' }

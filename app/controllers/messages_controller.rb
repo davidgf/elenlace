@@ -6,6 +6,14 @@ class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
   def index
+    @messages = @messages.order('created_at DESC').page(params[:page])
+    respond_to do |format|
+      format.html {
+          if request.xhr?
+            render partial: 'messages', object: @messages, layout: false
+          end
+        }
+    end
   end
 
   # GET /messages/1

@@ -1,7 +1,9 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "infinite_scroll" %>
+<% end %>
+
 <h1>Listing messages</h1>
 
-<% @messages.each do |message| %>
-      <%= render partial: 'message', object: message %>
-<% end %>
+<%= render partial: 'messages', object: @messages %>
 
 <%= link_to 'New Message', new_message_path %>
