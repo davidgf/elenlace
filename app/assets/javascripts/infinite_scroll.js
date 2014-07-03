@@ -20,11 +20,15 @@ $(function(){
                     $.ajax({
                         url: more_posts_url,
                         dataType: 'html',
+                        beforeSend: function() {
+                            $('#spinner').show()
+                        },
                         success: function(data){
                                 $('#infinite-scrolling').replaceWith(data);
                             },
                         complete: function(){
                             locked = false;
+                            $('#spinner').hide()
                         }
                     });
                 }

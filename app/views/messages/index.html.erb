@@ -3,7 +3,11 @@
 <% end %>
 
 <h1>Listing messages</h1>
-
+<div class="row">
 <%= render partial: 'messages', object: @messages %>
+</div>
+<div id="spinner" class="row">
+    <%= image_tag "spinner.gif", class: "center-block" %>
+</div>
 
 <%= link_to 'New Message', new_message_path %>
