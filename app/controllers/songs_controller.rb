@@ -28,6 +28,22 @@ class SongsController < ApplicationController
   def destroy
   end
 
+  def upvote
+    @song.upvote_by current_user.becomes(Attendee)
+    respond_to do |format|
+      format.html { redirect_to dances_path }
+      format.json
+    end
+  end
+
+  def downvote
+    @song.downvote_by current_user.becomes(Attendee)
+    respond_to do |format|
+      format.html { redirect_to dances_path }
+      format.json
+    end
+  end
+
   private
 
     # Never trust parameters from the scary internet, only allow the white list through.

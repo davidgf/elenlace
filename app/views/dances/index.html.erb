@@ -82,8 +82,19 @@
         <td><%= song.title %></td>
       </tr>
       <tr>
-        <td><a href="#" class="btn btn-link" role="button"><span class="glyphicon glyphicon-thumbs-up"></span> Me gusta</a></td>
-        <td><a href="#" class="btn btn-link" role="button"><span class="glyphicon glyphicon-thumbs-down"></span> No me gusta</a></td>
+        <% disabled = current_user.voted_for?(song) ? "disabled" : nil %>
+        <td>
+          <%= link_to upvote_song_path(song), method: :post, class: "btn btn-link",
+                role: "button", disabled: disabled do %>
+            <span class="glyphicon glyphicon-thumbs-up"></span> Me gusta (<%= song.get_upvotes.size %>)
+          <% end %>
+        </td>
+        <td>
+          <%= link_to downvote_song_path(song), method: :post, class: "btn btn-link",
+                role: "button", disabled: disabled  do %>
+            <span class="glyphicon glyphicon-thumbs-down"></span> No me gusta (<%= song.get_downvotes.size %>)
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>

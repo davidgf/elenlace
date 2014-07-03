@@ -1,6 +1,4 @@
 Bodorrio::Application.routes.draw do
-  get "songs/new"
-  get "songs/show"
   get "pages/home"
   get "wedding" => "pages#wedding"
   get "events" => "pages#events"
@@ -20,7 +18,12 @@ Bodorrio::Application.routes.draw do
 
   resources :events
   resource :account, only: [:show, :edit, :update]
-  resources :songs, only: [:new, :create, :show, :destroy]
+  resources :songs do
+    member do
+      post 'upvote'
+      post 'downvote'
+    end
+  end
 
   resources :messages do
     member do
