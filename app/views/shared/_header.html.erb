@@ -37,8 +37,16 @@
             <li class="dropdown <%= 'active' if ['guests', 'tables'].include? params[:controller] %>">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-info-sign"></span> Info <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="info-general.html"><span class="glyphicon glyphicon-unchecked"></span> General</a></li>
-                <li><a href="info-planing.html"><span class="glyphicon glyphicon-calendar"></span> Planing</a></li>
+                <li>
+                    <%= link_to wedding_path do %>
+                        <span class="glyphicon glyphicon-unchecked"></span> General
+                    <% end %>
+                </li>
+                <li>
+                    <%= link_to events_path do %>
+                        <span class="glyphicon glyphicon-calendar"></span> Planing
+                    <% end %>
+                </li>
                 <li>
                     <%= link_to guests_path do %>
                         <span class="glyphicon glyphicon-list-alt"></span> Invitados

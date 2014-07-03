@@ -1,5 +1,7 @@
 Bodorrio::Application.routes.draw do
   get "pages/home"
+  get "wedding" => "pages#wedding"
+  get "events" => "pages#events"
   get "log_in" => "sessions#new"
   get "log_out" => "sessions#destroy"
   resources :weddings do
@@ -16,6 +18,12 @@ Bodorrio::Application.routes.draw do
 
   resources :events
   resource :account, only: [:show, :edit, :update]
+  resources :songs do
+    member do
+      post 'upvote'
+      post 'downvote'
+    end
+  end
 
   resources :messages do
     member do

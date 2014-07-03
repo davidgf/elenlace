@@ -64,6 +64,7 @@ FactoryGirl.define do
     factory :picture do
         association :attendee, factory: :guest
         name "MyString"
+        image Rack::Test::UploadedFile.new("#{Rails.root}/test/images/dys.png", "image/png")
     end
 
 end

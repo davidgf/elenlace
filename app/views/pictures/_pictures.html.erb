@@ -1,0 +1,7 @@
+<% pictures.each do |picture| %>
+      <%= render partial: 'picture', object: picture %>
+<% end %>
+
+<div id="infinite-scrolling">
+  <%= will_paginate pictures %>
+</div>

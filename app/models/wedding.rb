@@ -7,4 +7,5 @@ class Wedding < ActiveRecord::Base
     has_many :pictures, through: :attendees
     has_many :dances, through: :attendees
     has_many :tables
+    has_many :songs
 end

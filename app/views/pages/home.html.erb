@@ -1,9 +1,12 @@
-<h1>Pages#home</h1>
-
-<% @resources.each do |resource| 
-    if resource.is_a? Message %>
-        <%= render partial: 'messages/message', object: resource %>
-    <% else %>
-        <%= render partial: 'pictures/picture', object: resource %>
-    <% end %>
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "infinite_scroll" %>
 <% end %>
+
+<div class="row">
+<%= render partial: 'last_activity', object: @pictures %>
+</div>
+
+
+<div id="spinner" class="row">
+    <%= image_tag "spinner.gif", class: "center-block" %>
+</div>

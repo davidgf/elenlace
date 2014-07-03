@@ -1,7 +1,14 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "infinite_scroll" %>
+<% end %>
+
 <h1>Listing pictures</h1>
 
-<% @pictures.each do |picture| %>
-      <%= render partial: 'picture', object: picture %>
-<% end %>
+<div class="row">
+<%= render partial: 'pictures', object: @pictures %>
+</div>
+<div id="spinner" class="row">
+    <%= image_tag "spinner.gif", class: "center-block" %>
+</div>
 
 <%= link_to 'New Picture', new_picture_path %>

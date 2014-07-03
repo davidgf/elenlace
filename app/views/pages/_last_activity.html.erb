@@ -1,0 +1,11 @@
+    <% @resources.each do |resource| 
+        if resource.trackable.is_a? Message %>
+            <%= render partial: 'messages/message', object: resource.trackable %>
+        <% else %>
+            <%= render partial: 'pictures/picture', object: resource.trackable %>
+        <% end %>
+    <% end %>
+
+    <div id="infinite-scrolling">
+      <%= will_paginate @resources %>
+    </div>

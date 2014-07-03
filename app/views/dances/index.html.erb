@@ -1,6 +1,6 @@
 <h1>Listing dances</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>User</th>
@@ -15,8 +15,37 @@
   <tbody>
     <% @dances.each do |dance| %>
       <tr>
-        <td><%= dance.attendee %></td>
-        <td><%= dance.partner %></td>
+        <td><%= dance.attendee.username %></td>
+        <td><%= dance.partner.username %></td>
+        <td><%= dance.time %></td>
+        <td><%= link_to 'Show', dance %></td>
+        <td><%= link_to 'Edit', edit_dance_path(dance) %></td>
+        <td><%= link_to 'Destroy', dance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<h1>Listing matches</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Partner</th>
+      <th>Time</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @matches.each do |dance| %>
+      <tr>
+        <td><%= dance.attendee.username %></td>
+        <td><%= dance.partner.username %></td>
         <td><%= dance.time %></td>
         <td><%= link_to 'Show', dance %></td>
         <td><%= link_to 'Edit', edit_dance_path(dance) %></td>
@@ -29,3 +58,44 @@
 <br>
 
 <%= link_to 'New Dance', new_dance_path %>
+
+
+<div class="page-header">
+  <h1>Vota las canciones</h1>
+</div>
+
+<%= link_to 'New Song', new_song_path %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Artista</th>
+      <th>Canción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @songs.each_with_index do |song, index| %>
+      <tr>
+        <td class="success" rowspan="2"><%= index+1 %></td>
+        <td><%= song.artist %></td>
+        <td><%= song.title %></td>
+      </tr>
+      <tr>
+        <% disabled = current_user.voted_for?(song) ? "disabled" : nil %>
+        <td>
+          <%= link_to upvote_song_path(song), method: :post, class: "btn btn-link",
+                role: "button", disabled: disabled do %>
+            <span class="glyphicon glyphicon-thumbs-up"></span> Me gusta (<%= song.cached_votes_up %>)
+          <% end %>
+        </td>
+        <td>
+          <%= link_to downvote_song_path(song), method: :post, class: "btn btn-link",
+                role: "button", disabled: disabled  do %>
+            <span class="glyphicon glyphicon-thumbs-down"></span> No me gusta (<%= song.cached_votes_down %>)
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

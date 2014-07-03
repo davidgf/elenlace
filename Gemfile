@@ -31,7 +31,13 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'acts_as_votable'
 
+gem 'paperclip'
+
 gem 'cancancan'
+
+gem 'public_activity'
+
+gem 'will_paginate'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

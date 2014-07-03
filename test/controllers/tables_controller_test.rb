@@ -2,6 +2,8 @@ require 'test_helper'
 
 class TablesControllerTest < ActionController::TestCase
   setup do
+    @user = FactoryGirl.create(:guest, password: "pass2")
+    cookies[:auth_token] = @user.auth_token
     @table = tables(:one)
   end
 

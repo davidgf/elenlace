@@ -1,11 +1,15 @@
 class DancesController < ApplicationController
   before_action :require_user
+  before_action :set_wedding, only: :index
   load_and_authorize_resource except: :new
+  before_action :set_autocomplete_data, only: [:new, :edit]
 
   # GET /dances
   # GET /dances.json
   def index
     @dances = current_user.dances
+    @matches = Dance.matches_of current_user
+    @songs = @wedding.songs
   end
 
   # GET /dances/1
@@ -72,5 +76,9 @@ class DancesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def dance_params
       params.require(:dance).permit(:partner_id, :time)
+    end
+
+    def set_autocomplete_data
+      @autocomplete_data = current_user.wedding.attendees.map { |a| {label: a.username, value: a.id} }
     end
 end

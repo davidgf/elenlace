@@ -1,0 +1,7 @@
+<% messages.each do |message| %>
+      <%= render partial: 'message', object: message %>
+<% end %>
+
+<div id="infinite-scrolling">
+  <%= will_paginate messages %>
+</div>

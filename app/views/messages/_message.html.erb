@@ -1,17 +1,29 @@
- <div class="col-sm-6 col-md-4">
-  <div class="thumbnail">
-    <div class="media">
-      <%= link_to account_path(message.attendee), class: 'pull-left' do %>
-          <img class="media-object" src="" alt="Sandra">
-      <% end %>
-      <div class="media-body">
-        <h3 class="media-heading"><%= message.attendee.username %></h3>
-        <%= message.message %>
-        <p><small><%= message.created_at %></small></p>
+ <% if message %>
+   <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <div class="media">
+        <%= link_to guest_path(message.attendee), class: 'pull-left' do %>
+            <%= image_tag message.attendee.avatar.url(:thumb), class: "media-object", alt: message.attendee.username %>
+        <% end %>
+        <div class="media-body">
+          <h3 class="media-heading"><%= message.attendee.username %></h3>
+          <%= message.message %>
+          <p><small><%= message.created_at %></small></p>
+        </div>
+      </div>
+      <div class="caption">
+        <p>
+          <% disabled = current_user.voted_for?(message) ? "disabled" : nil %>
+          <%= link_to upvote_message_path(message), method: :post, class: "btn btn-primary",
+                role: "button", disabled: disabled do %>
+            <span class="glyphicon glyphicon-thumbs-up"></span> Me gusta (<%= message.cached_votes_up %>)
+          <% end %>
+          <%= link_to downvote_message_path(message), method: :post, class: "btn btn-default",
+                role: "button", disabled: disabled  do %>
+            <span class="glyphicon glyphicon-thumbs-down"></span> No me gusta (<%= message.cached_votes_down %>)
+          <% end %>
+        </p>
       </div>
     </div>
-    <div class="caption">
-      <p><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-thumbs-up"></span> Me gusta</a> <a href="#" class="btn btn-default" role="button"><span class="glyphicon glyphicon-thumbs-down"></span> No me gusta</a></p>
-    </div>
   </div>
-</div>
+<% end %>

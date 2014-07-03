@@ -19,6 +19,6 @@ class AccountsController < ApplicationController
 private
 
     def attendee_params
-      params.require(:attendee).permit(:description)
+      params.require(:attendee).permit(:description, :avatar)
     end
 end

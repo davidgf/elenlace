@@ -7,10 +7,12 @@ class Attendee < ActiveRecord::Base
     validate :role_not_changed
     belongs_to :wedding
     belongs_to :table
-    has_many :dances
+    has_many :dances, dependent: :destroy
     has_many :partners, through: :dances
     has_many :messages
     has_many :pictures
+    has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "50x50>" }, :default_url => "/images/:style/missing.png"
+    validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
     acts_as_voter
     before_create do 
         self.auth_token = SecureRandom.urlsafe_base64

@@ -1,13 +1,19 @@
 class MessagesController < ApplicationController
   before_action :require_user
   before_action :set_wedding
-  load_and_authorize_resource except: :new
-
+  load_and_authorize_resource
 
   # GET /messages
   # GET /messages.json
   def index
-    @messages = @wedding.messages
+    @messages = @messages.order('created_at DESC').page(params[:page])
+    respond_to do |format|
+      format.html {
+          if request.xhr?
+            render partial: 'messages', object: @messages, layout: false
+          end
+        }
+    end
   end
 
   # GET /messages/1
@@ -17,7 +23,6 @@ class MessagesController < ApplicationController
 
   # GET /messages/new
   def new
-    @message = Message.new
   end
 
   # GET /messages/1/edit
@@ -27,12 +32,12 @@ class MessagesController < ApplicationController
   # POST /messages
   # POST /messages.json
   def create
-    @message = Message.new(message_params)
     @message.attendee = current_user
 
     respond_to do |format|
       if @message.save
-        format.html { redirect_to @message, notice: 'Message was successfully created.' }
+        @message.create_activity :create, owner: @message.attendee if (current_user.is_groom? or current_user.is_bride?)
+        format.html { redirect_to messages_path, notice: 'Message was successfully created.' }
         format.json { render action: 'show', status: :created, location: @message }
       else
         format.html { render action: 'new' }

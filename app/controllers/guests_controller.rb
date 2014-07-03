@@ -1,6 +1,8 @@
 class GuestsController < ApplicationController
   before_action :require_user
-  load_and_authorize_resource
+  before_action :set_guest, except: [:index, :new, :create]
+  authorize_resource
+  # load_and_authorize_resource
 
   # GET /guests
   # GET /guests.json
@@ -15,6 +17,7 @@ class GuestsController < ApplicationController
 
   # GET /guests/new
   def new
+    @guest = Guest.new
   end
 
   # GET /guests/1/edit
@@ -65,11 +68,11 @@ class GuestsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_guest
-      @guest = Guest.find(params[:id])
+      @guest = Attendee.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def guest_params
-      params.require(:guest).permit(:username, :description, :table_id, :password)
+      params.require(:guest).permit(:username, :description, :table_id, :password, :avatar)
     end
 end
