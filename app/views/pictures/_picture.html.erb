@@ -11,7 +11,18 @@
     <%= image_tag picture.image.url(:medium) %>
     <div class="caption">
       <p><small><%= picture.created_at %></small></p>
-      <p><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-thumbs-up"></span> Me gusta</a> <a href="#" class="btn btn-default" role="button"><span class="glyphicon glyphicon-thumbs-down"></span> No me gusta</a></p>
+
+      <p>
+        <% disabled = current_user.voted_for?(picture) ? "disabled" : nil %>
+        <%= link_to upvote_picture_path(picture), method: :post, class: "btn btn-primary",
+              role: "button", disabled: disabled do %>
+          <span class="glyphicon glyphicon-thumbs-up"></span> Me gusta (<%= picture.get_upvotes.size %>)
+        <% end %>
+        <%= link_to downvote_picture_path(picture), method: :post, class: "btn btn-default",
+              role: "button", disabled: disabled do %>
+          <span class="glyphicon glyphicon-thumbs-down"></span> No me gusta (<%= picture.get_downvotes.size %>)
+        <% end %>
+      </p>
     </div>
   </div>
 </div>
