@@ -1,9 +1,9 @@
 <h1>Pages#home</h1>
 
 <% @resources.each do |resource| 
-    if resource.is_a? Message %>
-        <%= render partial: 'messages/message', object: resource %>
+    if resource.trackable.is_a? Message %>
+        <%= render partial: 'messages/message', object: resource.trackable %>
     <% else %>
-        <%= render partial: 'pictures/picture', object: resource %>
+        <%= render partial: 'pictures/picture', object: resource.trackable %>
     <% end %>
 <% end %>

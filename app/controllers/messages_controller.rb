@@ -32,6 +32,7 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       if @message.save
+        @message.create_activity :create, owner: @message.attendee if (current_user.is_groom? or current_user.is_bride?)
         format.html { redirect_to @message, notice: 'Message was successfully created.' }
         format.json { render action: 'show', status: :created, location: @message }
       else

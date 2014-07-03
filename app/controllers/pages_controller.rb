@@ -4,9 +4,7 @@ class PagesController < ApplicationController
   before_action :set_wedding
 
   def home
-    @messages = @wedding.messages.where(attendee_id: [@wedding.bride, @wedding.groom])
-    @pictures = @wedding.pictures.where(attendee_id: [@wedding.bride, @wedding.groom])
-    @resources = @messages + @pictures
+    @resources = PublicActivity::Activity.order("created_at desc")
   end
 
   def wedding

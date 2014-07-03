@@ -31,6 +31,7 @@ class PicturesController < ApplicationController
 
     respond_to do |format|
       if @picture.save
+        @picture.create_activity :create, owner: @picture.attendee if (current_user.is_groom? or current_user.is_bride?)
         format.html { redirect_to @picture, notice: 'Picture was successfully created.' }
         format.json { render action: 'show', status: :created, location: @picture }
       else

@@ -1,28 +1,30 @@
-<div class="col-sm-6 col-md-4">
-  <div class="thumbnail">
-    <div class="media">
-      <%= link_to guest_path(picture.attendee), class: 'pull-left' do %>
-          <%= image_tag picture.attendee.avatar.url(:thumb), class: "media-object", alt: picture.attendee.username %>
-      <% end %>
-      <div class="media-body">
-        <h3 class="media-heading"><%= picture.attendee.username %></h3>
+<% if picture %>
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <div class="media">
+        <%= link_to guest_path(picture.attendee), class: 'pull-left' do %>
+            <%= image_tag picture.attendee.avatar.url(:thumb), class: "media-object", alt: picture.attendee.username %>
+        <% end %>
+        <div class="media-body">
+          <h3 class="media-heading"><%= picture.attendee.username %></h3>
+        </div>
+      </div>
+      <%= image_tag picture.image.url(:medium) %>
+      <div class="caption">
+        <p><small><%= picture.created_at %></small></p>
+
+        <p>
+          <% disabled = current_user.voted_for?(picture) ? "disabled" : nil %>
+          <%= link_to upvote_picture_path(picture), method: :post, class: "btn btn-primary",
+                role: "button", disabled: disabled do %>
+            <span class="glyphicon glyphicon-thumbs-up"></span> Me gusta (<%= picture.get_upvotes.size %>)
+          <% end %>
+          <%= link_to downvote_picture_path(picture), method: :post, class: "btn btn-default",
+                role: "button", disabled: disabled do %>
+            <span class="glyphicon glyphicon-thumbs-down"></span> No me gusta (<%= picture.get_downvotes.size %>)
+          <% end %>
+        </p>
       </div>
     </div>
-    <%= image_tag picture.image.url(:medium) %>
-    <div class="caption">
-      <p><small><%= picture.created_at %></small></p>
-
-      <p>
-        <% disabled = current_user.voted_for?(picture) ? "disabled" : nil %>
-        <%= link_to upvote_picture_path(picture), method: :post, class: "btn btn-primary",
-              role: "button", disabled: disabled do %>
-          <span class="glyphicon glyphicon-thumbs-up"></span> Me gusta (<%= picture.get_upvotes.size %>)
-        <% end %>
-        <%= link_to downvote_picture_path(picture), method: :post, class: "btn btn-default",
-              role: "button", disabled: disabled do %>
-          <span class="glyphicon glyphicon-thumbs-down"></span> No me gusta (<%= picture.get_downvotes.size %>)
-        <% end %>
-      </p>
-    </div>
   </div>
-</div>
+<% end %>
