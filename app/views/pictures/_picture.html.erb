@@ -12,6 +12,7 @@
       <%= image_tag picture.image.url(:medium) %>
       <div class="caption">
         <p><small><%= picture.created_at %></small></p>
+        <h4><%= picture.name %></h4>
 
         <p>
           <% disabled = current_user.voted_for?(picture) ? "disabled" : nil %>
