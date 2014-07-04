@@ -3,7 +3,6 @@ lock '3.2.1'
 
 set :application, 'bodorrio'
 set :repo_url, 'git@bitbucket.org:davidgf/bodorrio.git'
-
 # Default branch is :master
 ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
@@ -23,7 +22,7 @@ ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 # set :pty, true
 
 # Default value for :linked_files is []
-set :linked_files, %w{config/database.yml config/initializers/secret_token.rb}
+set :linked_files, %w{config/database.yml config/initializers/secret_token.rb db/staging.sqlite3}
 
 # Default value for linked_dirs is []
 # set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
