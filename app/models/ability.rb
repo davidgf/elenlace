@@ -7,7 +7,7 @@ class Ability
             can :manage, :all
         end
         if user.is_guest?
-            can [:read, :create], [Message, Picture, Dance]
+            can [:read, :create], [Message, Picture, Dance, Comment]
             can :read, [Attendee, Song]
             can :update, Attendee do |guest|
                 guest == user

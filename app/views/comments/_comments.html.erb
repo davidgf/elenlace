@@ -1,0 +1,7 @@
+<div>
+  <%= link_to comments_path(commentable_type: commentable.class.to_s, commentable_id: commentable.id), class: 'load-comments' do %>
+    <%= pluralize(commentable.comments.size, 'comentario') %>
+  <% end %>
+  <%= link_to 'Cerrar', 'javascript:void(0)', class: 'hide-comments' %>
+  <div class="comments"></div>
+</div>

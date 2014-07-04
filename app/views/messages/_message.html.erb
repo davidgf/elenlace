@@ -23,6 +23,8 @@
             <span class="glyphicon glyphicon-thumbs-down"></span> No me gusta (<%= message.cached_votes_down %>)
           <% end %>
         </p>
+        <%= render partial: 'comments/comments', locals: { commentable: message} %>
+
       </div>
     </div>
   </div>

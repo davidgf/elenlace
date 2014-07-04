@@ -87,6 +87,11 @@ class PicturesController < ApplicationController
     end
   end
 
+  def comment
+    @picture.comments.create(params[:picture][:comment])
+    redirect_to pictures_path
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_picture
@@ -95,6 +100,6 @@ class PicturesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def picture_params
-      params.require(:picture).permit(:name, :image)
+      params.require(:picture).permit(:name, :image, comment_attributes: [:comment])
     end
 end

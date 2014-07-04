@@ -17,6 +17,7 @@ Bodorrio::Application.routes.draw do
   end
 
   resources :events
+  resources :comments, only: [:create, :index]
   resource :account, only: [:show, :edit, :update]
   resources :songs do
     member do

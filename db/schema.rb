@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140703140752) do
+ActiveRecord::Schema.define(version: 20140704112157) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -49,6 +49,20 @@ ActiveRecord::Schema.define(version: 20140703140752) do
 
   add_index "attendees", ["table_id"], name: "index_attendees_on_table_id"
   add_index "attendees", ["wedding_id"], name: "index_attendees_on_wedding_id"
+
+  create_table "comments", force: true do |t|
+    t.text     "comment"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.integer  "attendee_id"
+    t.string   "role",             default: "comments"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["attendee_id"], name: "index_comments_on_attendee_id"
+  add_index "comments", ["commentable_id"], name: "index_comments_on_commentable_id"
+  add_index "comments", ["commentable_type"], name: "index_comments_on_commentable_type"
 
   create_table "dances", force: true do |t|
     t.integer  "attendee_id"
