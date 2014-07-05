@@ -1,7 +1,7 @@
 <div>
-  <%= link_to comments_path(commentable_type: commentable.class.to_s, commentable_id: commentable.id), class: 'load-comments' do %>
+  <%= link_to comments_path(commentable_type: commentable.class.to_s, commentable_id: commentable.id), class: 'load-comments btn btn-link', role:'button' do %>
     <%= pluralize(commentable.comments.size, 'comentario') %>
   <% end %>
-  <%= link_to 'Cerrar', 'javascript:void(0)', class: 'hide-comments' %>
+  <%= link_to 'Ocultar', 'javascript:void(0)', class: 'hide-comments btn btn-link', role:'button' %>
   <div class="comments"></div>
 </div>

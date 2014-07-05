@@ -2,6 +2,11 @@
   <%= javascript_include_tag "infinite_scroll" %>
 <% end %>
 
+
+<div class="page-header">
+	<h1>Los novios</h1>
+</div>
+
 <div class="row">
 <%= render partial: 'last_activity', object: @pictures %>
 </div>
@@ -10,3 +15,18 @@
 <div id="spinner" class="row">
     <%= image_tag "spinner.gif", class: "center-block" %>
 </div>
+
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="page-header">
+            <h2>M&aacute;s fotos y mensajes</h2>
+          </div>
+          <%= link_to messages_path do %>
+          	<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-comment"></span> Mensajes de invitados</button>
+      	  <% end %>
+          <%= link_to pictures_path do %>
+          	<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-picture"></span> Fotos de invitados</button>
+          <% end %>
+        </div>
+      </div>

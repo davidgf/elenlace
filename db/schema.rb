@@ -107,8 +107,22 @@ ActiveRecord::Schema.define(version: 20140704112157) do
   add_index "messages", ["cached_votes_down"], name: "index_messages_on_cached_votes_down"
   add_index "messages", ["cached_votes_up"], name: "index_messages_on_cached_votes_up"
 
-# Could not dump table "pictures" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "pictures", force: true do |t|
+    t.string   "name"
+    t.integer  "attendee_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.integer  "cached_votes_up",    default: 0
+    t.integer  "cached_votes_down",  default: 0
+  end
+
+  add_index "pictures", ["attendee_id"], name: "index_pictures_on_attendee_id"
+  add_index "pictures", ["cached_votes_down"], name: "index_pictures_on_cached_votes_down"
+  add_index "pictures", ["cached_votes_up"], name: "index_pictures_on_cached_votes_up"
 
   create_table "songs", force: true do |t|
     t.string   "artist"

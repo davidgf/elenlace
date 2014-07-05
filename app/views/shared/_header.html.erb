@@ -34,7 +34,7 @@
                     <span class="glyphicon glyphicon-bullhorn"></span> Baile
                 <% end %>
             </li>
-            <li class="dropdown <%= 'active' if ['guests', 'tables'].include? params[:controller] %>">
+            <li class="dropdown <%= 'active' if ['guests', 'tables', 'wedding', 'guests'].include? params[:controller] %>">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-info-sign"></span> Info <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li>
