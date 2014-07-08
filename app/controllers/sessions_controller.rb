@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
         cookies.permanent[:auth_token] = user.auth_token
         redirect_to root_url
     else
-        flash.now.alert = "Invalid email or password"
+        flash.now.alert = "Contraseña incorrecta"
         render "new"
     end
   end

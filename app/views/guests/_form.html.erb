@@ -1,6 +1,6 @@
 <%= form_for(@guest, html: { multipart: true }) do |f| %>
   <% if @guest.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="alert alert-danger">
       <h2><%= pluralize(@guest.errors.count, "error") %> prohibited this guest from being saved:</h2>
 
       <ul>
@@ -11,27 +11,28 @@
     </div>
   <% end %>
 
-  <div class="actions">
-  <div class="field">
-    <%= f.label :avatar %><br>
+  <div class="form-group">
+    <%= f.label :avatar, 'Cambiar foto perfil' %><br>
     <%= f.file_field :avatar %>
   </div>
-  <div class="field">
-    <%= f.label :username %><br>
-    <%= f.text_field :username %>
+  <div class="form-group">
+    <%= f.text_field :username, class: 'form-control', placeholder: 'Nombre de usuario' %>
   </div>
-  <div class="field">
-    <%= f.label :password %><br>
-    <%= f.text_field :password %>
+  <div class="form-group">
+    <%= f.text_field :password, class: 'form-control', placeholder: 'Contraseña' %>
   </div>
-  <div class="field">
-    <%= f.label :table_id %><br>
-    <%= f.text_field :table_id %>
+  <div class="form-group">
+    <%= f.label :description, 'Descripción' %><br>
+    <%= f.text_area :description, class:'form-control', rows:'3' %>
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+
+  <div class="form-group">
+    <%= f.text_field :table_id, class: 'form-control', placeholder: 'ID de la mesa' %>
   </div>
-    <%= f.submit %>
-  </div>
+
+  <%= button_tag(type: 'submit', class: "btn btn-success") do %>
+   <span class="glyphicon glyphicon-cloud-upload"></span> Crear invitado
+  <% end %>
+
+  <%= link_to 'Cancelar', guests_path, class:"btn btn-link" %>
 <% end %>

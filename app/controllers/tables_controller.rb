@@ -31,7 +31,7 @@ class TablesController < ApplicationController
 
     respond_to do |format|
       if @table.save
-        format.html { redirect_to @table, notice: 'Table was successfully created.' }
+        format.html { redirect_to @table, notice: 'Mesa creada correctamente' }
         format.json { render action: 'show', status: :created, location: @table }
       else
         format.html { render action: 'new' }
@@ -45,7 +45,7 @@ class TablesController < ApplicationController
   def update
     respond_to do |format|
       if @table.update(table_params)
-        format.html { redirect_to @table, notice: 'Table was successfully updated.' }
+        format.html { redirect_to @table, notice: 'Mesa actualizada correctamente' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

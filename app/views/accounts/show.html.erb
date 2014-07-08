@@ -1,16 +1,77 @@
 
+      <div class="page-header">
+        <h1>Mi perfil</h1>
+      </div>
+
 <div class="row">
     <div class="col-sm-6 col-md-4">
       <div class="thumbnail">
         <%= image_tag current_user.avatar.url, class: "img-rounded", alt: current_user.username %>
         <div class="caption">
           <h2><%= current_user.username %></h2>
-          <p><%= current_user.description %></p>
-          <p><small><strong>¿Quién es?</strong> <%= current_user.role || "who knows?" %></small></p>
+          <p><small><strong>¿Quién es?</strong> <%= current_user.description %></small></p>
         </div>
       </div>
     </div>
 </div>
 
-<%= link_to "Edit", edit_account_path %> |
-<%= link_to "Log out", log_out_path %>
+<div class="row">
+  <div class="col-md-12">
+    <%= link_to edit_account_path do %>
+      <button type="button" class="btn"><span class="glyphicon glyphicon-wrench"></span> Editar perfil</button>
+    <% end %>
+  </div>
+</div>
+<br>
+
+
+      <div class="page-header">
+        <h3>Sentado en mesa con...</h3>
+      </div>
+
+<div class="panel-group" id="accordion">
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th>Foto</th>
+            <th>Invitado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% current_user.table.attendees.each do |attendee| %>
+            <% if cycle('odd', 'even') == 'odd' %>
+              <% @gris=true %>
+            <% else %>
+              <% @gris=false %>
+            <% end %>
+            
+            <tr <% if @gris %>
+            class='active'
+            <% end %>>
+              <td rowspan="2"><div class="media">
+                  <a class="pull-left" href="<%= guest_path(attendee) %>">
+                    <%= image_tag attendee.avatar.url(:thumb), class: "media-object", alt: attendee.username %>
+                  </a>
+                </div></td>
+              <td><a href="<%= guest_path(attendee) %>"><%= attendee.username %></a></td>
+            </tr>
+            <tr <% if @gris %>
+            class='active'
+            <% end %>>
+              <td><%= attendee.description %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+<div class="row">
+  <div class="col-md-12">
+    <%= link_to log_out_path do %>
+      <button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-log-out"></span> Salir</button>
+    <% end %>
+  </div>
+</div>
+
+</div>

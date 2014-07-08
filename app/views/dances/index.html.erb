@@ -1,70 +1,143 @@
-<h1>Listing dances</h1>
+
+  <div class="page-header">
+    <h1>Mis parejas de baile</h1>
+  </div>
+
+
+<div class="row">
+  <div class="col-md-12">
+    <%= link_to new_dance_path do %>
+      <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Elegir pareja</button>
+    <% end %>
+  </div>
+</div>
+
+  <div class="alert alert-warning">
+    <strong>¡Elige a tu pareja!</strong> Busca entre los invitados y elige la pareja (o parejas) con la que te gustaría bailar. Si te elige...¡tendréis vuestro gran momento!
+  </div>
 
 <table class="table">
   <thead>
     <tr>
-      <th>User</th>
-      <th>Partner</th>
-      <th>Time</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Foto</th>
+      <th>Nombre</th>
     </tr>
   </thead>
 
   <tbody>
     <% @dances.each do |dance| %>
-      <tr>
-        <td><%= dance.attendee.username %></td>
-        <td><%= dance.partner.username %></td>
-        <td><%= dance.time %></td>
-        <td><%= link_to 'Show', dance %></td>
-        <td><%= link_to 'Edit', edit_dance_path(dance) %></td>
-        <td><%= link_to 'Destroy', dance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% if cycle('odd', 'even') == 'odd' %>
+        <% @gris=true %>
+      <% else %>
+        <% @gris=false %>
+      <% end %>
+      
+      <tr <% if @gris %>
+      class='active'
+      <% end %>>
+        <td rowspan="2"><div class="media">
+          <a class="pull-left" href="<%= guest_path(dance.partner) %>">
+            <%= image_tag dance.partner.avatar.url(:thumb), class: "media-object", alt: dance.partner.username %>
+          </a>
+        </div></td>
+        <td><a href="<%= guest_path(dance.partner) %>" class="btn btn-link"><%= dance.partner.username %></a></td>
       </tr>
+      <tr <% if @gris %>
+      class='active'
+      <% end %>>
+        <td <% if @gris %>
+      class='active'
+      <% end %>><%= dance.partner.description %></td>
+      </tr>
+      <tr <% if @gris %>
+      class='active'
+      <% end %>>
+        <td></td>
+        <td><%= link_to 'Ver', dance, class:"btn btn-link" %> <%= link_to 'Editar', edit_dance_path(dance), class:"btn btn-link" %> <%= link_to 'Borrar', dance, class:"btn btn-link", method: :delete, data: { confirm: '¿Estás seguro?' } %></td>
+      </tr>
+      <tr <% if @gris %>
+      class='active'
+      <% end %>>
+        <td></td>
+        <td><%= timeago_tag dance.time, :limit => 10.days.ago, :lang => :es %></td></tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-<h1>Listing matches</h1>
+<br><br>
+<div class="page-header">
+  <h1>Parejas correspondidas</h1>
+</div>
 
 <table class="table">
   <thead>
     <tr>
-      <th>User</th>
-      <th>Partner</th>
-      <th>Time</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Foto</th>
+      <th>Nombre</th>
     </tr>
   </thead>
 
   <tbody>
     <% @matches.each do |dance| %>
-      <tr>
-        <td><%= dance.attendee.username %></td>
-        <td><%= dance.partner.username %></td>
-        <td><%= dance.time %></td>
-        <td><%= link_to 'Show', dance %></td>
-        <td><%= link_to 'Edit', edit_dance_path(dance) %></td>
-        <td><%= link_to 'Destroy', dance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% if cycle('odd', 'even') == 'odd' %>
+        <% @gris=true %>
+      <% else %>
+        <% @gris=false %>
+      <% end %>
+      
+      <tr <% if @gris %>
+      class='active'
+      <% end %>>
+        <td rowspan="2"><div class="media">
+          <a class="pull-left" href="<%= guest_path(dance.partner) %>">
+            <%= image_tag dance.partner.avatar.url(:thumb), class: "media-object", alt: dance.partner.username %>
+          </a>
+        </div></td>
+        <td><a href="<%= guest_path(dance.partner) %>" class="btn btn-link"><%= dance.partner.username %></a></td>
       </tr>
+      <tr <% if @gris %>
+      class='active'
+      <% end %>>
+        <td <% if @gris %>
+      class='active'
+      <% end %>><%= dance.partner.description %></td>
+      </tr>
+      <tr <% if @gris %>
+      class='active'
+      <% end %>>
+        <td></td>
+        <td><%= timeago_tag dance.time, :limit => 10.days.ago, :lang => :es %></td></tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Dance', new_dance_path %>
+<div class="row">
+  <div class="col-md-12">
+    <%= link_to new_dance_path do %>
+      <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Elegir pareja</button>
+    <% end %>
+  </div>
+</div>
+<br><br>
 
 
 <div class="page-header">
   <h1>Vota las canciones</h1>
 </div>
 
-<%= link_to 'New Song', new_song_path %>
+<div class="row">
+  <div class="col-md-12">
+    <%= link_to new_song_path do %>
+      <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Proponer canción</button>
+    <% end %>
+  </div>
+</div>
+
+<div class="alert alert-warning">
+    <strong>¡Pincha a tu gusto!</strong> 
+    Vota por las canciones que más te gusten y provoca que sean las más sonadas en la boda. Si no encuentras tu favorita, añádela!
+</div>
 
 <table class="table">
   <thead>
@@ -76,12 +149,21 @@
   </thead>
   <tbody>
     <% @songs.each_with_index do |song, index| %>
-      <tr>
-        <td class="success" rowspan="2"><%= index+1 %></td>
+      <% if cycle('odd', 'even') == 'odd' %>
+        <% @gris=true %>
+      <% else %>
+        <% @gris=false %>
+      <% end %>
+      <tr <% if @gris %>
+      class='active'
+      <% end %>>
+        <td rowspan="2"><%= index+1 %></td>
         <td><%= song.artist %></td>
         <td><%= song.title %></td>
       </tr>
-      <tr>
+      <tr <% if @gris %>
+      class='active'
+      <% end %>>
         <% disabled = current_user.voted_for?(song) ? "disabled" : nil %>
         <td>
           <%= link_to upvote_song_path(song), method: :post, class: "btn btn-link",
@@ -99,3 +181,12 @@
     <% end %>
   </tbody>
 </table>
+
+
+<div class="row">
+  <div class="col-md-12">
+    <%= link_to new_song_path do %>
+      <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Proponer canción</button>
+    <% end %>
+  </div>
+</div>

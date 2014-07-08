@@ -8,7 +8,7 @@
         <div class="media-body">
           <h3 class="media-heading"><%= message.attendee.username %></h3>
           <%= message.message %>
-          <p><small><%= message.created_at %></small></p>
+          <p><small><%= timeago_tag message.created_at, :limit => 10.days.ago, :lang => :es %></small></p>
         </div>
       </div>
       <div class="caption">

@@ -1,4 +1,17 @@
-<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class="col-md-12">
+    <%= link_to events_path do %>
+      <button type="button" class="btn"><span class="glyphicon glyphicon-arrow-left"></span> Ver todos</button>
+    <% end %>
+  </div>
+</div>
+
+
+<% if notice != nil %>
+<p id="notice" class="alert alert-success"><%= notice %></p>
+<% end %>
+
 
 <p>
   <strong>Datetime:</strong>
@@ -10,5 +23,4 @@
   <%= @event.description %>
 </p>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<%= link_to 'Edit', edit_event_path(@event) %>

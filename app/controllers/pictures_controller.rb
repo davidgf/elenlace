@@ -38,7 +38,7 @@ class PicturesController < ApplicationController
     respond_to do |format|
       if @picture.save
         @picture.create_activity :create, owner: @picture.attendee if (current_user.is_groom? or current_user.is_bride?)
-        format.html { redirect_to pictures_path, notice: 'Picture was successfully created.' }
+        format.html { redirect_to pictures_path, notice: 'Foto subida correctamente' }
         format.json { render action: 'show', status: :created, location: @picture }
       else
         format.html { render action: 'new' }
@@ -52,7 +52,7 @@ class PicturesController < ApplicationController
   def update
     respond_to do |format|
       if @picture.update(picture_params)
-        format.html { redirect_to @picture, notice: 'Picture was successfully updated.' }
+        format.html { redirect_to @picture, notice: 'Foto actualizada' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

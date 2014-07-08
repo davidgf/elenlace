@@ -16,7 +16,7 @@ class SongsController < ApplicationController
 
     respond_to do |format|
       if @song.save
-        format.html { redirect_to dances_path, notice: 'Song was successfully created.' }
+        format.html { redirect_to dances_path, notice: 'Canción enviada correctamente' }
         format.json { render action: 'show', status: :created, location: @song }
       else
         format.html { render action: 'new' }

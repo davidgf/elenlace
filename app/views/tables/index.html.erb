@@ -1,13 +1,22 @@
-<h1>Listing tables</h1>
+
+      <div class="page-header">
+        <h1>Mesas</h1>
+      </div>
 
 <div class="panel-group" id="accordion">
 
-<% @tables.each do |table| %>
-  <%= render partial: 'table', object: table %>
-<% end %>
+	<% @tables.each do |table| %>
+		<%= render partial: 'table', object: table %>
+	<% end %>
 
 </div>
 
 <br>
 
-<%= link_to 'New Table', new_table_path %>
+<div class="row">
+  <div class="col-md-12">
+    <%= link_to new_table_path do %>
+      <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Nueva mesa</button>
+    <% end %>
+  </div>
+</div>

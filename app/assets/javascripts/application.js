@@ -15,3 +15,4 @@
 //= require turbolinks
 //= require bootstrap
 //= require commentable
+//= require rails-timeago-all

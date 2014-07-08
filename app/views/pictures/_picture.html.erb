@@ -11,7 +11,8 @@
       </div>
       <%= image_tag picture.image.url(:medium) %>
       <div class="caption">
-        <p><small><%= picture.created_at %></small></p>
+        <p><small>
+  <%= timeago_tag picture.created_at, :limit => 10.days.ago, :lang => :es %></small></p>
         <h4><%= picture.name %></h4>
 
         <p>

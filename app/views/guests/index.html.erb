@@ -1,26 +1,51 @@
-<h1>Listing guests</h1>
 
-<table>
+      <div class="page-header">
+        <h1>Lista de invitados</h1>
+      </div>
+
+<table class="table">
   <thead>
     <tr>
-      <th></th>
-      <th></th>
-      <th></th>
+            <th>Foto</th>
+            <th>Invitado</th>
     </tr>
   </thead>
 
   <tbody>
     <% @guests.each do |guest| %>
-      <tr>
-        <td><%= guest.username %></td>
-        <td><%= link_to 'Show', guest %></td>
-        <td><%= link_to 'Edit', edit_guest_path(guest) %></td>
-        <td><%= link_to 'Destroy', guest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% if cycle('odd', 'even') == 'odd' %>
+        <% @gris=true %>
+      <% else %>
+        <% @gris=false %>
+      <% end %>
+      
+      <tr <% if @gris %>
+      class='active'
+      <% end %>>
+        <td rowspan="2"><div class="media">
+          <a class="pull-left" href="<%= guest_path(guest) %>">
+            <%= image_tag guest.avatar.url(:thumb), class: "media-object", alt: guest.username %>
+          </a>
+        </div></td>
+        <td><a href="<%= guest_path(guest) %>" class="btn btn-link"><%= guest.username %></a></td>
+      </tr>
+      <tr <% if @gris %>
+      class='active'
+      <% end %>>
+        <td <% if @gris %>
+      class='active'
+      <% end %>><%= guest.description %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
 
-<%= link_to 'New Guest', new_guest_path %>
+<br>
+<div class="row">
+  <div class="col-md-12">
+    <%= link_to new_guest_path do %>
+      <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Nuevo invitado</button>
+    <% end %>
+  </div>
+</div>

@@ -1,3 +1,14 @@
-<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class="col-md-12">
+    <%= link_to tables_path do %>
+      <button type="button" class="btn"><span class="glyphicon glyphicon-arrow-left"></span> Ver todas</button>
+    <% end %>
+  </div>
+</div>
+
+<% if notice != nil %>
+<p id="notice" class="alert alert-success"><%= notice %></p>
+<% end %>
 
 <%= render partial: 'table', object: @table %>

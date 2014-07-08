@@ -37,7 +37,7 @@ class MessagesController < ApplicationController
     respond_to do |format|
       if @message.save
         @message.create_activity :create, owner: @message.attendee if (current_user.is_groom? or current_user.is_bride?)
-        format.html { redirect_to messages_path, notice: 'Message was successfully created.' }
+        format.html { redirect_to messages_path, notice: 'Mensaje enviado' }
         format.json { render action: 'show', status: :created, location: @message }
       else
         format.html { render action: 'new' }
@@ -51,7 +51,7 @@ class MessagesController < ApplicationController
   def update
     respond_to do |format|
       if @message.update(message_params)
-        format.html { redirect_to @message, notice: 'Message was successfully updated.' }
+        format.html { redirect_to @message, notice: 'Mensaje actualizado' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

@@ -28,7 +28,7 @@ class WeddingsController < ApplicationController
 
     respond_to do |format|
       if @wedding.save
-        format.html { redirect_to @wedding, notice: 'Wedding was successfully created.' }
+        format.html { redirect_to @wedding, notice: 'Boda creada correctamente' }
         format.json { render action: 'show', status: :created, location: @wedding }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class WeddingsController < ApplicationController
   def update
     respond_to do |format|
       if @wedding.update(wedding_params)
-        format.html { redirect_to @wedding, notice: 'Wedding was successfully updated.' }
+        format.html { redirect_to @wedding, notice: 'Boda actualizada correctamente' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

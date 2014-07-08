@@ -32,7 +32,7 @@ class GuestsController < ApplicationController
 
     respond_to do |format|
       if @guest.save
-        format.html { redirect_to @guest, notice: 'Guest was successfully created.' }
+        format.html { redirect_to @guest, notice: 'Invitado creado correctamente' }
         format.json { render action: 'show', status: :created, location: @guest }
       else
         format.html { render action: 'new' }
@@ -46,7 +46,7 @@ class GuestsController < ApplicationController
   def update
     respond_to do |format|
       if @guest.update(guest_params)
-        format.html { redirect_to @guest, notice: 'Guest was successfully updated.' }
+        format.html { redirect_to @guest, notice: 'Invitado actualizado correctamente' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

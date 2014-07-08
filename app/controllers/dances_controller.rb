@@ -34,7 +34,7 @@ class DancesController < ApplicationController
 
     respond_to do |format|
       if @dance.save
-        format.html { redirect_to @dance, notice: 'Dance was successfully created.' }
+        format.html { redirect_to @dance, notice: 'Has elegido a tu pareja!' }
         format.json { render action: 'show', status: :created, location: @dance }
       else
         format.html { render action: 'new' }
@@ -48,7 +48,7 @@ class DancesController < ApplicationController
   def update
     respond_to do |format|
       if @dance.update(dance_params)
-        format.html { redirect_to @dance, notice: 'Dance was successfully updated.' }
+        format.html { redirect_to @dance, notice: 'Has actualizado tu elección de pareja' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
