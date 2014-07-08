@@ -39,28 +39,30 @@
           </tr>
         </thead>
         <tbody>
-          <% current_user.table.attendees.each do |attendee| %>
-            <% if cycle('odd', 'even') == 'odd' %>
-              <% @gris=true %>
-            <% else %>
-              <% @gris=false %>
+          <% if current_user.table %>
+            <% current_user.table.attendees.each do |attendee| %>
+              <% if cycle('odd', 'even') == 'odd' %>
+                <% @gris=true %>
+              <% else %>
+                <% @gris=false %>
+              <% end %>
+              
+              <tr <% if @gris %>
+              class='active'
+              <% end %>>
+                <td rowspan="2"><div class="media">
+                    <a class="pull-left" href="<%= guest_path(attendee) %>">
+                      <%= image_tag attendee.avatar.url(:thumb), class: "media-object", alt: attendee.username %>
+                    </a>
+                  </div></td>
+                <td><a href="<%= guest_path(attendee) %>"><%= attendee.username %></a></td>
+              </tr>
+              <tr <% if @gris %>
+              class='active'
+              <% end %>>
+                <td><%= attendee.description %></td>
+              </tr>
             <% end %>
-            
-            <tr <% if @gris %>
-            class='active'
-            <% end %>>
-              <td rowspan="2"><div class="media">
-                  <a class="pull-left" href="<%= guest_path(attendee) %>">
-                    <%= image_tag attendee.avatar.url(:thumb), class: "media-object", alt: attendee.username %>
-                  </a>
-                </div></td>
-              <td><a href="<%= guest_path(attendee) %>"><%= attendee.username %></a></td>
-            </tr>
-            <tr <% if @gris %>
-            class='active'
-            <% end %>>
-              <td><%= attendee.description %></td>
-            </tr>
           <% end %>
         </tbody>
       </table>

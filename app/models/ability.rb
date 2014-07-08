@@ -2,7 +2,7 @@ class Ability
     include CanCan::Ability
 
     def initialize(user)
-        can [:upvote, :downvote], [Message, Picture]
+        can [:upvote, :downvote], [Message, Picture, Song]
         if user.is_groom? or user.is_bride?
             can :manage, :all
         end
