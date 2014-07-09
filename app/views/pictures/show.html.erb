@@ -11,26 +11,5 @@
 <p id="notice" class="alert alert-success"><%= notice %></p>
 <% end %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @picture.name %>
-</p>
+<%= render partial: 'picture', object: @picture %>
 
-<p>
-  <strong>User:</strong>
-  <%= @picture.attendee.username %>
-</p>
-
-<p>
-  <strong>Upvotes:</strong>
-  <%= @picture.votes_for.up.size %>
-</p>
-
-<p>
-  <strong>Downvotes:</strong>
-  <%= @picture.votes_for.down.size %>
-</p>
-
-<%= link_to 'Edit', edit_picture_path(@picture) %> |
-<%= link_to 'Upvote', upvote_picture_path(@picture), method: :post %> |
-<%= link_to 'Downvote', downvote_picture_path(@picture), method: :post %>

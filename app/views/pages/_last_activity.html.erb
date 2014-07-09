@@ -1,4 +1,4 @@
-    <% @resources.each do |resource| 
+    <% resources.each do |resource| 
         if resource.trackable.is_a? Message %>
             <%= render partial: 'messages/message', object: resource.trackable %>
         <% else %>

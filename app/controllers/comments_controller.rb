@@ -11,8 +11,10 @@ class CommentsController < ApplicationController
 
     def create
         @comment = Comment.new(comment_params)
+        @comment.attendee = current_user
         @comment.save
         @commentable = get_commentable(comment_params[:commentable_type], comment_params[:commentable_id])
+        flash[:notice] = 'Comentario enviado correctamente'
         redirect_to @commentable
     end
 private
