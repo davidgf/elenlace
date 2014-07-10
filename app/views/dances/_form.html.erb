@@ -1,8 +1,14 @@
 <% content_for :javascript_includes do %>
   <%= javascript_tag do %>
-    window.autocomplete_source = <%= raw @autocomplete_data.to_json %>;
+    $(function(){
+      $('li.attendee').on('click', function(ev){
+        ev.preventDefault();
+        var selectedId = $(this).data('id');
+        $('#partner-id').val(selectedId);
+        $('#new_dance').submit();
+      });
+    });
   <% end %>
-  <%= javascript_include_tag "autocompletion_dance" %>
 <% end %>
 
 <%= form_for(@dance) do |f| %>
@@ -18,15 +24,16 @@
     </div>
   <% end %>
   <div class="field">
-    <%= f.label :partner %><br>
-    <%= f.text_field :partner, class: 'typeahead form-control' %>
-    <%= f.hidden_field :partner_id, id: "partner-id" %>
+      <% @wedding.attendees.each do |attendee| %>
+        <%= f.radio_button :partner_id, attendee.id, id: "partner-#{attendee.id}" %>
+        <%= f.label :partner_id, attendee.username, for: "partner-#{attendee.id}" do %>
+          <%= image_tag attendee.avatar.url(:thumb), class: "media-object", alt: attendee.username %>
+          <%= attendee.username %>
+        <% end %>
+        <br />
+      <% end %>
   </div>
-  <div class="field">
-    <%= f.label :time %><br>
-    <%= f.time_select :time %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+  <%= f.submit 'Enviar' %>
+
 <% end %>
