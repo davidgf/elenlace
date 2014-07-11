@@ -23,17 +23,21 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
+  <div class="form-group">
       <% @wedding.attendees.each do |attendee| %>
-        <%= f.radio_button :partner_id, attendee.id, id: "partner-#{attendee.id}" %>
-        <%= f.label :partner_id, attendee.username, for: "partner-#{attendee.id}" do %>
-          <%= image_tag attendee.avatar.url(:thumb), class: "media-object", alt: attendee.username %>
-          <%= attendee.username %>
-        <% end %>
-        <br />
+        <div class="col-sm-3 col-md-3 divElegirPareja">
+          <%= f.label :partner_id, attendee.username, class:"btn btn-default", for: "partner-#{attendee.id}" do %>
+            <%= image_tag attendee.avatar.url(:medium), class: "media-object", alt: attendee.username %>
+          <%= f.radio_button :partner_id, attendee.id, id: "partner-#{attendee.id}" %> <%= attendee.username %>
+          <% end %>
+        </div>
       <% end %>
   </div>
 
-  <%= f.submit 'Enviar' %>
+  <%= button_tag(type: 'submit', class: "btn btn-success botonSubmit") do %>
+   <span class="glyphicon glyphicon-cloud-upload"></span> Confirmar pareja
+  <% end %>
+
+  <%= link_to 'Cancelar', dances_path, class:"btn btn-link" %>
 
 <% end %>
