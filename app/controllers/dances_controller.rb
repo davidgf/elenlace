@@ -1,8 +1,7 @@
 class DancesController < ApplicationController
   before_action :require_user
-  before_action :set_wedding, only: :index
+  before_action :set_wedding, only: [:index, :new, :edit, :create]
   load_and_authorize_resource except: :new
-  before_action :set_autocomplete_data, only: [:new, :edit]
 
   # GET /dances
   # GET /dances.json
@@ -34,7 +33,7 @@ class DancesController < ApplicationController
 
     respond_to do |format|
       if @dance.save
-        format.html { redirect_to @dance, notice: 'Has elegido a tu pareja!' }
+        format.html { redirect_to dances_path, notice: 'Has elegido a tu pareja!' }
         format.json { render action: 'show', status: :created, location: @dance }
       else
         format.html { render action: 'new' }

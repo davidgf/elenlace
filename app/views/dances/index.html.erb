@@ -132,7 +132,9 @@
     </tr>
   </thead>
   <tbody>
-    <% @songs.each_with_index do |song, index| %>
+
+    <% @songs = @songs.sort_by {|s| s.cached_votes_down - s.cached_votes_up }
+      @songs.each_with_index do |song, index| %>
       <% if cycle('odd', 'even') == 'odd' %>
         <% @gris=true %>
       <% else %>

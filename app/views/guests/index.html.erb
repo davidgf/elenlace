@@ -42,10 +42,12 @@
 
 
 <br>
-<div class="row">
-  <div class="col-md-12">
-    <%= link_to new_guest_path do %>
-      <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Nuevo invitado</button>
-    <% end %>
+<% if can? :create, Attendee %>
+  <div class="row">
+    <div class="col-md-12">
+      <%= link_to new_guest_path do %>
+        <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Nuevo invitado</button>
+      <% end %>
+    </div>
   </div>
-</div>
+<% end %>
