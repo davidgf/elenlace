@@ -31,7 +31,7 @@ class SongsController < ApplicationController
   def upvote
     @song.upvote_by current_user.becomes(Attendee)
     respond_to do |format|
-      format.html { redirect_to dances_path }
+      format.html { redirect_to dances_path, notice: 'Canción votada positivamente' }
       format.json
     end
   end
@@ -39,7 +39,7 @@ class SongsController < ApplicationController
   def downvote
     @song.downvote_by current_user.becomes(Attendee)
     respond_to do |format|
-      format.html { redirect_to dances_path }
+      format.html { redirect_to dances_path, notice: 'Canción votada negativamente' }
       format.json
     end
   end

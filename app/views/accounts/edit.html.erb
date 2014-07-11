@@ -10,15 +10,19 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
-    <%= f.label :avatar %><br>
+  <div class="form-group">
+    <%= f.label :avatar, 'Escoger foto' %><br>
     <%= f.file_field :avatar %>
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+  <div class="form-group">
+    <%= f.label :description, 'Descripción' %><br>
+    <%= f.text_area :description, class:'form-control', rows:'3' %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+  <%= button_tag(type: 'submit', class: "btn btn-success botonSubmit") do %>
+   <span class="glyphicon glyphicon-cloud-upload"></span> Actualizar
+  <% end %>
+
+  <%= link_to 'Cancelar', account_path, class:"btn btn-link" %>
+
 <% end %>

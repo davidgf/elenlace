@@ -74,7 +74,7 @@ class PicturesController < ApplicationController
   def upvote
     @picture.upvote_by current_user.becomes(Attendee)
     respond_to do |format|
-      format.html { redirect_to @picture }
+      format.html { redirect_to @picture, notice: 'Foto votada positivamente' }
       format.json
     end
   end
@@ -82,7 +82,7 @@ class PicturesController < ApplicationController
   def downvote
     @picture.downvote_by current_user.becomes(Attendee)
     respond_to do |format|
-      format.html { redirect_to @picture }
+      format.html { redirect_to @picture, notice: 'Foto votada negativamente' }
       format.json
     end
   end

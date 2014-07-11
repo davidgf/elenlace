@@ -17,6 +17,10 @@
 <%= render 'shared/header' unless !current_user %>
 
 <div class="container" >
+    <% if notice != nil %>
+      <p id="notice" class="alert alert-success"><%= notice %></p>
+    <% end %>
+
     <%= yield %>
 </div>
 

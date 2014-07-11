@@ -73,7 +73,7 @@ class MessagesController < ApplicationController
   def upvote
     @message.upvote_by current_user.becomes(Attendee)
     respond_to do |format|
-      format.html { redirect_to @message }
+      format.html { redirect_to @message, notice: 'Mensaje votado positivamente' }
       format.json
     end
   end
@@ -81,7 +81,7 @@ class MessagesController < ApplicationController
   def downvote
     @message.downvote_by current_user.becomes(Attendee)
     respond_to do |format|
-      format.html { redirect_to @message }
+      format.html { redirect_to @message, notice: 'Mensaje votado negativamente' }
       format.json
     end
   end

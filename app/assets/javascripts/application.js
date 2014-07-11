@@ -16,3 +16,10 @@
 //= require bootstrap
 //= require commentable
 //= require rails-timeago-all
+
+$( document ).ready(function() {
+	$('.botonSubmit').click(function(){
+		$('.botonSubmit').html('Enviando...');
+    	$('input[type=submit]').attr('disabled', 'disabled');
+	});
+});

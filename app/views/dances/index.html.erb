@@ -47,19 +47,8 @@
       <% end %>>
         <td <% if @gris %>
       class='active'
-      <% end %>><%= dance.partner.description %></td>
+      <% end %>><%= dance.partner.description %> <%= link_to 'Borrar', dance, class:"btn btn-link", method: :delete, data: { confirm: '¿Estás seguro?' } %></td>
       </tr>
-      <tr <% if @gris %>
-      class='active'
-      <% end %>>
-        <td></td>
-        <td><%= link_to 'Ver', dance, class:"btn btn-link" %> <%= link_to 'Editar', edit_dance_path(dance), class:"btn btn-link" %> <%= link_to 'Borrar', dance, class:"btn btn-link", method: :delete, data: { confirm: '¿Estás seguro?' } %></td>
-      </tr>
-      <tr <% if @gris %>
-      class='active'
-      <% end %>>
-        <td></td>
-        <td><%= timeago_tag dance.time, :limit => 10.days.ago, :lang => :es %></td></tr>
     <% end %>
   </tbody>
 </table>
@@ -102,11 +91,6 @@
       class='active'
       <% end %>><%= dance.partner.description %></td>
       </tr>
-      <tr <% if @gris %>
-      class='active'
-      <% end %>>
-        <td></td>
-        <td><%= timeago_tag dance.time, :limit => 10.days.ago, :lang => :es %></td></tr>
     <% end %>
   </tbody>
 </table>
