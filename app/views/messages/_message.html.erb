@@ -6,7 +6,7 @@
             <%= image_tag message.attendee.avatar.url(:thumb), class: "media-object", alt: message.attendee.username %>
         <% end %>
         <div class="media-body">
-          <h3 class="media-heading"><%= message.attendee.username %></h3>
+          <h3 class="media-heading"><%= link_to guest_path(message.attendee) do %><%= message.attendee.username %><% end %></h3>
           <%= message.message %>
           <p><small><%= timeago_tag message.created_at, :limit => 10.days.ago, :lang => :es %></small></p>
         </div>

@@ -6,7 +6,7 @@
             <%= image_tag picture.attendee.avatar.url(:thumb), class: "media-object", alt: picture.attendee.username %>
         <% end %>
         <div class="media-body">
-          <h3 class="media-heading"><%= picture.attendee.username %></h3>
+          <h3 class="media-heading"><%= link_to guest_path(picture.attendee) do %><%= picture.attendee.username %><% end %></h3>
         </div>
       </div>
       <%= image_tag picture.image.url(:medium) %>

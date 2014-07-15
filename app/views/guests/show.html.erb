@@ -9,7 +9,7 @@
 </div>
 
       <div class="page-header">
-        <h1>Mi perfil</h1>
+        <h1>Perfil de <%= @guest.username %></h1>
       </div>
 
 <div class="row">
@@ -34,49 +34,6 @@
   </div>
 <% end %>
 <br>
-
-
-      <div class="page-header">
-        <h3>Sentado en mesa con...</h3>
-      </div>
-
-<div class="panel-group" id="accordion">
-
-    <table class="table">
-        <thead>
-          <tr>
-            <th>Foto</th>
-            <th>Invitado</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @guest.table.attendees.each do |attendee| %>
-            <% if cycle('odd', 'even') == 'odd' %>
-              <% @gris=true %>
-            <% else %>
-              <% @gris=false %>
-            <% end %>
-            
-            <tr <% if @gris %>
-            class='active'
-            <% end %>>
-              <td rowspan="2"><div class="media">
-                  <a class="pull-left" href="<%= guest_path(attendee) %>">
-                    <%= image_tag attendee.avatar.url(:thumb), class: "media-object", alt: attendee.username %>
-                  </a>
-                </div></td>
-              <td><a href="<%= guest_path(attendee) %>"><%= attendee.username %></a></td>
-            </tr>
-            <tr <% if @gris %>
-            class='active'
-            <% end %>>
-              <td><%= attendee.description %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-
 
 <% if @guest == current_user %>
   <div class="row">

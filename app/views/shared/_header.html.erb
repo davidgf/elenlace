@@ -34,36 +34,17 @@
                     <span class="glyphicon glyphicon-bullhorn"></span> Baile
                 <% end %>
             </li>
-            <li class="dropdown <%= 'active' if ['guests', 'tables', 'wedding', 'guests'].include? params[:controller] or  ['wedding', 'events'].include? params[:action] %>">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-info-sign"></span> Info <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li>
-                    <%= link_to wedding_path do %>
-                        <span class="glyphicon glyphicon-unchecked"></span> General
-                    <% end %>
-                </li>
-                <li>
-                    <%= link_to events_path do %>
-                        <span class="glyphicon glyphicon-calendar"></span> Planing
-                    <% end %>
-                </li>
-                <li>
-                    <%= link_to guests_path do %>
-                        <span class="glyphicon glyphicon-list-alt"></span> Invitados
-                    <% end %>
-                </li>
-                <li>
-                    <%= link_to tables_path do %>
-                        <span class="glyphicon glyphicon-cutlery"></span> Mesas
-                    <% end %>
-                </li>
-                <li>
-                    <%= link_to 'Salir', log_out_path %>
-                </li>
-              </ul>
+            <li class="<%= 'active' if ['wedding', 'events'].include? params[:action] %>">
+                <%= link_to events_path do %>
+                    <span class="glyphicon glyphicon-calendar"></span> Planing
+                <% end %>
+            </li>
+            <li class="<%= 'active' if ['guests', 'guests'].include? params[:controller] %>">
+                <%= link_to guests_path do %>
+                    <span class="glyphicon glyphicon-list-alt"></span> Invitados
+                <% end %>
             </li>
             <li>
-
             <% if current_user %>
                 <%= link_to account_path do %>
                     <span class="glyphicon glyphicon-user"></span> Mi perfil
