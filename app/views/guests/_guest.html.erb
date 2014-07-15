@@ -1,0 +1,24 @@
+
+  <% if cycle('odd', 'even') == 'odd' %>
+    <% @gris=true %>
+  <% else %>
+    <% @gris=false %>
+  <% end %>
+  
+  <tr <% if @gris %>
+  class='active'
+  <% end %>>
+    <td rowspan="2"><div class="media">
+      <a class="pull-left" href="<%= guest_path(guest) %>">
+        <%= image_tag guest.avatar.url(:thumb), class: "media-object", alt: guest.username %>
+      </a>
+    </div></td>
+    <td><a href="<%= guest_path(guest) %>" class="btn btn-link"><%= guest.username %></a></td>
+  </tr>
+  <tr <% if @gris %>
+  class='active'
+  <% end %>>
+    <td <% if @gris %>
+  class='active'
+  <% end %>><%= guest.description %></td>
+  </tr>
