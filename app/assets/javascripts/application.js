@@ -18,8 +18,11 @@
 //= require rails-timeago-all
 
 $( document ).ready(function() {
-	$('.botonSubmit').click(function(){
-		$('.botonSubmit').html('Enviando...');
-    	$('input[type=submit]').attr('disabled', 'disabled');
+	$('.botonSubmit').click(function(ev){
+		console.log('click');
+		ev.preventDefault();
+		$(this).html('Enviando...');
+    	$(this).attr('disabled', 'disabled');
+    	$(this).parents('form').submit();
 	});
 });
