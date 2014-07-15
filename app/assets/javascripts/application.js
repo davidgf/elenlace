@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
@@ -19,7 +20,6 @@
 
 $( document ).ready(function() {
 	$('.botonSubmit').click(function(ev){
-		console.log('click');
 		ev.preventDefault();
 		$(this).html('Enviando...');
     	$(this).attr('disabled', 'disabled');
