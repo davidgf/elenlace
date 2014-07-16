@@ -1,7 +1,10 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "infinite_scroll" %>
+<% end %>
 
-      <div class="page-header">
-        <h1>Lista de invitados</h1>
-      </div>
+<div class="page-header">
+  <h1>Lista de invitados</h1>
+</div>
 
 <table class="table">
   <thead>
@@ -10,35 +13,14 @@
             <th>Invitado</th>
     </tr>
   </thead>
-
   <tbody>
-    <% @guests.each do |guest| %>
-      <% if cycle('odd', 'even') == 'odd' %>
-        <% @gris=true %>
-      <% else %>
-        <% @gris=false %>
-      <% end %>
-      
-      <tr <% if @gris %>
-      class='active'
-      <% end %>>
-        <td rowspan="2"><div class="media">
-          <a class="pull-left" href="<%= guest_path(guest) %>">
-            <%= image_tag guest.avatar.url(:thumb), class: "media-object", alt: guest.username %>
-          </a>
-        </div></td>
-        <td><a href="<%= guest_path(guest) %>" class="btn btn-link"><%= guest.username %></a></td>
-      </tr>
-      <tr <% if @gris %>
-      class='active'
-      <% end %>>
-        <td <% if @gris %>
-      class='active'
-      <% end %>><%= guest.description %></td>
-      </tr>
-    <% end %>
+    <%= render partial: 'guests', object: @guests %>
   </tbody>
 </table>
+
+<div id="spinner" class="row">
+    <%= image_tag "spinner.gif", class: "center-block" %>
+</div>
 
 
 <br>

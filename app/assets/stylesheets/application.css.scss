@@ -16,6 +16,8 @@
 
 .hide-comments, #infinite-scrolling, #spinner { display: none }
 
+body .modal .modal-dialog { width: 95% }
+
 .twitter-typeahead {
      width: 100%;
      position: relative;

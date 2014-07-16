@@ -7,7 +7,14 @@ class GuestsController < ApplicationController
   # GET /guests
   # GET /guests.json
   def index
-    @guests = current_user.wedding.guests
+    @guests = current_user.wedding.guests.page(params[:page])
+    respond_to do |format|
+      format.html {
+          if request.xhr?
+            render partial: 'guests', object: @guests, layout: false
+          end
+        }
+    end
   end
 
   # GET /guests/1

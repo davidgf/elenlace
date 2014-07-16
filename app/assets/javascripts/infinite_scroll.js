@@ -13,7 +13,7 @@ $(function(){
     if($('#infinite-scrolling').size() > 0){
         $(window).on('scroll', function(){
             var topLimit = $(document).height() - $(window).height() - 60;
-            if($(window).scrollTop() > topLimit){
+            if($(window).scrollTop() >= topLimit){
                 var more_posts_url = $('.pagination a.next_page').attr('href');
                 if(more_posts_url && !locked){
                     locked = true;
