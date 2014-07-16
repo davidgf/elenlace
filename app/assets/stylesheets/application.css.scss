@@ -88,3 +88,11 @@
 }.divElegirPareja img{
     padding-bottom: 10px;
 }
+
+.flotanteArriba{
+    position: fixed;
+    right: 10px;
+    left: 10px;
+    z-index: 1030;
+    top: 53px;
+}

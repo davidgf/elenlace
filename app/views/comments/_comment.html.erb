@@ -1,1 +1,1 @@
-<p class="yeah"><strong><%= comment.attendee.username %></strong>: <%= comment.comment %></p>
+<p class="yeah"><strong><%= link_to guest_path(comment.attendee) do %><%= comment.attendee.username %><% end %></strong>: <%= comment.comment %></p>
