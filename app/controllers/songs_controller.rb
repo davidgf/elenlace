@@ -13,6 +13,7 @@ class SongsController < ApplicationController
 
   def create
     @song.wedding = @wedding
+    @song.attendee = current_user
 
     respond_to do |format|
       if @song.save
