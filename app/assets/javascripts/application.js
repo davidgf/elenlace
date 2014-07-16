@@ -17,6 +17,7 @@
 //= require bootstrap
 //= require commentable
 //= require rails-timeago-all
+//= require image_modal
 
 $( document ).ready(function() {
 	$('.botonSubmit').click(function(ev){
