@@ -20,14 +20,15 @@ $(function(){
                 $('body').append(customModal);
             var $modal = $('#image-modal');
             var spinnerUrl = '<%= asset_path "spinner.gif" %>';
-            var objImagePreloader = new Image();
-            objImagePreloader.src = originalUrl;
-            $(objImagePreloader).on("load", function() {
-                $modal.find('img').attr('src', originalUrl);
-            }).each(function() {
-                if(this.complete) $(this).load();
-            });
-            $modal.find('img').attr('src', spinnerUrl);
+            // var objImagePreloader = new Image();
+            // objImagePreloader.src = originalUrl;
+            // $(objImagePreloader).on("load", function() {
+            //     $modal.find('img').attr('src', originalUrl);
+            // }).each(function() {
+            //     if(this.complete) $(this).load();
+            // });
+            $modal.find('img').attr('src', originalUrl);
+            // $modal.find('img').attr('src', spinnerUrl);
             $modal.modal('show');
         }
     });

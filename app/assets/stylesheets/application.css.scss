@@ -16,7 +16,7 @@
 
 .hide-comments, #infinite-scrolling, #spinner { display: none }
 
-body .modal .modal-dialog { width: 95% }
+body .modal .modal-dialog { width: 95%; max-width: 1250px; }
 
 .twitter-typeahead {
      width: 100%;

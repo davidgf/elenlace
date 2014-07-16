@@ -9,7 +9,7 @@
           <h3 class="media-heading"><%= link_to guest_path(picture.attendee) do %><%= picture.attendee.username %><% end %></h3>
         </div>
       </div>
-      <%= image_tag picture.image.url(:medium), class: 'media-picture', data: {original: picture.image.url(:original)} %>
+      <%= image_tag picture.image.url(:medium), class: 'media-picture', data: {original: picture.image.url(:big)} %>
       <div class="caption">
         <p><small>
   <%= timeago_tag picture.created_at, :limit => 10.days.ago, :lang => :es %></small></p>
