@@ -13,10 +13,12 @@
 
 <br>
 
-<div class="row">
-  <div class="col-md-12">
-    <%= link_to new_table_path do %>
-      <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Nueva mesa</button>
-    <% end %>
+<% if can? :create, Table %>
+  <div class="row">
+    <div class="col-md-12">
+      <%= link_to new_table_path do %>
+        <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Nueva mesa</button>
+      <% end %>
+    </div>
   </div>
-</div>
+<% end %>
