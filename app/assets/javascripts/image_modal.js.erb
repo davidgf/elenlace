@@ -19,9 +19,15 @@ $(function(){
             if(!$('#image-modal').length)
                 $('body').append(customModal);
             var $modal = $('#image-modal');
-            var spinnerUrl = '/assets/spinner.gif';
+            var spinnerUrl = '<%= asset_path "spinner.gif" %>';
+            var objImagePreloader = new Image();
+            objImagePreloader.src = originalUrl;
+            $(objImagePreloader).on("load", function() {
+                $modal.find('img').attr('src', originalUrl);
+            }).each(function() {
+                if(this.complete) $(this).load();
+            });
             $modal.find('img').attr('src', spinnerUrl);
-            $modal.find('img').attr('src', originalUrl);
             $modal.modal('show');
         }
     });
