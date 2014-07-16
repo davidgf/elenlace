@@ -21,10 +21,14 @@
       <% end %>
   </div>
 
-  <%= f.button(:submit, class: "btn btn-success botonSubmit") do %>
-   <span class="glyphicon glyphicon-cloud-upload"></span> Confirmar pareja
-  <% end %>
+  <div class="form-group flotanteArriba">
+    <div class="container">
+      <%= f.button(:submit, class: "btn btn-success botonSubmit") do %>
+       <span class="glyphicon glyphicon-cloud-upload"></span> Confirmar pareja
+      <% end %>
+
+      <%= link_to 'Cancelar', dances_path, class:"btn btn-default" %>
+    </div>
+  </div>
 
 <% end %>
-
-  <%= link_to 'Cancelar', dances_path, class:"btn btn-link" %>

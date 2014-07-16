@@ -23,6 +23,24 @@
             <span class="glyphicon glyphicon-thumbs-down"></span> No me gusta (<%= message.cached_votes_down %>)
           <% end %>
         </p>
+
+        <% if message.cached_votes_up > 0 %>
+          <p>Le gusta a: 
+            <% message.get_upvotes.each_with_index do |vote, i| %>
+              <% if i>0 %>, <% end %>
+              <%= link_to guest_path(vote.voter) do %><%= vote.voter.username %><% end %>
+            <% end %>
+          </p>
+        <% end %>
+        <% if message.cached_votes_down > 0 %>
+          <p>No le gusta a: 
+            <% message.get_downvotes.each_with_index do |vote, i| %>
+              <% if i>0 %>, <% end %>
+              <%= link_to guest_path(vote.voter) do %><%= vote.voter.username %><% end %>
+            <% end %>
+          </p>
+        <% end %>
+        
         <%= render partial: 'comments/comments', locals: { commentable: message} %>
 
       </div>

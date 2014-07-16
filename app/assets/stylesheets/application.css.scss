@@ -90,3 +90,11 @@ body .modal .modal-dialog { width: 95%; max-width: 1250px; }
 }.divElegirPareja img{
     padding-bottom: 10px;
 }
+
+.flotanteArriba{
+    position: fixed;
+    right: 10px;
+    left: 10px;
+    z-index: 1030;
+    top: 53px;
+}
