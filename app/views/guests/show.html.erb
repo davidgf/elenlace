@@ -24,7 +24,7 @@
     </div>
 </div>
 
-<% if @guest == current_user or can? :update, @guest %>
+<% if can? :update, @guest %>
   <div class="row">
     <div class="col-md-12">
       <%= link_to edit_guest_path do %>

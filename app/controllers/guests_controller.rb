@@ -29,6 +29,9 @@ class GuestsController < ApplicationController
 
   # GET /guests/1/edit
   def edit
+    if current_user.is_guest?
+      redirect_to edit_account_path
+    end
   end
 
   # POST /guests
