@@ -7,5 +7,11 @@ class Picture < ActiveRecord::Base
     validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
     validates :attendee, :image, presence: true
     self.per_page = 15
+    before_save :encode_emoji
+
+private
+    def encode_emoji
+        self.name = Rumoji.encode(self.name)
+    end
     
 end

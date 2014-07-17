@@ -18,6 +18,7 @@ class Attendee < ActiveRecord::Base
     before_create do 
         self.auth_token = SecureRandom.urlsafe_base64
     end
+    before_save :encode_emoji
 
     def is_admin?
         return false
@@ -44,5 +45,10 @@ private
         if role_changed? && self.persisted?
             errors.add(:role, "Changing role is not allowed")
         end
+    end
+
+
+    def encode_emoji
+        self.description = Rumoji.encode(self.description)
     end
 end

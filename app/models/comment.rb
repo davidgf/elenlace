@@ -3,6 +3,7 @@ class Comment < ActiveRecord::Base
   include ActsAsCommentable::Comment
 
   belongs_to :commentable, :polymorphic => true
+  before_save :encode_emoji
 
   validates :comment, presence: true
 
@@ -14,4 +15,9 @@ class Comment < ActiveRecord::Base
 
   # NOTE: Comments belong to a user
   belongs_to :attendee
+
+private
+def encode_emoji
+    self.comment = Rumoji.encode(self.comment)
+end
 end
