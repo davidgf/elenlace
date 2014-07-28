@@ -14,6 +14,7 @@ class CommentsController < ApplicationController
         @comment.attendee = current_user
         @comment.save
         @commentable = get_commentable(comment_params[:commentable_type], comment_params[:commentable_id])
+        @commentable.touch
         flash[:notice] = 'Comentario enviado correctamente'
         redirect_to @commentable
     end

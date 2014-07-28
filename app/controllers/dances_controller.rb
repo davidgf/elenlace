@@ -7,6 +7,7 @@ class DancesController < ApplicationController
   # GET /dances.json
   def index
     @dances = current_user.dances
+    @partner_of = Dance.where(:partner => current_user)
     @matches = Dance.matches_of current_user
     @songs = @wedding.songs
   end

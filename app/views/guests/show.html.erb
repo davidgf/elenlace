@@ -18,7 +18,7 @@
         <%= image_tag @guest.avatar.url(:medium), class: "img-rounded media-picture", alt: @guest.username, data: {original: @guest.avatar.url(:big)} %>
         <div class="caption">
           <h2><%= @guest.username %></h2>
-          <p><small><strong>¿Quién es?</strong> <%= Rumoji.decode(@guest.description) %></small></p>
+          <p><small><strong>¿Quién es?</strong> <%= Rumoji.decode(@guest.description.to_s) %></small></p>
         </div>
       </div>
     </div>
