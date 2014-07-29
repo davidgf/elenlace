@@ -19,4 +19,14 @@ class PagesController < ApplicationController
 
   def events
   end
+
+  def gallery
+    if params[:order] == "votes"
+      @pictures_urls = Picture.order(cached_votes_score: :desc).map {|p| p.image.url(:big)}
+    else
+      @pictures_urls = Picture.order(created_at: :desc).map {|p| p.image.url(:big)}
+    end
+
+    render layout: false
+  end
 end
