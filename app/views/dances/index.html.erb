@@ -56,7 +56,7 @@
 
 <br><br>
   <div class="page-header">
-    <h1>¿Quén me ha elegido?</h1>
+    <h1>¿Quién me ha elegido?</h1>
   </div>
 
 
@@ -102,7 +102,7 @@
 
 <br><br>
   <div class="page-header">
-    <h1>Mis parejas de baile</h1>
+    <h1>¿A quién he elegido?</h1>
   </div>
 
 
@@ -199,14 +199,17 @@
       <tr <% if @gris %>
       class='active'
       <% end %>>
+        <td colspan="2">Propuesta por: <%= link_to guest_path(song.attendee) do %><%= song.attendee.username %><% end %></strong></td>
+      </tr>
+      <tr <% if @gris %>
+      class='active'
+      <% end %>>
         <% disabled = current_user.voted_for?(song) ? "disabled" : nil %>
-        <td>
+        <td colspan="3">
           <%= link_to upvote_song_path(song), method: :post, class: "btn btn-link",
                 role: "button", disabled: disabled do %>
             <span class="glyphicon glyphicon-thumbs-up"></span> Me gusta (<%= song.cached_votes_up %>)
           <% end %>
-        </td>
-        <td>
           <%= link_to downvote_song_path(song), method: :post, class: "btn btn-link",
                 role: "button", disabled: disabled  do %>
             <span class="glyphicon glyphicon-thumbs-down"></span> No me gusta (<%= song.cached_votes_down %>)
