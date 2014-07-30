@@ -66,5 +66,12 @@ FactoryGirl.define do
         name "MyString"
         image Rack::Test::UploadedFile.new("#{Rails.root}/test/images/dys.png", "image/png")
     end
+    
+    factory :song do
+        association :wedding, factory: :wedding
+        association :attendee, factory: :guest
+        artist "MyString"
+        title "MyString"
+    end
 
 end
