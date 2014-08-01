@@ -2,6 +2,11 @@ FactoryGirl.define do
     
     factory :wedding do
     end
+    
+    factory :table do
+        association :wedding, factory: :wedding
+        name "table"
+    end
 
     factory :user do
         username "usuario"

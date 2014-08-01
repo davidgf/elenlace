@@ -23,7 +23,7 @@ class MessagesControllerTest < ActionController::TestCase
       post :create, message: { datetime: @message.datetime, message: @message.message, attendee_id: @message.attendee_id }
     end
 
-    assert_redirected_to message_path(assigns(:message))
+    assert_redirected_to messages_path
   end
 
   test "should show message" do

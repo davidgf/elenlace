@@ -23,7 +23,7 @@ class DancesControllerTest < ActionController::TestCase
       post :create, dance: { partner_id: @partner.id }
     end
 
-    assert_redirected_to dance_path(assigns(:dance))
+    assert_redirected_to dances_path
   end
 
   test "should show dance" do

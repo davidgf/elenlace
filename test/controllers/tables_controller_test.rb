@@ -2,9 +2,9 @@ require 'test_helper'
 
 class TablesControllerTest < ActionController::TestCase
   setup do
-    @user = FactoryGirl.create(:guest, password: "pass2")
+    @user = FactoryGirl.create(:groom, password: "pass2")
     cookies[:auth_token] = @user.auth_token
-    @table = tables(:one)
+    @table = FactoryGirl.create(:table)
   end
 
   test "should get index" do
@@ -37,7 +37,10 @@ class TablesControllerTest < ActionController::TestCase
   end
 
   test "should update table" do
-    patch :update, id: @table, table: { name: @table.name }
+    new_name = "calquer cousa"
+    patch :update, id: @table, table: { name: new_name }
+    @table.reload
+    assert_equal new_name, @table.name
     assert_redirected_to table_path(assigns(:table))
   end
 
