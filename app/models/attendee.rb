@@ -19,7 +19,6 @@ class Attendee < ActiveRecord::Base
     before_destroy do
         Dance.delete_all(partner: self)
     end
-    before_save :encode_emoji
 
     def is_admin?
         return false
@@ -46,10 +45,5 @@ private
         if role_changed? && self.persisted?
             errors.add(:role, "Changing role is not allowed")
         end
-    end
-
-
-    def encode_emoji
-        self.description = Rumoji.encode(self.description)
     end
 end

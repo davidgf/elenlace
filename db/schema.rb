@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20140730113455) do
     t.string   "role"
     t.integer  "table_id"
     t.integer  "wedding_id"
-    t.text     "description",         default: "", null: false
+    t.text     "description",         null: false
     t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 20140730113455) do
   end
 
   create_table "messages", force: true do |t|
-    t.text     "message",            default: "", null: false
+    t.text     "message",            null: false
     t.integer  "attendee_id"
     t.datetime "datetime"
     t.datetime "created_at"

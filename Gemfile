@@ -10,8 +10,6 @@ gem 'mysql2', group: :production
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
-gem 'rumoji'
-
 gem 'bootstrap-sass'
 
 # Use Uglifier as compressor for JavaScript assets
@@ -46,6 +44,8 @@ gem 'public_activity'
 gem 'will_paginate'
 
 gem 'rails-timeago', '~> 2.0'
+
+gem 'clearance'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

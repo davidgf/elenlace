@@ -7,10 +7,10 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 wedding = Wedding.new
 wedding.save
-groom = Groom.new({username: "Diego", password: "lopezbrandariz"})
+groom = Groom.new({username: "Diego", password: "lopezbrandariz",description: "El novio"})
 groom.wedding = wedding
 groom.save
-bride = Bride.new({username: "Sandra", password: "mondarizmesia"})
+bride = Bride.new({username: "Sandra", password: "mondarizmesia",description: "La novia"})
 bride.wedding = wedding
 bride.save
 
