@@ -19,11 +19,13 @@ class PicturesControllerTest < ActionController::TestCase
   end
 
   test "should create picture" do
+    image_path = "#{Rails.root}/test/images/dys.png"
+    image = Rack::Test::UploadedFile.new(image_path, "image/png")
     assert_difference('Picture.count') do
-      post :create, picture: { name: @picture.name, attendee_id: @picture.attendee_id, image: @picture.image }
+      post :create, picture: { name: @picture.name, attendee_id: @picture.attendee_id, image: image }
     end
 
-    assert_redirected_to picture_path(assigns(:picture))
+    assert_redirected_to pictures_path
   end
 
   test "should show picture" do
