@@ -23,4 +23,11 @@ class WeddingTest < ActiveSupport::TestCase
     end
   end
 
+  test "songs are removed on wedding deletion" do
+    song = FactoryGirl.create(:song)
+    assert_difference('Song.count', -1) do
+      song.wedding.destroy
+    end
+  end
+
 end

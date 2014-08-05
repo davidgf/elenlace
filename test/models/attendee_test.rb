@@ -56,4 +56,39 @@ class AttendeeTest < ActiveSupport::TestCase
     attendee = FactoryGirl.create(:attendee, password: "pass")
     assert_nil Attendee.authenticate(attendee.wedding_id, "wrong pass"), "User authenticated"
   end
+
+  test "songs are removed on attendee deletion" do
+    song = FactoryGirl.create(:song)
+    assert_difference('Song.count', -1) do
+      song.attendee.destroy
+    end
+  end
+
+  test "messages are removed on attendee deletion" do
+    message = FactoryGirl.create(:message)
+    assert_difference('Message.count', -1) do
+      message.attendee.destroy
+    end
+  end
+
+  test "pictures are removed on attendee deletion" do
+    picture = FactoryGirl.create(:picture)
+    assert_difference('Picture.count', -1) do
+      picture.attendee.destroy
+    end
+  end
+
+  test "dances are removed on attendee deletion" do
+    dance = FactoryGirl.create(:dance)
+    assert_difference('Dance.count', -1) do
+      dance.attendee.destroy
+    end
+  end
+
+  test "dances are removed on partner deletion" do
+    dance = FactoryGirl.create(:dance)
+    assert_difference('Dance.count', -1) do
+      dance.partner.destroy
+    end
+  end
 end

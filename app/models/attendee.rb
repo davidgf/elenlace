@@ -16,6 +16,9 @@ class Attendee < ActiveRecord::Base
     before_create do 
         self.auth_token = SecureRandom.urlsafe_base64
     end
+    before_destroy do
+        Dance.delete_all(partner: self)
+    end
     before_save :encode_emoji
 
     def is_admin?
