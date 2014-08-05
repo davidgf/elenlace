@@ -9,29 +9,26 @@
   <link rel="shortcut icon" href="favicon.ico">
   <title>Boda Diego & Sandra</title>
   <%= stylesheet_link_tag    "gallery", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "gallery", "data-turbolinks-track" => true %>
-  
-	<%= javascript_tag do %>
-		window.pictures_urls = <%= raw @pictures_urls.to_json %>;
-	<% end %>
-  <%= csrf_meta_tags %>
 </head>
 <body>
 
-<div class="container">
-<h1>Ponlle o que che saia do carallo</h1>
-<p>
-En gallery.js podes escribir o teu JavaScript. Xa tés jQuery, Bootstrap, etc.
-</p>
 
-<p>
-	Se queres añadir CSS, en gallery.css.scss, debaixo do import de Bootstrap.
-</p>
+  <div id="slides">
+      <div class="slides-container">
+        <% @pictures_urls.each do |picture| %>
+            <!-- http://www.ciutathotels.com/content/imgsxml/es/galerias/galeria_interior/1/grande-bodas-y-banquetes-ciutat-hotels.jpg -->
+            <img src="<%= picture %>">
+        <% end %>
+      </div>
+    <nav class="slides-navigation">
+      <a href="#" class="next">Next</a>
+      <a href="#" class="prev">Previous</a>
+    </nav>
+  </div>
 
-<p>
-Para acceder ás URLs das imaxes, hai unha variable JSON: window.pictures_urls. É un array de URLs que ven ordenado por data de creación. Se o queres ordenado por número de votos, tés que  pasarlle a esta URL o parámetro 'order' con 'votes', é dicir: /gallery?order=votes
-</p>
+  <%= javascript_include_tag "gallery", "data-turbolinks-track" => true %>
+  
+  <%= csrf_meta_tags %>
 
-</div>
 </body>
 </html>
