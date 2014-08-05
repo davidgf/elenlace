@@ -7,7 +7,7 @@ class TablesController < ApplicationController
   # GET /tables
   # GET /tables.json
   def index
-    @tables = current_user.wedding.tables
+    @tables = current_attendee.wedding.tables
   end
 
   # GET /tables/1
@@ -28,7 +28,7 @@ class TablesController < ApplicationController
   # POST /tables.json
   def create
     @table = Table.new(table_params)
-    @table.wedding = current_user.wedding
+    @table.wedding = current_attendee.wedding
 
     respond_to do |format|
       if @table.save
@@ -72,7 +72,7 @@ class TablesController < ApplicationController
     end
 
     def set_autocomplete_data
-      @autocomplete_data = current_user.wedding.attendees.map { |a| {label: a.username, value: a.id} }
+      @autocomplete_data = current_attendee.wedding.attendees.map { |a| {label: a.username, value: a.id} }
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

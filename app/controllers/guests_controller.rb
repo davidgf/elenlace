@@ -7,7 +7,7 @@ class GuestsController < ApplicationController
   # GET /guests
   # GET /guests.json
   def index
-    @guests = current_user.wedding.guests.page(params[:page])
+    @guests = current_attendee.wedding.guests.page(params[:page])
     respond_to do |format|
       format.html {
           if request.xhr?
@@ -29,7 +29,7 @@ class GuestsController < ApplicationController
 
   # GET /guests/1/edit
   def edit
-    if current_user.is_guest?
+    if current_attendee.is_guest?
       redirect_to edit_account_path
     end
   end
@@ -38,7 +38,7 @@ class GuestsController < ApplicationController
   # POST /guests.json
   def create
     @guest = Guest.new(guest_params)
-    @guest.wedding = current_user.wedding
+    @guest.wedding = current_attendee.wedding
 
     respond_to do |format|
       if @guest.save

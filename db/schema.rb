@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140730113455) do
+ActiveRecord::Schema.define(version: 20140805151832) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -26,9 +26,9 @@ ActiveRecord::Schema.define(version: 20140730113455) do
     t.datetime "updated_at"
   end
 
-  add_index "activities", ["owner_id", "owner_type"], name: "index_activities_on_owner_id_and_owner_type"
-  add_index "activities", ["recipient_id", "recipient_type"], name: "index_activities_on_recipient_id_and_recipient_type"
-  add_index "activities", ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type"
+  add_index "activities", ["owner_id", "owner_type"], name: "index_activities_on_owner_id_and_owner_type", length: {"owner_id"=>nil, "owner_type"=>191}, using: :btree
+  add_index "activities", ["recipient_id", "recipient_type"], name: "index_activities_on_recipient_id_and_recipient_type", length: {"recipient_id"=>nil, "recipient_type"=>191}, using: :btree
+  add_index "activities", ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type", length: {"trackable_id"=>nil, "trackable_type"=>191}, using: :btree
 
   create_table "attendees", force: true do |t|
     t.string   "auth_token"
@@ -47,8 +47,8 @@ ActiveRecord::Schema.define(version: 20140730113455) do
     t.datetime "avatar_updated_at"
   end
 
-  add_index "attendees", ["table_id"], name: "index_attendees_on_table_id"
-  add_index "attendees", ["wedding_id"], name: "index_attendees_on_wedding_id"
+  add_index "attendees", ["table_id"], name: "index_attendees_on_table_id", using: :btree
+  add_index "attendees", ["wedding_id"], name: "index_attendees_on_wedding_id", using: :btree
 
   create_table "comments", force: true do |t|
     t.text     "comment"
@@ -60,9 +60,9 @@ ActiveRecord::Schema.define(version: 20140730113455) do
     t.datetime "updated_at"
   end
 
-  add_index "comments", ["attendee_id"], name: "index_comments_on_attendee_id"
-  add_index "comments", ["commentable_id"], name: "index_comments_on_commentable_id"
-  add_index "comments", ["commentable_type"], name: "index_comments_on_commentable_type"
+  add_index "comments", ["attendee_id"], name: "index_comments_on_attendee_id", using: :btree
+  add_index "comments", ["commentable_id"], name: "index_comments_on_commentable_id", using: :btree
+  add_index "comments", ["commentable_type"], name: "index_comments_on_commentable_type", length: {"commentable_type"=>191}, using: :btree
 
   create_table "dances", force: true do |t|
     t.integer  "attendee_id"
@@ -72,8 +72,8 @@ ActiveRecord::Schema.define(version: 20140730113455) do
     t.datetime "updated_at"
   end
 
-  add_index "dances", ["attendee_id"], name: "index_dances_on_attendee_id"
-  add_index "dances", ["partner_id"], name: "index_dances_on_partner_id"
+  add_index "dances", ["attendee_id"], name: "index_dances_on_attendee_id", using: :btree
+  add_index "dances", ["partner_id"], name: "index_dances_on_partner_id", using: :btree
 
   create_table "events", force: true do |t|
     t.datetime "datetime"
@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 20140730113455) do
   end
 
   create_table "messages", force: true do |t|
-    t.text     "message",            null: false
+    t.text     "message",                        null: false
     t.integer  "attendee_id"
     t.datetime "datetime"
     t.datetime "created_at"
@@ -104,10 +104,10 @@ ActiveRecord::Schema.define(version: 20140730113455) do
     t.integer  "cached_votes_score", default: 0
   end
 
-  add_index "messages", ["attendee_id"], name: "index_messages_on_attendee_id"
-  add_index "messages", ["cached_votes_down"], name: "index_messages_on_cached_votes_down"
-  add_index "messages", ["cached_votes_score"], name: "index_messages_on_cached_votes_score"
-  add_index "messages", ["cached_votes_up"], name: "index_messages_on_cached_votes_up"
+  add_index "messages", ["attendee_id"], name: "index_messages_on_attendee_id", using: :btree
+  add_index "messages", ["cached_votes_down"], name: "index_messages_on_cached_votes_down", using: :btree
+  add_index "messages", ["cached_votes_score"], name: "index_messages_on_cached_votes_score", using: :btree
+  add_index "messages", ["cached_votes_up"], name: "index_messages_on_cached_votes_up", using: :btree
 
   create_table "pictures", force: true do |t|
     t.string   "name",               default: "", null: false
@@ -123,10 +123,10 @@ ActiveRecord::Schema.define(version: 20140730113455) do
     t.integer  "cached_votes_score", default: 0
   end
 
-  add_index "pictures", ["attendee_id"], name: "index_pictures_on_attendee_id"
-  add_index "pictures", ["cached_votes_down"], name: "index_pictures_on_cached_votes_down"
-  add_index "pictures", ["cached_votes_score"], name: "index_pictures_on_cached_votes_score"
-  add_index "pictures", ["cached_votes_up"], name: "index_pictures_on_cached_votes_up"
+  add_index "pictures", ["attendee_id"], name: "index_pictures_on_attendee_id", using: :btree
+  add_index "pictures", ["cached_votes_down"], name: "index_pictures_on_cached_votes_down", using: :btree
+  add_index "pictures", ["cached_votes_score"], name: "index_pictures_on_cached_votes_score", using: :btree
+  add_index "pictures", ["cached_votes_up"], name: "index_pictures_on_cached_votes_up", using: :btree
 
   create_table "songs", force: true do |t|
     t.string   "artist"
@@ -140,9 +140,9 @@ ActiveRecord::Schema.define(version: 20140730113455) do
     t.integer  "cached_votes_score", default: 0
   end
 
-  add_index "songs", ["cached_votes_down"], name: "index_songs_on_cached_votes_down"
-  add_index "songs", ["cached_votes_score"], name: "index_songs_on_cached_votes_score"
-  add_index "songs", ["cached_votes_up"], name: "index_songs_on_cached_votes_up"
+  add_index "songs", ["cached_votes_down"], name: "index_songs_on_cached_votes_down", using: :btree
+  add_index "songs", ["cached_votes_score"], name: "index_songs_on_cached_votes_score", using: :btree
+  add_index "songs", ["cached_votes_up"], name: "index_songs_on_cached_votes_up", using: :btree
 
   create_table "tables", force: true do |t|
     t.string   "name"
@@ -151,14 +151,21 @@ ActiveRecord::Schema.define(version: 20140730113455) do
     t.integer  "wedding_id"
   end
 
-  add_index "tables", ["wedding_id"], name: "index_tables_on_wedding_id"
+  add_index "tables", ["wedding_id"], name: "index_tables_on_wedding_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "username"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "type"
+    t.string   "email"
+    t.string   "encrypted_password", limit: 128
+    t.string   "confirmation_token", limit: 128
+    t.string   "remember_token",     limit: 128
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", length: {"email"=>191}, using: :btree
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
 
   create_table "votes", force: true do |t|
     t.integer  "votable_id"
@@ -172,8 +179,8 @@ ActiveRecord::Schema.define(version: 20140730113455) do
     t.datetime "updated_at"
   end
 
-  add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
-  add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
+  add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", length: {"votable_id"=>nil, "votable_type"=>191, "vote_scope"=>191}, using: :btree
+  add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", length: {"voter_id"=>nil, "voter_type"=>191, "vote_scope"=>191}, using: :btree
 
   create_table "weddings", force: true do |t|
     t.datetime "created_at"

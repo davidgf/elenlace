@@ -33,11 +33,11 @@ class PicturesController < ApplicationController
   # POST /pictures.json
   def create
     @picture = Picture.new(picture_params)
-    @picture.attendee = current_user
+    @picture.attendee = current_attendee
 
     respond_to do |format|
       if @picture.save
-        @picture.create_activity :create, owner: @picture.attendee if (current_user.is_groom? or current_user.is_bride?)
+        @picture.create_activity :create, owner: @picture.attendee if (current_attendee.is_groom? or current_attendee.is_bride?)
         format.html { redirect_to pictures_path, notice: 'Foto subida correctamente' }
         format.json { render action: 'show', status: :created, location: @picture }
       else
@@ -72,7 +72,7 @@ class PicturesController < ApplicationController
   end
 
   def upvote
-    @picture.upvote_by current_user.becomes(Attendee)
+    @picture.upvote_by current_attendee.becomes(Attendee)
     respond_to do |format|
       format.html { redirect_to @picture, notice: 'Foto votada positivamente' }
       format.json
@@ -80,7 +80,7 @@ class PicturesController < ApplicationController
   end
 
   def downvote
-    @picture.downvote_by current_user.becomes(Attendee)
+    @picture.downvote_by current_attendee.becomes(Attendee)
     respond_to do |format|
       format.html { redirect_to @picture, notice: 'Foto votada negativamente' }
       format.json

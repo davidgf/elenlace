@@ -1,14 +1,11 @@
 Elenlace::Application.routes.draw do
-  get "pages/home"
+  get "home" => "pages#home", as: :home
   get "wedding" => "pages#wedding"
   get "events" => "pages#events"
   get "gallery" => "pages#gallery"
-  get "log_in" => "sessions#new"
-  get "log_out" => "sessions#destroy"
-  resources :weddings do
-    resources :guests
-    resources :sessions
-  end
+  get "log_in" => "wedding_sessions#new"
+  get "log_out" => "wedding_sessions#destroy"
+  post 'wedding_sessions/:id' => 'wedding_sessions#create', as: :sessions
 
   resources :pictures do
     member do
@@ -36,7 +33,6 @@ Elenlace::Application.routes.draw do
 
   resources :dances
 
-  resources :users
 
   resources :guests
 
@@ -46,7 +42,7 @@ Elenlace::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'pages#home'
+  root 'pages#landing'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

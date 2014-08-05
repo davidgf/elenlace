@@ -16,7 +16,7 @@
         <h4><%= picture.name %></h4>
 
         <p>
-          <% disabled = current_user.voted_for?(picture) ? "disabled" : nil %>
+          <% disabled = current_attendee.voted_for?(picture) ? "disabled" : nil %>
           <%= link_to upvote_picture_path(picture), method: :post, class: "btn btn-primary",
                 role: "button", disabled: disabled do %>
             <span class="glyphicon glyphicon-thumbs-up"></span> Me gusta (<%= picture.cached_votes_up %>)

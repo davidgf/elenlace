@@ -32,11 +32,11 @@ class MessagesController < ApplicationController
   # POST /messages
   # POST /messages.json
   def create
-    @message.attendee = current_user
+    @message.attendee = current_attendee
 
     respond_to do |format|
       if @message.save
-        @message.create_activity :create, owner: @message.attendee if (current_user.is_groom? or current_user.is_bride?)
+        @message.create_activity :create, owner: @message.attendee if (current_attendee.is_groom? or current_attendee.is_bride?)
         format.html { redirect_to messages_path, notice: 'Mensaje enviado' }
         format.json { render action: 'show', status: :created, location: @message }
       else
@@ -71,7 +71,7 @@ class MessagesController < ApplicationController
   end
 
   def upvote
-    @message.upvote_by current_user.becomes(Attendee)
+    @message.upvote_by current_attendee.becomes(Attendee)
     respond_to do |format|
       format.html { redirect_to @message, notice: 'Mensaje votado positivamente' }
       format.json
@@ -79,7 +79,7 @@ class MessagesController < ApplicationController
   end
 
   def downvote
-    @message.downvote_by current_user.becomes(Attendee)
+    @message.downvote_by current_attendee.becomes(Attendee)
     respond_to do |format|
       format.html { redirect_to @message, notice: 'Mensaje votado negativamente' }
       format.json

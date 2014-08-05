@@ -204,7 +204,7 @@
       <tr <% if @gris %>
       class='active'
       <% end %>>
-        <% disabled = current_user.voted_for?(song) ? "disabled" : nil %>
+        <% disabled = current_attendee.voted_for?(song) ? "disabled" : nil %>
         <td colspan="3">
           <%= link_to upvote_song_path(song), method: :post, class: "btn btn-link",
                 role: "button", disabled: disabled do %>

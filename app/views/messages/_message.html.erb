@@ -13,7 +13,7 @@
       </div>
       <div class="caption">
         <p>
-          <% disabled = current_user.voted_for?(message) ? "disabled" : nil %>
+          <% disabled = current_attendee.voted_for?(message) ? "disabled" : nil %>
           <%= link_to upvote_message_path(message), method: :post, class: "btn btn-primary",
                 role: "button", disabled: disabled do %>
             <span class="glyphicon glyphicon-thumbs-up"></span> Me gusta (<%= message.cached_votes_up %>)

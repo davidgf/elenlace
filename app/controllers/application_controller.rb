@@ -1,24 +1,28 @@
 class ApplicationController < ActionController::Base
+  include Clearance::Controller
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  helper_method :require_user, :set_wedding, :current_user
+  helper_method :require_user, :set_wedding, :current_attendee
   
 private
-  def current_user
-    @current_user ||= Attendee.find_by_auth_token(cookies[:auth_token]) if cookies[:auth_token]
+  def current_attendee
+    @current_attendee ||= Attendee.find_by_auth_token(cookies[:auth_token]) if cookies[:auth_token]
   end
 
   def require_user
-    unless current_user
+    unless current_attendee
         flash.now.alert = "Contraseña incorrecta"
         redirect_to log_in_path
     end
   end
 
   def set_wedding
-    @wedding = current_user.wedding if current_user
+    @wedding = current_attendee.wedding if current_attendee
   end
 
+  def current_ability
+    @current_ability ||= Ability.new(current_attendee)
+  end
 end

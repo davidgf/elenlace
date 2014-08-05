@@ -35,7 +35,7 @@
 <% end %>
 <br>
 
-<% if @guest == current_user %>
+<% if @guest == current_attendee %>
   <div class="row">
     <div class="col-md-12">
       <%= link_to log_out_path do %>

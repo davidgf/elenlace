@@ -1,16 +1,6 @@
-<% content_for :body_class, "bodyLogin" %>
+<div id='clearance' class='sign-in'>
+  <h2><%= t '.title' %></h2>
 
-<div class="row form-signin">
-	<%= image_tag "Diego&Sandra.png", class: "img-responsive" %>
+  <%= render :partial => '/sessions/form' %>
+
 </div>
-
-<%= form_tag wedding_sessions_path(@wedding), class:'form-signin', role:'form' do %>
-    <%= password_field_tag :password, '', class: 'form-control', placeholder: 'Contraseña' %>
-
-  <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, :id => "flash#{name}", class:"alert alert-danger" %>
-  <% end %>
-
-  <%= button_tag(type: 'submit', class: "btn btn-lg btn-primary btn-block") do %>Entrar<% end %>
-
-<% end %>
