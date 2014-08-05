@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Bodorrio::Application.load_tasks
+Elenlace::Application.load_tasks

@@ -1,4 +1,4 @@
-Bodorrio::Application.routes.draw do
+Elenlace::Application.routes.draw do
   get "pages/home"
   get "wedding" => "pages#wedding"
   get "events" => "pages#events"

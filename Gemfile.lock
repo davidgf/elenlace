@@ -125,6 +125,8 @@ GEM
     rdoc (4.1.1)
       json (~> 1.4)
     ref (1.0.5)
+    rename (1.0.2)
+      rails (>= 3.0.0)
     rumoji (0.3.1)
     sass (3.2.19)
     sass-rails (4.0.3)
@@ -192,6 +194,7 @@ DEPENDENCIES
   public_activity
   rails (= 4.0.2)
   rails-timeago (~> 2.0)
+  rename
   rumoji
   sass-rails (~> 4.0.0)
   sdoc
