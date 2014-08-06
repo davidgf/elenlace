@@ -8,6 +8,10 @@ FactoryGirl.define do
         name "table"
     end
 
+    sequence :email do |n|
+        "user#{n}@example.com"
+    end
+
     factory :user do
         username "usuario"
         email
@@ -16,6 +20,8 @@ FactoryGirl.define do
 
     factory :admin do
         username "administrador"
+        email
+        password "adminpass"
     end
 
     factory :attendee do

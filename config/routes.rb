@@ -44,6 +44,13 @@ Elenlace::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'pages#landing'
 
+  namespace :admin do
+    get '', to: 'dashboard#index', as: :dashboard
+  end
+
+  scope '/admin' do
+    get 'log_in' => 'clearance/sessions#new', as: :admin_log_in
+  end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

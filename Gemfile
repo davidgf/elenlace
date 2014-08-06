@@ -64,11 +64,13 @@ group :development do
     gem 'capistrano-rvm'
     gem 'capistrano-bundler'
     gem 'capistrano-rails'
+    gem 'autotest'
+    gem 'autotest-rails'
 end
 
 # Use debugger
 gem 'byebug', group: [:development, :test]
 group :development, :test do
-    # gem 'debugger'
     gem 'factory_girl_rails'
+    gem 'shoulda-context'
 end

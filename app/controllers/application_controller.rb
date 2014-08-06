@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  helper_method :require_user, :set_wedding, :current_attendee
+  helper_method :require_user, :set_wedding, :current_attendee, :require_admin
   
 private
   def current_attendee
@@ -15,6 +15,12 @@ private
     unless current_attendee
         flash.now.alert = "Contraseña incorrecta"
         redirect_to log_in_path
+    end
+  end
+
+  def require_admin_user
+    unless current_user
+      redirect_to admin_log_in_path
     end
   end
 
