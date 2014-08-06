@@ -10,6 +10,8 @@ FactoryGirl.define do
 
     factory :user do
         username "usuario"
+        email
+        password 'password'
     end
 
     factory :admin do

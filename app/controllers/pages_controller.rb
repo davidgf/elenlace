@@ -8,8 +8,6 @@ class PagesController < ApplicationController
       redirect_to home_path
     elsif current_user
       render text: "logged user"
-    else
-      render text: "merdaa"
     end
 
   end
