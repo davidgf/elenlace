@@ -46,6 +46,7 @@ Elenlace::Application.routes.draw do
 
   namespace :admin do
     get '', to: 'dashboard#index', as: :dashboard
+    resources :weddings
   end
 
   scope '/admin' do
