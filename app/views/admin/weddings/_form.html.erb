@@ -1,10 +1,10 @@
-<%= form_for(@admin_wedding) do |f| %>
-  <% if @admin_wedding.errors.any? %>
+<%= form_for [:admin, @wedding] do |f| %>
+  <% if @wedding.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@admin_wedding.errors.count, "error") %> prohibited this admin_wedding from being saved:</h2>
+      <h2><%= pluralize(@wedding.errors.count, "error") %> prohibited this wedding from being saved:</h2>
 
       <ul>
-      <% @admin_wedding.errors.full_messages.each do |msg| %>
+      <% @wedding.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>

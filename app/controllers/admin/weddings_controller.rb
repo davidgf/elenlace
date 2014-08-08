@@ -1,11 +1,12 @@
 class Admin::WeddingsController < ApplicationController
   layout "admin"
-  before_action :set_admin_wedding, only: [:show, :edit, :update, :destroy]
+  before_action :require_admin_user
+  before_action :set_wedding, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/weddings
   # GET /admin/weddings.json
   def index
-    @admin_weddings = Admin::Wedding.all
+    @weddings = Wedding.all
   end
 
   # GET /admin/weddings/1
@@ -15,7 +16,7 @@ class Admin::WeddingsController < ApplicationController
 
   # GET /admin/weddings/new
   def new
-    @admin_wedding = Admin::Wedding.new
+    @wedding = Wedding.new
   end
 
   # GET /admin/weddings/1/edit
@@ -25,15 +26,15 @@ class Admin::WeddingsController < ApplicationController
   # POST /admin/weddings
   # POST /admin/weddings.json
   def create
-    @admin_wedding = Admin::Wedding.new(admin_wedding_params)
+    @wedding = Wedding.new(wedding_params)
 
     respond_to do |format|
-      if @admin_wedding.save
-        format.html { redirect_to @admin_wedding, notice: 'Wedding was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @admin_wedding }
+      if @wedding.save
+        format.html { redirect_to admin_wedding_path(@wedding), notice: 'Wedding was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @wedding }
       else
         format.html { render action: 'new' }
-        format.json { render json: @admin_wedding.errors, status: :unprocessable_entity }
+        format.json { render json: @wedding.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -42,12 +43,12 @@ class Admin::WeddingsController < ApplicationController
   # PATCH/PUT /admin/weddings/1.json
   def update
     respond_to do |format|
-      if @admin_wedding.update(admin_wedding_params)
-        format.html { redirect_to @admin_wedding, notice: 'Wedding was successfully updated.' }
+      if @wedding.update(wedding_params)
+        format.html { redirect_to admin_wedding_path(@wedding), notice: 'Wedding was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @admin_wedding.errors, status: :unprocessable_entity }
+        format.json { render json: @wedding.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -55,7 +56,7 @@ class Admin::WeddingsController < ApplicationController
   # DELETE /admin/weddings/1
   # DELETE /admin/weddings/1.json
   def destroy
-    @admin_wedding.destroy
+    @wedding.destroy
     respond_to do |format|
       format.html { redirect_to admin_weddings_url }
       format.json { head :no_content }
@@ -64,12 +65,12 @@ class Admin::WeddingsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_admin_wedding
-      @admin_wedding = Admin::Wedding.find(params[:id])
+    def set_wedding
+      @wedding = Wedding.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def admin_wedding_params
-      params[:admin_wedding]
+    def wedding_params
+      params[:wedding]
     end
 end

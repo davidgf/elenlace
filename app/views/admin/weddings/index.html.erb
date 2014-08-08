@@ -10,11 +10,11 @@
   </thead>
 
   <tbody>
-    <% @admin_weddings.each do |admin_wedding| %>
+    <% @weddings.each do |admin_wedding| %>
       <tr>
-        <td><%= link_to 'Show', admin_wedding %></td>
+        <td><%= link_to 'Show', admin_wedding_path(admin_wedding) %></td>
         <td><%= link_to 'Edit', edit_admin_wedding_path(admin_wedding) %></td>
-        <td><%= link_to 'Destroy', admin_wedding, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', admin_wedding_path(admin_wedding), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

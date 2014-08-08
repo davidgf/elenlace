@@ -1,6 +1,7 @@
 ENV["RAILS_ENV"] ||= "test"
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
+require 'clearance/test_unit'
 
 class ActiveSupport::TestCase
   ActiveRecord::Migration.check_pending!
@@ -10,7 +11,7 @@ class ActiveSupport::TestCase
   # Note: You'll currently still have to declare fixtures explicitly in integration tests
   # -- they do not yet inherit this setting
   fixtures :all
-  require 'clearance/testing'
+  # require 'clearance/testing/deny_access_matcher'
 
   def set_current_attendee(type)
     attendee = FactoryGirl.create(type)
