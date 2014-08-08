@@ -1,9 +1,8 @@
 class Attendee < ActiveRecord::Base
-
+    belongs_to :wedding
     validates :username, :wedding, :password, presence: true
     validates :password, uniqueness: { scope: :wedding, message: "Should be unique"}
     validate :role_not_changed
-    belongs_to :wedding
     belongs_to :table
     has_many :dances, dependent: :destroy
     has_many :partners, through: :dances

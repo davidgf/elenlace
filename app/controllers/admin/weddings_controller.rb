@@ -17,6 +17,8 @@ class Admin::WeddingsController < ApplicationController
   # GET /admin/weddings/new
   def new
     @wedding = Wedding.new
+    @wedding.build_groom
+    @wedding.build_bride
   end
 
   # GET /admin/weddings/1/edit
@@ -27,6 +29,9 @@ class Admin::WeddingsController < ApplicationController
   # POST /admin/weddings.json
   def create
     @wedding = Wedding.new(wedding_params)
+
+    @wedding.bride.wedding = @wedding
+    @wedding.groom.wedding = @wedding
 
     respond_to do |format|
       if @wedding.save
@@ -71,6 +76,6 @@ class Admin::WeddingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def wedding_params
-      params[:wedding]
+      params.require(:wedding).permit(bride_attributes: [:username, :password], groom_attributes: [:username, :password])
     end
 end

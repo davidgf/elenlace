@@ -1,4 +1,14 @@
 <p id="notice"><%= notice %></p>
 
+<h2>El Novio</h2>
+<% if @wedding.groom %>
+	<p><%= @wedding.groom.username %></p>
+<% end %>
+
+<h2>La Novia</h2>
+<% if @wedding.bride %>
+	<p><%= @wedding.bride.username %></p>
+<% end %>
+
 <%= link_to 'Edit', edit_admin_wedding_path(@wedding) %> |
 <%= link_to 'Back', admin_weddings_path %>
