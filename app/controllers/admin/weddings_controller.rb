@@ -30,9 +30,6 @@ class Admin::WeddingsController < ApplicationController
   def create
     @wedding = Wedding.new(wedding_params)
 
-    @wedding.bride.wedding = @wedding
-    @wedding.groom.wedding = @wedding
-
     respond_to do |format|
       if @wedding.save
         format.html { redirect_to admin_wedding_path(@wedding), notice: 'Wedding was successfully created.' }
