@@ -9,7 +9,7 @@ class AccountsController < ApplicationController
     end
 
     def update
-        if current_user.update(attendee_params)
+        if current_attendee.update(attendee_params)
             redirect_to account_path
         else
             render action: 'edit'

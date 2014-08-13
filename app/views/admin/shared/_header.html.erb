@@ -1,0 +1,31 @@
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to admin_dashboard_path, class: "navbar-brand" do %>
+        <%= image_tag "dys.png" %>
+      <% end %>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="<%= 'active' if params[:controller] == 'admin/weddings' %>">
+            <%= link_to admin_weddings_path do %>
+                <span class="glyphicon glyphicon-heart"></span> Bodas
+            <% end %>
+        </li>
+
+        <li>
+            <%= link_to sign_out_path, method: :delete do %>
+                <span class="glyphicon glyphicon-log-out"></span> Salir
+            <% end %>
+        </li>
+      </ul>
+
+    </div><!--/.nav-collapse -->
+  </div>
+</div>

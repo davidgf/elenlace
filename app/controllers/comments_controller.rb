@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
 
     def create
         @comment = Comment.new(comment_params)
-        @comment.attendee = current_user
+        @comment.attendee = current_attendee
         @comment.save
         @commentable = get_commentable(comment_params[:commentable_type], comment_params[:commentable_id])
         @commentable.touch

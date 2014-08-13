@@ -1,0 +1,35 @@
+<%= form_for [:admin, @wedding] do |f| %>
+  <% if @wedding.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@wedding.errors.count, "error") %> prohibited this wedding from being saved:</h2>
+
+      <ul>
+      <% @wedding.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.fields_for :groom do |groom_form| %>
+    <div class="form-group">
+      <%= groom_form.text_field :username, class: 'form-control', placeholder: 'Nombre del novio' %>
+    </div>
+    <div class="form-group">
+      <%= groom_form.text_field :password, class: 'form-control', placeholder: 'Contraseña del novio' %>
+    </div>
+  <% end %>
+
+  <%= f.fields_for :bride do |bride_form| %>
+    <div class="form-group">
+      <%= bride_form.text_field :username, class: 'form-control', placeholder: 'Nombre de la novia' %>
+    </div>
+    <div class="form-group">
+      <%= bride_form.text_field :password, class: 'form-control', placeholder: 'Contraseña de la novia' %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

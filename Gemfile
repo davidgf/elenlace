@@ -4,8 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.2'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', group: [:development, :test]
-gem 'mysql2', group: :production
+gem 'mysql2'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -65,11 +64,13 @@ group :development do
     gem 'capistrano-rvm'
     gem 'capistrano-bundler'
     gem 'capistrano-rails'
+    gem 'autotest'
+    gem 'autotest-rails'
 end
 
 # Use debugger
 gem 'byebug', group: [:development, :test]
 group :development, :test do
-    # gem 'debugger'
     gem 'factory_girl_rails'
+    gem 'shoulda-context'
 end

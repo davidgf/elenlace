@@ -1,22 +1,9 @@
 class User < ActiveRecord::Base
+include Clearance::User
 
-    validates :username, presence: true
-
-    ROLES = %w[admin groom bride guest]
+    ROLES = %w[admin]
 
     def is_admin?
-        return false
-    end
-
-    def is_guest?
-        return false
-    end
-    
-    def is_groom?
-        return false
-    end
-    
-    def is_bride?
         return false
     end
 

@@ -4,7 +4,7 @@
 	<%= image_tag "Diego&Sandra.png", class: "img-responsive" %>
 </div>
 
-<%= form_tag wedding_sessions_path(@wedding), class:'form-signin', role:'form' do %>
+<%= form_tag sessions_path(@wedding), class:'form-signin', role:'form' do %>
     <%= password_field_tag :password, '', class: 'form-control', placeholder: 'Contraseña' %>
 
   <% flash.each do |name, msg| %>

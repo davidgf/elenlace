@@ -13,7 +13,7 @@ class SongsController < ApplicationController
 
   def create
     @song.wedding = @wedding
-    @song.attendee = current_user
+    @song.attendee = current_attendee
 
     respond_to do |format|
       if @song.save
@@ -30,7 +30,7 @@ class SongsController < ApplicationController
   end
 
   def upvote
-    @song.upvote_by current_user.becomes(Attendee)
+    @song.upvote_by current_attendee.becomes(Attendee)
     respond_to do |format|
       format.html { redirect_to dances_path, notice: 'Canción votada positivamente' }
       format.json
@@ -38,7 +38,7 @@ class SongsController < ApplicationController
   end
 
   def downvote
-    @song.downvote_by current_user.becomes(Attendee)
+    @song.downvote_by current_attendee.becomes(Attendee)
     respond_to do |format|
       format.html { redirect_to dances_path, notice: 'Canción votada negativamente' }
       format.json

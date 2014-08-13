@@ -1,7 +1,16 @@
 class PagesController < ApplicationController
 
-  before_action :require_user
-  before_action :set_wedding
+  before_action :require_user, except: :landing
+  before_action :set_wedding, except: :landing
+
+  def landing
+    if current_attendee
+      redirect_to home_path
+    elsif current_user
+      redirect_to admin_dashboard_path
+    end
+
+  end
 
   def home
     @resources = PublicActivity::Activity.order("created_at desc").page(params[:page]).per_page(15)

@@ -6,9 +6,9 @@ class DancesController < ApplicationController
   # GET /dances
   # GET /dances.json
   def index
-    @dances = current_user.dances
-    @partner_of = Dance.where(:partner => current_user)
-    @matches = Dance.matches_of current_user
+    @dances = current_attendee.dances
+    @partner_of = Dance.where(:partner => current_attendee)
+    @matches = Dance.matches_of current_attendee
     @songs = @wedding.songs
   end
 
@@ -30,7 +30,7 @@ class DancesController < ApplicationController
   # POST /dances.json
   def create
     @dance = Dance.new(dance_params)
-    @dance.attendee = current_user
+    @dance.attendee = current_attendee
 
     respond_to do |format|
       if @dance.save
@@ -79,6 +79,6 @@ class DancesController < ApplicationController
     end
 
     def set_autocomplete_data
-      @autocomplete_data = current_user.wedding.attendees.map { |a| {label: a.username, value: a.id} }
+      @autocomplete_data = current_attendee.wedding.attendees.map { |a| {label: a.username, value: a.id} }
     end
 end

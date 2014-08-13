@@ -1,4 +1,4 @@
-class SessionsController < ApplicationController
+class WeddingSessionsController < ApplicationController
   before_action :set_wedding, only: [:new, :create]
 
   def new
@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     user = Attendee.authenticate(@wedding.id, params[:password])
     if user
         cookies.permanent[:auth_token] = user.auth_token
-        redirect_to root_url
+        redirect_to home_url
     else
         flash.now.alert = "Contraseña incorrecta"
         render "new"
