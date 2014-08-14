@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140805151832) do
+ActiveRecord::Schema.define(version: 20140814135459) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -185,6 +185,11 @@ ActiveRecord::Schema.define(version: 20140805151832) do
   create_table "weddings", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
+    t.string   "bride_name"
+    t.string   "groom_name"
   end
+
+  add_index "weddings", ["slug"], name: "index_weddings_on_slug", length: {"slug"=>191}, using: :btree
 
 end

@@ -2,6 +2,9 @@ class WeddingSessionsController < ApplicationController
   before_action :set_wedding, only: [:new, :create]
 
   def new
+    if current_attendee
+      redirect_to home_url
+    end
   end
 
   def create
@@ -23,10 +26,6 @@ class WeddingSessionsController < ApplicationController
 private
     # Use callbacks to share common setup or constraints between actions.
     def set_wedding
-        if params[:id] then
-            @wedding = Wedding.find(params[:id])
-        else
-            @wedding = Wedding.first
-        end
+        @wedding = Wedding.friendly.find(params[:id])
     end
 end

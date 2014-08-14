@@ -10,6 +10,12 @@
       </ul>
     </div>
   <% end %>
+  <div class="form-group">
+    <%= f.text_field :groom_name, class: 'form-control', placeholder: 'Nombre del novio' %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :bride_name, class: 'form-control', placeholder: 'Nombre de la novia' %>
+  </div>
 
   <%= f.fields_for :groom do |groom_form| %>
     <div class="form-group">
