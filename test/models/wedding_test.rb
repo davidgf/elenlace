@@ -30,4 +30,14 @@ class WeddingTest < ActiveSupport::TestCase
     end
   end
 
+  test "cannot be saved without the groom name" do
+    w = FactoryGirl.build(:wedding, groom_name: nil)
+    assert_not w.save, "Wedding saved without groom name"
+  end
+
+  test "cannot be saved without the bride name" do
+    w = FactoryGirl.build(:wedding, bride_name: nil)
+    assert_not w.save, "Wedding saved without bride name"
+  end
+
 end

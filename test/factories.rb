@@ -1,6 +1,8 @@
 FactoryGirl.define do
     
     factory :wedding do
+        groom_name "groom name"
+        bride_name "bride name"
     end
     
     factory :table do

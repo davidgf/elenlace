@@ -17,8 +17,6 @@ class Admin::WeddingsController < ApplicationController
   # GET /admin/weddings/new
   def new
     @wedding = Wedding.new
-    @wedding.build_groom
-    @wedding.build_bride
   end
 
   # GET /admin/weddings/1/edit
@@ -68,11 +66,11 @@ class Admin::WeddingsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_wedding
-      @wedding = Wedding.find(params[:id])
+      @wedding = Wedding.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def wedding_params
-      params.require(:wedding).permit(bride_attributes: [:username, :password], groom_attributes: [:username, :password])
+      params.require(:wedding).permit(:groom_name, :bride_name, :bride_surname, :groom_surname)
     end
 end

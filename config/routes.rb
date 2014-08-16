@@ -3,7 +3,6 @@ Elenlace::Application.routes.draw do
   get "wedding" => "pages#wedding"
   get "events" => "pages#events"
   get "gallery" => "pages#gallery"
-  get "log_in" => "wedding_sessions#new"
   get "log_out" => "wedding_sessions#destroy"
   post 'wedding_sessions/:id' => 'wedding_sessions#create', as: :sessions
 
@@ -52,6 +51,9 @@ Elenlace::Application.routes.draw do
   scope '/admin' do
     get 'log_in' => 'clearance/sessions#new', as: :admin_log_in
   end
+
+  get "/:id" => "wedding_sessions#new"
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

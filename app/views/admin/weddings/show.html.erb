@@ -10,5 +10,8 @@
 	<p><%= @wedding.bride.username %></p>
 <% end %>
 
+<h2>URL</h2>
+<p><%= @wedding.slug %></p>
+
 <%= link_to 'Edit', edit_admin_wedding_path(@wedding) %> |
 <%= link_to 'Back', admin_weddings_path %>
