@@ -1,6 +1,7 @@
 class Message < ActiveRecord::Base
     include PublicActivity::Common
     belongs_to :attendee
+    delegate :wedding, to: :attendee
     validates :attendee, presence: true
     acts_as_votable
     acts_as_commentable

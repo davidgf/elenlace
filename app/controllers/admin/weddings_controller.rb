@@ -27,6 +27,10 @@ class Admin::WeddingsController < ApplicationController
   # POST /admin/weddings.json
   def create
     @wedding = Wedding.new(wedding_params)
+    bride = Bride.new(username: @wedding.bride_name, password: 'lanovia')
+    groom = Groom.new(username: @wedding.groom_name, password: 'elnovio')
+    @wedding.groom = groom
+    @wedding.bride = bride
 
     respond_to do |format|
       if @wedding.save

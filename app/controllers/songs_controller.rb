@@ -2,7 +2,7 @@ class SongsController < ApplicationController
 
   before_action :require_user
   before_action :set_wedding
-  load_and_authorize_resource
+  load_and_authorize_resource except: [:new]
 
   def new
     @song = Song.new

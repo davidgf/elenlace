@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
   def index
-    @messages = @messages.order('created_at DESC').page(params[:page])
+    @messages = @wedding.messages.order('created_at DESC').page(params[:page])
     respond_to do |format|
       format.html {
           if request.xhr?

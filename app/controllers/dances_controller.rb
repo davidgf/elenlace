@@ -1,7 +1,7 @@
 class DancesController < ApplicationController
   before_action :require_user
   before_action :set_wedding, only: [:index, :new, :edit, :create]
-  load_and_authorize_resource except: :new
+  load_and_authorize_resource except: [:new, :create]
 
   # GET /dances
   # GET /dances.json
@@ -29,8 +29,7 @@ class DancesController < ApplicationController
   # POST /dances
   # POST /dances.json
   def create
-    @dance = Dance.new(dance_params)
-    @dance.attendee = current_attendee
+    @dance = Dance.new(dance_params.merge(attendee: current_attendee))
 
     respond_to do |format|
       if @dance.save
