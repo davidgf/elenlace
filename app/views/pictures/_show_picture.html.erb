@@ -1,0 +1,51 @@
+<% if picture %>
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <div class="media">
+        <%= link_to guest_path(picture.attendee), class: 'pull-left' do %>
+            <%= image_tag picture.attendee.avatar.url(:thumb), class: "media-object", alt: picture.attendee.username %>
+        <% end %>
+        <div class="media-body">
+          <h3 class="media-heading"><%= link_to guest_path(picture.attendee) do %><%= picture.attendee.username %><% end %></h3>
+        </div>
+      </div>
+      <%= image_tag picture.image.url(:medium), class: 'media-picture', data: {original: picture.image.url(:big)} %>
+      <div class="caption">
+        <p><small>
+  <%= timeago_tag picture.created_at, :limit => 10.days.ago, :lang => :es %></small></p>
+        <h4><%= picture.name %></h4>
+
+        <p>
+          <% disabled = current_attendee.voted_for?(picture) ? "disabled" : nil %>
+          <%= link_to upvote_picture_path(picture), method: :post, class: "btn btn-primary",
+                role: "button", disabled: disabled do %>
+            <span class="glyphicon glyphicon-thumbs-up"></span> Me gusta (<%= picture.cached_votes_up %>)
+          <% end %>
+          <%= link_to downvote_picture_path(picture), method: :post, class: "btn btn-default",
+                role: "button", disabled: disabled do %>
+            <span class="glyphicon glyphicon-thumbs-down"></span> No me gusta (<%= picture.cached_votes_down %>)
+          <% end %>
+        </p>
+
+        <% if picture.cached_votes_up > 0 %>
+          <p>Le gusta a: 
+            <% picture.get_upvotes.each_with_index do |vote, i| %>
+              <% if i>0 %>, <% end %>
+              <%= link_to guest_path(vote.voter) do %><%= vote.voter.username %><% end %>
+            <% end %>
+          </p>
+        <% end %>
+        <% if picture.cached_votes_down > 0 %>
+          <p>No le gusta a: 
+            <% picture.get_downvotes.each_with_index do |vote, i| %>
+              <% if i>0 %>, <% end %>
+              <%= link_to guest_path(vote.voter) do %><%= vote.voter.username %><% end %>
+            <% end %>
+          </p>
+        <% end %>
+        <%= render partial: 'comments/load_comments', locals: { commentable: picture} %>
+
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -1,7 +1,8 @@
 class MessagesController < ApplicationController
   before_action :require_user
   before_action :set_wedding
-  load_and_authorize_resource
+  load_and_authorize_resource except: [:new, :create]
+  authorize_resource only: [:new, :create]
 
   # GET /messages
   # GET /messages.json
@@ -23,6 +24,7 @@ class MessagesController < ApplicationController
 
   # GET /messages/new
   def new
+    @message = Message.new
   end
 
   # GET /messages/1/edit
@@ -32,6 +34,7 @@ class MessagesController < ApplicationController
   # POST /messages
   # POST /messages.json
   def create
+    @message = Message.new(message_params)
     @message.attendee = current_attendee
 
     respond_to do |format|

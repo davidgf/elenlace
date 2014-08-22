@@ -1,7 +1,8 @@
 class PicturesController < ApplicationController
   before_action :require_user
   before_action :set_wedding
-  load_and_authorize_resource
+  load_and_authorize_resource except: [:new, :create]
+  authorize_resource only: [:new, :create]
 
   # GET /pictures
   # GET /pictures.json
@@ -23,6 +24,7 @@ class PicturesController < ApplicationController
 
   # GET /pictures/new
   def new
+    @picture = Picture.new
   end
 
   # GET /pictures/1/edit

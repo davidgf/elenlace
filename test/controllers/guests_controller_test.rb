@@ -4,7 +4,7 @@ class GuestsControllerTest < ActionController::TestCase
   setup do
     user = FactoryGirl.create(:bride)
     cookies[:auth_token] = user.auth_token
-    @guest = FactoryGirl.create(:guest)
+    @guest = FactoryGirl.create(:guest, wedding: user.wedding)
   end
 
   test "should get index" do

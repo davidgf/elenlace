@@ -1,7 +1,7 @@
 class TablesController < ApplicationController
   before_action :require_user
-  # before_action :set_table, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource
+  load_and_authorize_resource except: [:new, :create]
+  authorize_resource only: [:new, :create]
   before_action :set_autocomplete_data, only: [:new, :edit]
 
   # GET /tables

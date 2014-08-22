@@ -9,11 +9,10 @@ class Ability
             end
         end
         if user.is_guest?
-            can [:read, :create], [Message, Picture, Dance, Comment]
-            can :read, [Attendee, Song, Table] do |resource|
+            can :create, [Message, Picture, Dance, Comment, Song]
+            can :read, [Attendee, Song, Table, Message, Picture, Dance, Comment] do |resource|
                 resource.wedding == user.wedding
             end
-            can :create, Song
             can :update, Attendee do |guest|
                 guest == user
             end

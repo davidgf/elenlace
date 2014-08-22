@@ -4,7 +4,7 @@ class TablesControllerTest < ActionController::TestCase
   setup do
     @user = FactoryGirl.create(:groom, password: "pass2")
     cookies[:auth_token] = @user.auth_token
-    @table = FactoryGirl.create(:table)
+    @table = FactoryGirl.create(:table, wedding: @user.wedding)
   end
 
   test "should get index" do

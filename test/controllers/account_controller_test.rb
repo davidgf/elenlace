@@ -6,14 +6,14 @@ class AccountsControllerTest < ActionController::TestCase
         
     end
 
-    test "should redirect to log in page if not authenticated" do
+    test "should redirect to root page if not authenticated" do
         ensure_not_authenticated
         get :show
-        assert_redirected_to log_in_path
+        assert_redirected_to root_path
         get :update
-        assert_redirected_to log_in_path
+        assert_redirected_to root_path
         get :edit
-        assert_redirected_to log_in_path
+        assert_redirected_to root_path
     end
 
     test "should show current attendee" do

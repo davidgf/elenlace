@@ -14,7 +14,7 @@ private
   def require_user
     unless current_attendee
         flash.now.alert = "Contraseña incorrecta"
-        redirect_to log_in_path
+        redirect_to root_path
     end
   end
 
