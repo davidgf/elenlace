@@ -11,5 +11,6 @@ class Comment < ActiveRecord::Base
   belongs_to :attendee
   auto_html_for :comment do
     youtube(:width => "100%", :height => "100%", :autoplay => false)
+    html_escape
   end
 end

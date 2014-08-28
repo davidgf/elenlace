@@ -8,6 +8,7 @@ class Message < ActiveRecord::Base
     self.per_page = 15
     auto_html_for :message do
         youtube(:width => "100%", :height => "100%", :autoplay => false)
+        html_escape
     end
 
 end
