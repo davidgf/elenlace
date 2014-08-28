@@ -10,5 +10,6 @@ class Message < ActiveRecord::Base
         youtube(:width => "100%", :height => "100%", :autoplay => false)
         html_escape
     end
+    has_many :notifications, as: :resource
 
 end

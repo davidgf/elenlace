@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140816170854) do
+ActiveRecord::Schema.define(version: 20140828123956) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -108,6 +108,18 @@ ActiveRecord::Schema.define(version: 20140816170854) do
   add_index "messages", ["cached_votes_down"], name: "index_messages_on_cached_votes_down", using: :btree
   add_index "messages", ["cached_votes_score"], name: "index_messages_on_cached_votes_score", using: :btree
   add_index "messages", ["cached_votes_up"], name: "index_messages_on_cached_votes_up", using: :btree
+
+  create_table "notifications", force: true do |t|
+    t.integer  "attendee_id"
+    t.integer  "resource_id"
+    t.string   "key"
+    t.boolean  "read"
+    t.datetime "created_at"
+    t.string   "resource_type"
+  end
+
+  add_index "notifications", ["attendee_id"], name: "index_notifications_on_attendee_id", using: :btree
+  add_index "notifications", ["resource_id"], name: "index_notifications_on_resource_id", using: :btree
 
   create_table "pictures", force: true do |t|
     t.string   "name",               default: "", null: false

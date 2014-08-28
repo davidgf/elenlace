@@ -8,4 +8,5 @@ class Picture < ActiveRecord::Base
     validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
     validates :attendee, :image, presence: true
     self.per_page = 15
+    has_many :notifications, as: :resource
 end
