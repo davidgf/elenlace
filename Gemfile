@@ -11,6 +11,8 @@ gem 'sass-rails', '~> 4.0.0'
 
 gem 'friendly_id'
 
+gem 'auto_html'
+
 gem 'bootstrap-sass'
 
 # Use Uglifier as compressor for JavaScript assets

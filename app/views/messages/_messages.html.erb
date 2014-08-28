@@ -1,5 +1,5 @@
 <% messages.each do |message| %>
-      <%= render partial: 'message', object: message %>
+      <%= render partial: 'thumb_message', locals: {message: message} %>
 <% end %>
 
 <div id="infinite-scrolling">

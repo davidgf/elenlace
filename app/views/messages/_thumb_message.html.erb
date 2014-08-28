@@ -1,0 +1,8 @@
+ <% if message %>
+   <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <%= render partial: 'messages/message', object: message %>
+      <%= render partial: 'comments/comments', locals: { commentable: message} %>
+    </div>
+  </div>
+<% end %>
