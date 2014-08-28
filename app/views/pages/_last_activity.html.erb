@@ -1,6 +1,6 @@
     <% resources.each do |resource| 
         if resource.trackable.is_a? Message %>
-            <%= render partial: 'messages/message', object: resource.trackable %>
+            <%= render partial: 'messages/thumb_message', locals: {message: resource.trackable} %>
         <% else %>
             <%= render partial: 'pictures/picture', object: resource.trackable %>
         <% end %>

@@ -1,46 +1,7 @@
  <% if message %>
    <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
-      <div class="media">
-        <%= link_to guest_path(message.attendee), class: 'pull-left' do %>
-            <%= image_tag message.attendee.avatar.url(:thumb), class: "media-object", alt: message.attendee.username %>
-        <% end %>
-        <div class="media-body">
-          <h3 class="media-heading"><%= link_to guest_path(message.attendee) do %><%= message.attendee.username %><% end %></h3>
-          <%= message.message %>
-          <p><small><%= timeago_tag message.created_at, :limit => 10.days.ago, :lang => :es %></small></p>
-        </div>
-      </div>
-      <div class="caption">
-        <p>
-          <% disabled = current_attendee.voted_for?(message) ? "disabled" : nil %>
-          <%= link_to upvote_message_path(message), method: :post, class: "btn btn-primary",
-                role: "button", disabled: disabled do %>
-            <span class="glyphicon glyphicon-thumbs-up"></span> Me gusta (<%= message.cached_votes_up %>)
-          <% end %>
-          <%= link_to downvote_message_path(message), method: :post, class: "btn btn-default",
-                role: "button", disabled: disabled  do %>
-            <span class="glyphicon glyphicon-thumbs-down"></span> No me gusta (<%= message.cached_votes_down %>)
-          <% end %>
-        </p>
-
-        <% if message.cached_votes_up > 0 %>
-          <p>Le gusta a: 
-            <% message.get_upvotes.each_with_index do |vote, i| %>
-              <% if i>0 %>, <% end %>
-              <%= link_to guest_path(vote.voter) do %><%= vote.voter.username %><% end %>
-            <% end %>
-          </p>
-        <% end %>
-        <% if message.cached_votes_down > 0 %>
-          <p>No le gusta a: 
-            <% message.get_downvotes.each_with_index do |vote, i| %>
-              <% if i>0 %>, <% end %>
-              <%= link_to guest_path(vote.voter) do %><%= vote.voter.username %><% end %>
-            <% end %>
-          </p>
-        <% end %>
-        
+        <%= render partial: 'message', object: message %>
         <%= render partial: 'comments/show_comments', locals: { commentable: message} %>
 
       </div>
