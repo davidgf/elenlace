@@ -93,11 +93,24 @@ FactoryGirl.define do
         title "MyString"
     end
 
-
     factory :notification do
         association :attendee, factory: :attendee
         association :resource, factory: :picture
         key "Picture"
+        read false
+    end
+
+    factory :notification_picture, class: Notification do
+        association :attendee, factory: :attendee
+        association :resource, factory: :picture
+        key "Picture"
+        read false
+    end
+
+    factory :notification_message, class: Notification do
+        association :attendee, factory: :attendee
+        association :resource, factory: :message
+        key "Message"
         read false
     end
 

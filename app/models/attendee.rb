@@ -9,6 +9,7 @@ class Attendee < ActiveRecord::Base
     has_many :messages, dependent: :destroy
     has_many :pictures, dependent: :destroy
     has_many :songs, dependent: :destroy
+    has_many :notifications, dependent: :destroy
     has_attached_file :avatar, :styles => { :big => "1200x1200>",:medium => "300x300>", :thumb => "50x50>" }, :default_url => "/images/:style/missing.png"
     validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
     acts_as_voter
