@@ -40,4 +40,9 @@ class NotificationTest < ActiveSupport::TestCase
   		notification.resource.destroy
   	end
   end
+
+  should "be created on comment creation" do
+  	assert_difference('Notification.count', 1) do
+  		comment = FactoryGirl.create(:comment)
+  	end
 end

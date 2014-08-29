@@ -114,4 +114,9 @@ FactoryGirl.define do
         read false
     end
 
+    factory :comment do
+        association :attendee, factory: :attendee
+        association :commentable, factory: :picture
+        comment "my comment"
+    end
 end
