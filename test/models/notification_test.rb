@@ -45,4 +45,35 @@ class NotificationTest < ActiveSupport::TestCase
   	assert_difference('Notification.count', 1) do
   		comment = FactoryGirl.create(:comment)
   	end
+  end
+
+  should "notify same post commenters" do
+    michael = FactoryGirl.create(:guest)
+    message = FactoryGirl.create(:message, attendee: michael)
+    bob = FactoryGirl.create(:guest, wedding: michael.wedding)
+    susan = FactoryGirl.create(:guest, wedding: michael.wedding)
+    mary = FactoryGirl.create(:guest, wedding: michael.wedding)
+    FactoryGirl.create(:comment, attendee: bob, commentable: message)
+    message.reload
+    FactoryGirl.create(:comment, attendee: susan, commentable: message)
+    message.reload
+    FactoryGirl.create(:comment, attendee: mary, commentable: message)
+    message.reload
+    assert_difference('Notification.count', 3) do
+      FactoryGirl.create(:comment, attendee: susan, commentable: message)
+    end
+    message.reload
+    assert Notification.where(attendee: michael, resource: message).size == 4, "Michael was not notified"
+    assert Notification.where(attendee: bob, resource: message).size == 3, "Bob was not notified"
+    assert Notification.where(attendee: mary, resource: message).size == 1, "Mary was not notified"
+    assert Notification.where(attendee: susan, resource: message).size == 1, "Susan was not notified"
+  end
+
+  should "not notify post owner" do
+    michael = FactoryGirl.create(:guest)
+    message = FactoryGirl.create(:message, attendee: michael)
+    assert_no_difference('Notification.count') do
+      FactoryGirl.create(:comment, attendee: michael, commentable: message)
+    end
+  end
 end

@@ -26,24 +26,28 @@ FactoryGirl.define do
         password "adminpass"
     end
 
+    sequence :password do |n|
+        "pass#{n}"
+    end
+
     factory :attendee do
         association :wedding, factory: :wedding
         username "usuario boda"
-        password "wupass"
+        password
         description "this is an attendee"
     end
 
     factory :groom do
         association :wedding, factory: :wedding
         username "novio"
-        password "groompass"
+        password
         description "this is a groom"
     end
 
     factory :bride do
         association :wedding, factory: :wedding
         username "novia"
-        password "bridepass"
+        password
         description "this is a bride"
     end
 
@@ -51,7 +55,7 @@ FactoryGirl.define do
     factory :guest do
         association :wedding, factory: :wedding
         username "invitado"
-        password "guestpass"
+        password
         description "this is a guest"
     end
 
