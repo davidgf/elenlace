@@ -15,6 +15,7 @@ Elenlace::Application.routes.draw do
 
   resources :events
   resources :comments, only: [:create, :index]
+  resources :notifications, only: [:index]
   resource :account, only: [:show, :edit, :update]
   resources :songs do
     member do

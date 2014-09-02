@@ -1,0 +1,5 @@
+<ul>
+<% @notifications.each do |notification| %>
+	<%= render partial: 'notification', object: notification %>
+<% end %>
+</ul>

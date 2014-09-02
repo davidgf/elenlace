@@ -51,6 +51,13 @@
                 <% end %>
             <% end %>
             </li>
+
+            <li class="<%= 'active' if ['notifications'].include? params[:controller] %>">
+                <% notifications_count = Notification.where(attendee: current_attendee, read: false).count %>
+                <%= link_to notifications_path do %>
+                    <span class="glyphicon glyphicon-inbox"></span> Notificaciones (<%= notifications_count %>)
+                <% end %>
+            </li>
           </ul>
 
         </div><!--/.nav-collapse -->
