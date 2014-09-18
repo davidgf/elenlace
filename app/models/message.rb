@@ -7,8 +7,9 @@ class Message < ActiveRecord::Base
     acts_as_commentable
     self.per_page = 15
     auto_html_for :message do
-        youtube(:width => "100%", :height => "100%", :autoplay => false)
         html_escape
+        youtube(:width => "100%", :height => "100%", :autoplay => false)
     end
+    has_many :notifications, as: :resource, dependent: :destroy
 
 end
