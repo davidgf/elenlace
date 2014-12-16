@@ -1,7 +1,7 @@
 Elenlace::Application.routes.draw do
   get "home" => "pages#home", as: :home
   get "wedding" => "pages#wedding"
-  get "events" => "pages#events"
+  get "eventos" => "pages#events"
   get "gallery" => "pages#gallery"
   get "log_out" => "wedding_sessions#destroy"
   post 'wedding_sessions/:id' => 'wedding_sessions#create', as: :sessions

@@ -1,10 +1,13 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :require_user
+  before_action :set_wedding, only: [:index, :new, :edit, :create]
+  load_and_authorize_resource except: [:new, :create]
+
 
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = @wedding.events
   end
 
   # GET /events/1

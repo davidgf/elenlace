@@ -1,29 +1,14 @@
-<h1>Listing events</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Datetime</th>
-      <th>Description</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<div class="page-header">
+  <h1>Planing</h1>
+</div>
 
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event.datetime %></td>
-        <td><%= event.description %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Event', new_event_path %>
+<% if can? :create, Event %>
+  <div class="row">
+    <div class="col-md-12">
+      <%= link_to new_event_path, class: "pull-left" do %>
+          <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Crear Evento</button>
+      <% end %>
+    </div>
+  </div>
+<% end %>
