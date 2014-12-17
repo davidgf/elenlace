@@ -1,7 +1,8 @@
 class EventsController < ApplicationController
   before_action :require_user
-  before_action :set_wedding, only: [:index, :new, :edit, :create]
+  before_action :set_wedding, only: [:index, :new]
   load_and_authorize_resource except: [:new, :create]
+  authorize_resource only: [:new, :create]
 
 
   # GET /events
@@ -17,7 +18,8 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
-    @event = Event.new
+    @event = Event.new(wedding: @wedding)
+    @event.build_location
   end
 
   # GET /events/1/edit
@@ -28,6 +30,7 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
+    @event.wedding = current_attendee.wedding
 
     respond_to do |format|
       if @event.save
@@ -72,6 +75,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:datetime, :description)
+      params.require(:event).permit(:datetime, :description, :name, location_attributes: [:name, :address])
     end
 end

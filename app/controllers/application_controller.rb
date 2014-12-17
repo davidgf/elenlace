@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   helper_method :require_user, :set_wedding, :current_attendee, :require_admin
+
+  rescue_from CanCan::AccessDenied do |exception|
+    render :text => "No estás autorizado para acceder a esta página", :status => 403, :layout => true
+  end
   
 private
   def current_attendee

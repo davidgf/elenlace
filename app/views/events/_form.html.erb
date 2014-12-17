@@ -12,12 +12,25 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
     <%= f.label :datetime %><br>
     <%= f.datetime_select :datetime %>
   </div>
   <div class="field">
     <%= f.label :description %><br>
     <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.fields_for :location do |location_form| %>
+        <%= location_form.label :name %>
+        <%= location_form.text_field :name %>
+ 
+        <%= location_form.label :address %>
+        <%= location_form.text_field :address %>
+    <% end %>
   </div>
   <div class="actions">
     <%= f.submit %>
