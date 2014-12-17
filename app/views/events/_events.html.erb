@@ -1,0 +1,7 @@
+<% events.each_slice(3) do |events_group| %>
+	<div class="row">
+		<% events_group.each do |event| %>
+      		<%= render partial: 'thumb_event', locals: {event: event} %>
+      	<% end %>
+    </div>
+<% end %>

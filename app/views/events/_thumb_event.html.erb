@@ -1,0 +1,11 @@
+<div class="col-sm-6 col-md-4">
+  <div class="thumbnail">
+    <img src="http://pulso-ciudadano.com/wp-content/uploads/2013/01/BurroCarro_revoluciontrespuntocero.jpg" alt="Servicio de autobuses">
+    <div class="caption">
+      <h3><%= event.name %></h3>
+      <p><%= simple_format event.description %></p>
+      <p><small><strong>¿Cuándo?</strong> <%= I18n.l event.datetime, format: :long %></small></p>
+      <p><small><strong>¿Dónde?</strong> <%= event.location.name %></small></p>
+    </div>
+  </div>
+</div>
