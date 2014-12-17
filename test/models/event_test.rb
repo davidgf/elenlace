@@ -17,6 +17,11 @@ class EventTest < ActiveSupport::TestCase
     assert_not event.save, "Saved without location"
   end
 
+  test "should not save without datetime" do
+    event = FactoryGirl.build(:event, datetime: nil)
+    assert_not event.save, "Saved without datetime"
+  end
+
   test "should not save without wedding" do
     event = FactoryGirl.build(:event, wedding: nil)
     assert_not event.save, "Saved without wedding"

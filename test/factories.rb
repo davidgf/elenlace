@@ -79,7 +79,9 @@ FactoryGirl.define do
     end
 
     factory :event do
+        association :wedding, factory: :wedding
         association :location, factory: :location
+        name "event name"
         datetime "2014-05-22 18:01:33"
         description "MyText"
     end

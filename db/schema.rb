@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141216174151) do
+ActiveRecord::Schema.define(version: 20141217111954) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 20141216174151) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "wedding_id"
+    t.string   "name"
   end
 
   add_index "events", ["wedding_id"], name: "index_events_on_wedding_id", using: :btree
