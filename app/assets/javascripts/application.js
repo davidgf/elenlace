@@ -16,7 +16,8 @@
 //= require turbolinks
 //= require bootstrap
 //= require commentable
-//= require rails-timeago-all
+//= require rails-timeago
+//= require locales/jquery.timeago.es.js
 //= require image_modal
 
 $( document ).ready(function() {
