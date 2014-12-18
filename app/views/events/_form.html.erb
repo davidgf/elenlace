@@ -20,24 +20,35 @@
     <%= f.text_field :name, class: 'form-control', placeholder: 'Título' %>
   </div>
   <div class="form-group">
-    <%= f.label :datetime, "Fecha", class: "control-label" %>
-    <div class="col-sm-12 form-inline">
-      <%= f.datetime_select :datetime, {:minute_step => 15}, {class: 'form-control'} %>
+    <div class="form-inline">
+      <%= f.label :datetime, "Fecha", class: "control-label" %>
+      <%= f.date_select :datetime, {}, {class: 'form-control'} %>
+      <%= f.label :datetime, "Hora", class: "control-label" %>
+      <%= f.time_select :datetime, {:minute_step => 15}, {class: 'form-control'} %>
     </div>
+  </div>
+  <div class="form-group">
   </div>
   <div class="form-group">
     <%= f.text_area :description, class: 'form-control', placeholder: 'Descripción' %>
   </div>
   
   <%= f.fields_for :location do |location_form| %>
+    <div class="form-group">
+        <%= location_form.text_field :name, class: 'form-control', placeholder: 'Nombre del lugar' %>
+    </div>
     <div class="form-group map-container">
       <div id="map-canvas" class="form-map"></div>
     </div>
     <div class="form-group">
-        <%= location_form.text_field :name, class: 'form-control', placeholder: 'Nombre del lugar' %>
-    </div>
-    <div class="form-group">
+      <div class="input-group">
         <%= location_form.text_field :address, class: 'form-control', placeholder: 'Dirección' %>
+        <span class="input-group-btn">
+            <button id="searchAddress" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+        </span>
+      </div>
+      <%= location_form.hidden_field :lat %>
+      <%= location_form.hidden_field :long %>
     </div>
   <% end %>
   <%= button_tag(type: 'submit', class: "btn btn-success botonSubmit") do %>
