@@ -1,3 +1,7 @@
+<% content_for :javascript_includes do %>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkE2Uy5HdcOegLypxtsL9x9-c5Zmz_71Y"></script>
+  <%= javascript_include_tag "event_show_map" %>
+<% end %>
 
 <div class="row">
   <div class="col-md-12">
@@ -7,14 +11,31 @@
   </div>
 </div>
 
-<p>
-  <strong>Datetime:</strong>
-  <%= @event.datetime %>
-</p>
+<div class="container">
+	<div class="col-md-12">
+		<h1><%= @event.name%></h1>	
+	</div>
+	<div class="col-md-6">
+        <%= image_tag @event.image.url(:big), class: "img-responsive", alt: @event.name %>
+        <p>
+        	<%= simple_format @event.description %>
+        </p>
+	</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
+	<div class="col-md-6">
+    <div class="row map-container">
+      <input id="event_location_lat" type="hidden" value="<%= @event.location.lat %>">
+      <input id="event_location_long" type="hidden" value="<%= @event.location.long %>">
+      <div id="map-canvas" class="show-map"></div>
+    </div>
+    <div class="row">
+          <p><strong>¿Dónde?</strong> <%= @event.location.name %></p>
+    </div>
+		<div class="row">
+      		<p><strong>¿Cuándo?</strong> <%= I18n.l @event.datetime, format: :long %></p>
+		</div>
+	</div>
+	
+</div>
 
 <%= link_to 'Edit', edit_event_path(@event) %>
