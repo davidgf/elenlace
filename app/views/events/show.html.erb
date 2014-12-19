@@ -8,6 +8,11 @@
     <%= link_to events_path do %>
       <button type="button" class="btn"><span class="glyphicon glyphicon-arrow-left"></span> Ver todos</button>
     <% end %>
+    <% if can? :edit, Event %>
+      <%= link_to edit_event_path(@event), class: "pull-right" do %>
+        <button type="button" class="btn"><span class="glyphicon glyphicon-wrench"></span> Editar Evento</button>
+      <% end %>
+    <% end %>
   </div>
 </div>
 
@@ -37,5 +42,3 @@
 	</div>
 	
 </div>
-
-<%= link_to 'Edit', edit_event_path(@event) %>
