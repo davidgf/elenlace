@@ -3,7 +3,7 @@
   <%= javascript_include_tag "event_form_map" %>
 <% end %>
 
-<%= form_for(@event) do |f| %>
+<%= form_for(@event, html: { multipart: true }) do |f| %>
   <% if @event.errors.any? %>
     <div id="error_explanation" class="alert alert-danger">
       <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
@@ -19,6 +19,14 @@
   <div class="form-group">
     <%= f.text_field :name, class: 'form-control', placeholder: 'Título' %>
   </div>
+
+  <div class="form-group">
+    <div class="form-inline">
+      <%= f.label :image, "Imagen", class: "control-label" %>
+      <%= f.file_field :image, class: "form-control" %>
+    </div>
+  </div>
+
   <div class="form-group">
     <div class="form-inline">
       <%= f.label :datetime, "Fecha", class: "control-label" %>
