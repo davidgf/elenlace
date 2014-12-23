@@ -1,0 +1,67 @@
+wedding:
+    groom_name: Diego
+    groom_surname: Novio
+    bride_name: Sandra
+    bride_surname: Novia
+
+groom:
+    attributes:
+        username: Diego
+        description: El Novio
+        password: diego
+        avatar: novio.jpg
+    messages:
+        - 
+            message: No queda nada!
+    pictures:
+        -
+            image: novio.jpg
+            name: Ese soy yo
+
+bride:
+    attributes:
+        username: Sandra
+        description: La Novia
+        password: sandra
+        avatar: novia.jpg
+    messages:
+        -
+            message: Vaya invitados... https://www.youtube.com/watch?v=z7Wpoc682Zg
+
+guests:
+    -
+        attributes:
+            username: Ángel
+            description: Padre del novio
+            password: angel
+    -
+        attributes:
+            username: Fe
+            description: La madrina
+            password: fe
+    -
+        attributes:
+            username: Suso
+            description: El padrino
+            password: suso
+    -
+        attributes:
+            username: Nanda
+            description: Madre de la novia
+            password: nanda
+    -
+        attributes:
+            username: Inés
+            description: Amiga de Diego y Sandra
+            password: ines
+    -
+        attributes:
+            username: David
+            description: Primo de Diego
+            password: david
+    -
+        attributes:
+            username: Lucita
+            description: Familiar de Diego
+            password: lucita
+
