@@ -1,7 +1,11 @@
 namespace :demo do
   desc "Removes demo data"
   task remove: :environment do
-  	Wedding.friendly.find('demo').destroy
+  	begin
+  		Wedding.friendly.find('demo').destroy
+    rescue ActiveRecord::RecordNotFound => e
+    	puts "Demo wedding not found"
+    end
   end
 
   desc "Loads demo data"
@@ -18,6 +22,8 @@ namespace :demo do
   	demo_data["guests"].each do |g|
 	    save_attendee(Guest, g, wedding)
 	end
+
+	save_events(wedding, demo_data["events"])
   end
 
   desc "Sets up demo data"
@@ -41,6 +47,9 @@ namespace :demo do
   	if data.has_key? "pictures"
   		save_pictures(attendee, data["pictures"])
   	end
+  	if data.has_key? "songs"
+  		save_songs(wedding, attendee, data["songs"])
+  	end
   end
 
   def save_messages(attendee, messages)
@@ -61,4 +70,23 @@ namespace :demo do
         p.create_activity :create, owner: p.attendee if (attendee.is_groom? or attendee.is_bride?)
   	end
   end
+
+  def save_events(wedding, events)
+  	events.each do |event|
+  		prepare_for_paperclip(event, "image")
+  		e = Event.new(event)
+  		e.wedding = wedding
+  		e.save
+  	end
+  end
+
+  def save_songs(wedding, attendee, songs)
+  	songs.each do |song|
+  		s = Song.new(song)
+  		s.wedding = wedding
+  		s.attendee = attendee
+  		s.save
+  	end
+  end
+
 end
