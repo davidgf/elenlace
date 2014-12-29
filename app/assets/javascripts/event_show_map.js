@@ -1,5 +1,4 @@
-$(function(){
-
+function loadMap(){
     var $eventLatInput = $('#event_location_lat');
     var $eventLongInput = $('#event_location_long');
     var eventLat = $eventLatInput.val();
@@ -27,4 +26,4 @@ $(function(){
             draggable: false
         });
     }
-})
+}
