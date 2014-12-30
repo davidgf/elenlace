@@ -1,6 +1,11 @@
-<%= form_for(@event) do |f| %>
+<% content_for :javascript_includes do %>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkE2Uy5HdcOegLypxtsL9x9-c5Zmz_71Y"></script>
+  <%= javascript_include_tag "event_form_map" %>
+<% end %>
+
+<%= form_for(@event, html: { multipart: true }) do |f| %>
   <% if @event.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="alert alert-danger">
       <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
 
       <ul>
@@ -11,15 +16,52 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :datetime %><br>
-    <%= f.datetime_select :datetime %>
+  <div class="form-group">
+    <%= f.text_field :name, class: 'form-control', placeholder: 'Título' %>
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+
+  <div class="form-group">
+    <div class="form-inline">
+      <%= f.label :image, "Imagen", class: "control-label" %>
+      <%= f.file_field :image, class: "form-control" %>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="form-group">
+    <div class="form-inline">
+      <%= f.label :datetime, "Fecha", class: "control-label" %>
+      <%= f.date_select :datetime, {}, {class: 'form-control'} %>
+      <%= f.label :datetime, "Hora", class: "control-label" %>
+      <%= f.time_select :datetime, {:minute_step => 15}, {class: 'form-control'} %>
+    </div>
   </div>
+  <div class="form-group">
+  </div>
+  <div class="form-group">
+    <%= f.text_area :description, class: 'form-control', placeholder: 'Descripción' %>
+  </div>
+  
+  <%= f.fields_for :location do |location_form| %>
+    <div class="form-group">
+        <%= location_form.text_field :name, class: 'form-control', placeholder: 'Nombre del lugar' %>
+    </div>
+    <div class="form-group map-container">
+      <div id="map-canvas" class="form-map"></div>
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+        <%= location_form.text_field :address, class: 'form-control', placeholder: 'Dirección' %>
+        <span class="input-group-btn">
+            <button id="searchAddress" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+        </span>
+      </div>
+      <%= location_form.hidden_field :lat %>
+      <%= location_form.hidden_field :long %>
+    </div>
+  <% end %>
+  <%= button_tag(type: 'submit', class: "btn btn-success botonSubmit") do %>
+   <span class="glyphicon glyphicon-cloud-upload"></span> Crear evento
+  <% end %>
+  <%= link_to 'Cancelar', events_path, class:"btn btn-link" %>
 <% end %>
+

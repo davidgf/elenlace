@@ -1,20 +1,46 @@
+<% content_for :javascript_head_includes do %>
+<% end %>
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "event_show_map", "data-turbolinks-track" => true %>
+  <script data-turbolinks-track="true" type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkE2Uy5HdcOegLypxtsL9x9-c5Zmz_71Y&sensor=false&callback=loadMap"></script>
+<% end %>
 
 <div class="row">
   <div class="col-md-12">
     <%= link_to events_path do %>
       <button type="button" class="btn"><span class="glyphicon glyphicon-arrow-left"></span> Ver todos</button>
     <% end %>
+    <% if can? :edit, Event %>
+      <%= link_to edit_event_path(@event), class: "pull-right" do %>
+        <button type="button" class="btn"><span class="glyphicon glyphicon-wrench"></span> Editar Evento</button>
+      <% end %>
+    <% end %>
   </div>
 </div>
 
-<p>
-  <strong>Datetime:</strong>
-  <%= @event.datetime %>
-</p>
+<div class="container">
+	<div class="col-md-12">
+		<h1><%= @event.name%></h1>	
+	</div>
+	<div class="col-md-6">
+        <%= image_tag @event.image.url(:big), class: "img-responsive", alt: @event.name %>
+        <p>
+        	<%= simple_format @event.description %>
+        </p>
+	</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
-
-<%= link_to 'Edit', edit_event_path(@event) %>
+	<div class="col-md-6">
+    <div class="row map-container">
+      <input id="event_location_lat" type="hidden" value="<%= @event.location.lat %>">
+      <input id="event_location_long" type="hidden" value="<%= @event.location.long %>">
+      <div id="map-canvas" class="show-map"></div>
+    </div>
+    <div class="row">
+          <p><strong>¿Dónde?</strong> <%= @event.location.name %></p>
+    </div>
+		<div class="row">
+      		<p><strong>¿Cuándo?</strong> <%= I18n.l @event.datetime, format: :long %></p>
+		</div>
+	</div>
+	
+</div>

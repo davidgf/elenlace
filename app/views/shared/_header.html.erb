@@ -55,7 +55,10 @@
             <li class="<%= 'active' if ['notifications'].include? params[:controller] %>">
                 <% notifications_count = Notification.where(attendee: current_attendee, read: false).count %>
                 <%= link_to notifications_path do %>
-                    <span class="glyphicon glyphicon-inbox"></span> Notificaciones <span class="badge progress-bar-danger"><%= notifications_count %></span>
+                    <span class="glyphicon glyphicon-inbox"></span> Notificaciones 
+                    <% if notifications_count > 0 %>
+                        <span class="badge progress-bar-danger"><%= notifications_count %></span>
+                    <% end %>
                 <% end %>
             </li>
           </ul>

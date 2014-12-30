@@ -1,5 +1,13 @@
-<ul>
-<% @notifications.each do |notification| %>
-	<%= render partial: 'notification', object: notification %>
+<h1>Tus notificaciones</h1>
+
+<% if @notifications.length > 0 %>
+	<ul>
+	<% @notifications.each do |notification| %>
+		<%= render partial: 'notification', object: notification %>
+	<% end %>
+	</ul>
+<% else %>
+	<p>
+		No tienes nuevas notificaciones
+	</p>
 <% end %>
-</ul>

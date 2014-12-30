@@ -7,7 +7,7 @@ class SongTest < ActiveSupport::TestCase
   end
 
   test "should not save without wedding" do
-    song = FactoryGirl.build(:song, attendee: nil)
+    song = FactoryGirl.build(:song, wedding: nil)
     assert_not song.save, "Saved without wedding"
   end
 

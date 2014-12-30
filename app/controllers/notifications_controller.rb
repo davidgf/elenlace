@@ -3,7 +3,8 @@ class NotificationsController < ApplicationController
     before_filter :redirect_if_not_ajax, except: :index
 
     def index
-        @notifications = current_attendee.notifications
+        @notifications = current_attendee.notifications.where(read: false)
+        @notifications.update_all(read: true)
     end
 
     def read

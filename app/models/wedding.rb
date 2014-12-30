@@ -13,6 +13,7 @@ class Wedding < ActiveRecord::Base
     has_many :dances, through: :attendees
     has_many :tables, dependent: :destroy
     has_many :songs, dependent: :destroy
+    has_many :events, dependent: :destroy
 
     validates :groom_name, :bride_name, presence: true
 

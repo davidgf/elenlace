@@ -1,0 +1,17 @@
+<div class="col-sm-6 col-md-4">
+  <div class="thumbnail">
+    <div class="media">
+      <%= link_to event_path(event) do %>
+          <%= image_tag event.image.url(:medium), class: "media-object", alt: event.name %>
+      <% end %>
+    </div>
+    <div class="caption">
+      <%= link_to event_path(event) do %>
+        <h3><%= event.name %></h3>
+      <% end %>
+      <p><%= simple_format event.description %></p>
+      <p><small><strong>¿Cuándo?</strong> <%= I18n.l event.datetime, format: :long %></small></p>
+      <p><small><strong>¿Dónde?</strong> <%= event.location.name %></small></p>
+    </div>
+  </div>
+</div>

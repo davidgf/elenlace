@@ -1,0 +1,110 @@
+wedding:
+    groom_name: Diego
+    groom_surname: Novio
+    bride_name: Sandra
+    bride_surname: Novia
+
+events:
+    -
+        datetime: "2014-08-02 16:30:00 +0000"
+        name: Ceremonia
+        description: Todos sentados que entra la novia (el novio esperando desde las 16:00 vermouth en mano...)
+        image: iglesia.jpg
+        location_attributes:
+            name: Catedral de Toledo
+            lat: 39.8571
+            long: -4.023569
+    -
+        datetime: "2014-08-02 19:00:00 +0000"
+        name: Aperitivos
+        description: Vamos a disfrutar posiblemente de los mejores aperitivos del mundo en un entorno para nada despreciable. Sinceramente, no nos lo merecemos.
+        image: aperitivo.jpg
+        location_attributes:
+            name: El Cigarral de las Mercedes
+            lat: 39.84727
+            long: -4.049118
+    -
+        datetime: "2014-08-02 21:00:00 +0000"
+        name: Cena
+        description: Además de cenar como auténticos señores, vamos a tener un fiestón espectacular y alguna que otra sorpresilla...
+        image: convite.jpg
+        location_attributes:
+            name: El Cigarral de las Mercedes
+            lat: 39.84727
+            long: -4.049118
+
+groom:
+    attributes:
+        username: Diego
+        description: El Novio
+        password: diego
+        avatar: novio.jpg
+    messages:
+        - 
+            message: No queda nada!
+    pictures:
+        -
+            image: novio.jpg
+            name: Ese soy yo
+    songs:
+        -
+            artist: Los Lobos
+            title: La bamba
+bride:
+    attributes:
+        username: Sandra
+        description: La Novia
+        password: sandra
+        avatar: novia.jpg
+    messages:
+        -
+            message: Vaya invitados... https://www.youtube.com/watch?v=z7Wpoc682Zg
+    songs:
+        -
+            artist: Gypsy Kings
+            title: Amigos para siempre
+
+guests:
+    -
+        attributes:
+            username: Ángel
+            description: Padre del novio
+            password: angel
+    -
+        attributes:
+            username: Fe
+            description: La madrina
+            password: fe
+    -
+        attributes:
+            username: Suso
+            description: El padrino
+            password: suso
+        songs:
+            -
+                artist: Los del Río
+                title: La Macarena
+            -
+                artist: Demis Roussos
+                title: Una paloma blanca
+    -
+        attributes:
+            username: Nanda
+            description: Madre de la novia
+            password: nanda
+    -
+        attributes:
+            username: Inés
+            description: Amiga de Diego y Sandra
+            password: ines
+    -
+        attributes:
+            username: David
+            description: Primo de Diego
+            password: david
+    -
+        attributes:
+            username: Lucita
+            description: Familiar de Diego
+            password: lucita
+
