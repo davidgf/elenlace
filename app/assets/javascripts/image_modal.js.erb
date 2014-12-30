@@ -7,7 +7,7 @@ $(function(){
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> \
               </div> \
               <div class="modal-body"> \
-                <img class="center-block img-responsive"></img> \
+                <img class="center-block img-responsive panzoom"></img> \
               </div> \
             </div> \
           </div> \
@@ -16,8 +16,12 @@ $(function(){
     $('img.media-picture').click(function(){
         var originalUrl = $(this).data('original');
         if(originalUrl){
-            if(!$('#image-modal').length)
+            if(!$('#image-modal').length){
                 $('body').append(customModal);
+                $('#image-modal').on('hidden.bs.modal', function (e) {
+                    $('img.panzoom').panzoom('resetZoom').panzoom('resetPan')
+                });
+            }
             var $modal = $('#image-modal');
             var spinnerUrl = '<%= asset_path "spinner.gif" %>';
             var objImagePreloader = new Image();
@@ -27,9 +31,22 @@ $(function(){
             }).each(function() {
                 if(this.complete) $(this).load();
             });
+            var fullScreenOpts = {width: '100%', height: '100%', margin: 0, padding: 0, maxWidth: 10000, maxHeight: 10000};
+            customModal.find('.modal-dialog, .modal-body, .modal-content').css(fullScreenOpts);
             $modal.find('img').attr('src', spinnerUrl);
             $modal.modal('show');
+            var $panzoom = $modal.find('img.panzoom');
+            $panzoom.panzoom({contain: 'invert', minScale: 1}).parent().on('mousewheel.focal', function( e ) {
+                e.preventDefault();
+                var delta = e.delta || e.originalEvent.wheelDelta;
+                var zoomOut = delta ? delta < 0 : e.originalEvent.deltaY > 0;
+                $panzoom.panzoom('zoom', zoomOut, {
+                  increment: 0.1,
+                  animate: false,
+                  focal: e
+                });
+            });
         }
     });
-
+      
 })

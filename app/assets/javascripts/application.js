@@ -17,6 +17,7 @@
 //= require rails-timeago
 //= require locales/jquery.timeago.es.js
 //= require image_modal
+//= require jquery.panzoom.min
 
 $( document ).ready(function() {
 	$('.botonSubmit').click(function(ev){
