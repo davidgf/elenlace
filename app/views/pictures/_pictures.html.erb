@@ -1,5 +1,9 @@
-<% pictures.each do |picture| %>
-      <%= render partial: 'picture', object: picture %>
+<% pictures.each_slice(3) do |pictures_group| %>
+	<div class="row">
+		<% pictures_group.each do |picture| %>
+      		<%= render partial: 'picture', locals: {picture: picture} %>
+      	<% end %>
+	</div>
 <% end %>
 
 <div id="infinite-scrolling">
