@@ -17,7 +17,7 @@ class PagesController < ApplicationController
     respond_to do |format|
       format.html {
           if request.xhr?
-            render partial: 'last_activity', object: @resources, layout: false
+            render partial: 'last_activity', locals: {resources: @resources}, layout: false
           end
         }
     end

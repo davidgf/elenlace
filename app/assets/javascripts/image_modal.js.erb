@@ -13,7 +13,7 @@ $(function(){
           </div> \
         </div>');
 
-    $('img.media-picture').click(function(){
+    $('body').on('click', 'img.media-picture', function(){
         var originalUrl = $(this).data('original');
         if(originalUrl){
             if(!$('#image-modal').length){
