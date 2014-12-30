@@ -1,10 +1,15 @@
 class NotificationsController < ApplicationController
     before_filter :require_user
-    before_filter :redirect_if_not_ajax, except: :index
+    before_filter :redirect_if_not_ajax, only: [:read]
+    before_action :set_notification, only: [:show]
 
     def index
         @notifications = current_attendee.notifications.where(read: false)
-        @notifications.update_all(read: true)
+    end
+
+    def show
+        @notification.update(read: true)
+        redirect_to @notification.resource
     end
 
     def read
@@ -14,7 +19,11 @@ class NotificationsController < ApplicationController
 
     def read_all
         Notification.where(attendee: current_attendee).update_all(read: true)
-        render text: 'ok'
+        if request.xhr?
+            render text: 'ok'
+        else
+            redirect_to action: :index
+        end
     end
 
 private
@@ -22,5 +31,9 @@ private
         if not request.xhr?
             redirect_to root_path
         end
+    end
+
+    def set_notification
+      @notification = Notification.find(params[:id])
     end
 end
