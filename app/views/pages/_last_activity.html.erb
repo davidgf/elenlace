@@ -1,9 +1,13 @@
-    <% resources.each do |resource| 
-        if resource.trackable.is_a? Message %>
-            <%= render partial: 'messages/thumb_message', locals: {message: resource.trackable} %>
-        <% else %>
-            <%= render partial: 'pictures/picture', object: resource.trackable %>
-        <% end %>
+    <% resources.each_slice(3) do |resources_group| %>
+        <div class="row">
+            <% resources_group.each do |resource|
+                if resource.trackable.is_a? Message %>
+                    <%= render partial: 'messages/thumb_message', locals: {message: resource.trackable} %>
+                <% else %>
+                    <%= render partial: 'pictures/picture', object: resource.trackable %>
+                <% end %>
+            <% end %>
+        </div>
     <% end %>
 
     <div id="infinite-scrolling">
