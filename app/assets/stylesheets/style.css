@@ -1,0 +1,148 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+section {
+	padding-top: 40px;
+}
+
+/* COVER
+------------------------------------------- */
+.header {
+    display: table;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: url(../images/wed2.jpg) no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.header .caption {
+	position: absolute;
+	z-index: 10;
+	margin-bottom: 20px;
+	font-size: 21px;
+	line-height: 1.4;
+	bottom: 15px;
+}
+
+.carousel-inner > .item {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+
+.carousel-inner > .item.first {
+  background-image: url('../images/wed2.jpg');
+}
+
+.carousel-inner > .item.second {
+  background-image: url('../images/wed.jpg');
+}
+
+.carousel-inner > .item.third {
+  background-image: url('../images/wed2.jpg');
+}
+
+/* NAVBAR
+------------------------------------------- */
+
+.navbar {
+	background-color: transparent;
+	border-color: transparent;
+}
+
+.nav.navbar-nav > li > a {
+	color: white;
+	opacity: 0.65;
+	font-size: 16px;
+}
+
+.nav.navbar-nav > li > a:hover {
+	opacity: 1;
+}
+
+.navbar-inverse .navbar-brand {
+	color: white;
+	font-size: 26px;
+	font-weight: bold;
+}
+
+.navbar-inverse .navbar-brand:hover {
+	opacity: 0.65;
+}
+
+.navbar-inverse .navbar-nav > .active > a {
+	background-color: transparent;
+}
+
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+	color: white;
+	opacity: 1;
+	background-color: transparent;
+}
+
+/* FEATURES
+------------------------------------------- */
+#features .description {
+	padding-bottom: 30px;
+}
+
+#features .icons {
+	font-size: 5em;
+	letter-spacing: -4px;
+	-webkit-transition: color 0.3s;
+	-moz-transition: color 0.3s;
+	transition: color 0.3s;
+}
+
+#features .icons:hover {
+	color: #ccc;
+}
+
+.featurette img {
+	max-height: 400px;
+}
+
+.img-circle {
+	display: block;
+	margin: auto;
+}
+
+.callout {
+	display: table;
+	width: 100%;
+	height: auto;
+	color: #fff;
+	background: url(../images/wed.jpg) no-repeat center center scroll;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	-o-background-size: cover;
+	padding-bottom: 30px;
+	margin-top: 70px;
+	margin-bottom: 50px;
+}
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+@media only screen and (max-width: 766px) {
+	/* Collapsed navbar */
+	.navbar, .collapsing, .in {background-color: #000;}
+	.collapsing ul li a:hover, .in ul li a:hover {color: #f1f1f1!important;}
+
+	/* Cover */
+	/*.carousel, .carousel .item {
+		height: 300px;
+	}*/
+}

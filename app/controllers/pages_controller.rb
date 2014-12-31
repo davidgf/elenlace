@@ -9,7 +9,7 @@ class PagesController < ApplicationController
     elsif current_user
       redirect_to admin_dashboard_path
     end
-
+    render layout: false
   end
 
   def home
