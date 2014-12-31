@@ -14,6 +14,7 @@ gem 'friendly_id'
 gem 'auto_html'
 
 gem 'bootstrap-sass'
+gem 'font-awesome-rails'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
