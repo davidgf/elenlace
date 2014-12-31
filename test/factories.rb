@@ -4,6 +4,12 @@ FactoryGirl.define do
         groom_name "groom name"
         bride_name "bride name"
     end
+
+    factory :demo_wedding, class: Wedding do
+        groom_name "groom name"
+        bride_name "bride name"
+        slug "demo"
+    end
     
     factory :table do
         association :wedding, factory: :wedding

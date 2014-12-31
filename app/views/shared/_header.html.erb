@@ -9,7 +9,7 @@
           </button>
           <%= link_to root_path, class: "navbar-brand" do %>
             <%= image_tag "dys.png" %>
-            <span>Diego &<br>Sandra</span>
+            <span><%= raw @current_attendee.wedding.wedding_title %></span>
           <% end %>
         </div>
         <div class="navbar-collapse collapse">

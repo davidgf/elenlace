@@ -14,13 +14,13 @@ body {
 .navbar-brand{
     padding: 0px;
     display: block;
-    width: 138px;
+    width: 300px;
 }
 .navbar-brand img{
     float: left;
 }
 .navbar-brand span{
-    float: right;
+    float: left;
     font-size: 16px;
     padding-top: 5px;
 }

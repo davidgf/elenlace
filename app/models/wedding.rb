@@ -26,4 +26,7 @@ class Wedding < ActiveRecord::Base
         ]
     end
 
+    def wedding_title
+        return "#{self.groom_name} &<br /> #{self.bride_name}"
+    end
 end

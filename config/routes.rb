@@ -1,4 +1,5 @@
 Elenlace::Application.routes.draw do
+  get "demo" => "demo#show"
   get "home" => "pages#home", as: :home
   get "wedding" => "pages#wedding"
   get "eventos" => "pages#events"
