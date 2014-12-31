@@ -43,6 +43,7 @@
               <ul class="nav navbar-nav">
                 <li><a href="#features">Características</a></li>
                 <li><a href="#price">Precio</a></li>
+                <li><a href="#demo">Pruébalo</a></li>
                 <li><a href="#contact">Contacto</a></li>
               </ul>
             </div>
@@ -211,46 +212,62 @@
       <!-- /END THE FEATURETTES -->
 
       <section id="price">
-      <div class="row pricing-table">
-        <div class="col-md-6">
-        <div class="panel panel-default">
-           <div class="panel-heading"><h3 class="text-center">MINI PACK</h3></div>
-               <div class="panel-body text-center">
-              <h3><del>&nbsp;399€&nbsp;</del></h3>
-              <h2><strong>Oferta de lanzamiento</strong></h2>
-              <h1><strong>199€</strong></h1>
+        <div class="row pricing-table">
+          <div class="col-md-6">
+          <div class="panel panel-default">
+             <div class="panel-heading"><h3 class="text-center">MINI PACK</h3></div>
+                 <div class="panel-body text-center">
+                <h3><del>&nbsp;399€&nbsp;</del></h3>
+                <h2><strong>Oferta de lanzamiento</strong></h2>
+                <h1><strong>199€</strong></h1>
+            </div>
+                    <ul class="list-group list-group-flush text-center">
+                      <li class="list-group-item"><i class="icon-ok text-danger"></i>Red Social privada para tu boda</li>
+                      <li class="list-group-item"><i class="icon-ok text-danger"></i>Alojamiento hasta 6 meses después de la boda</li>
+                      <li class="list-group-item"><i class="icon-ok text-danger"></i>Entrega de todas las fotos en un archivo</li>
+                    </ul>
+            <div class="panel-footer">
+            <a class="btn btn-lg btn-block btn-danger" href="#contact">COMPRAR</a>
           </div>
-                  <ul class="list-group list-group-flush text-center">
-                    <li class="list-group-item"><i class="icon-ok text-danger"></i>Red Social privada para tu boda</li>
-                    <li class="list-group-item"><i class="icon-ok text-danger"></i>Alojamiento hasta 6 meses después de la boda</li>
-                    <li class="list-group-item"><i class="icon-ok text-danger"></i>Entrega de todas las fotos en un archivo</li>
-                  </ul>
-          <div class="panel-footer">
-          <a class="btn btn-lg btn-block btn-danger" href="#contact">COMPRAR</a>
-        </div>
-       </div>
+         </div>
 
-        </div>
-         <div class="col-md-6">
-        <div class="panel panel-default">
-           <div class="panel-heading"><h3 class="text-center">MAXI PACK</h3></div>
-               <div class="panel-body text-center">
-              <h3><del>&nbsp;549€&nbsp;</del></h3>
-              <h2><strong>Oferta de lanzamiento</strong></h2>
-              <h1><strong>399€</strong></h1>
           </div>
-                             <ul class="list-group list-group-flush text-center">
-                    <li class="list-group-item"><i class="icon-ok text-danger"></i>MINI PACK</li>
-                    <li class="list-group-item"><i class="icon-ok text-danger"></i>Dominio y diseño personalizados</li>
-                    <li class="list-group-item"><i class="icon-ok text-danger"></i>Invitaciones virtuales</li>
-                  </ul>
-          <div class="panel-footer">
-          <a class="btn btn-lg btn-block btn-danger" href="#contact">COMPRAR</a>
-        </div>
-       </div>
+           <div class="col-md-6">
+          <div class="panel panel-default">
+             <div class="panel-heading"><h3 class="text-center">MAXI PACK</h3></div>
+                 <div class="panel-body text-center">
+                <h3><del>&nbsp;549€&nbsp;</del></h3>
+                <h2><strong>Oferta de lanzamiento</strong></h2>
+                <h1><strong>399€</strong></h1>
+            </div>
+                               <ul class="list-group list-group-flush text-center">
+                      <li class="list-group-item"><i class="icon-ok text-danger"></i>MINI PACK</li>
+                      <li class="list-group-item"><i class="icon-ok text-danger"></i>Dominio y diseño personalizados</li>
+                      <li class="list-group-item"><i class="icon-ok text-danger"></i>Invitaciones virtuales</li>
+                    </ul>
+            <div class="panel-footer">
+            <a class="btn btn-lg btn-block btn-danger" href="#contact">COMPRAR</a>
+          </div>
+         </div>
 
+          </div>
         </div>
-      </div>
+        <hr class="featurette-divider">
+
+      </section>
+
+      <section id="demo">
+        <!-- Three columns of text below the carousel -->
+        <div class="row text-center">
+          <div class="col-lg-12 description">
+              <h2>Prueba la versión de demostración</h2>
+              <p class="lead">
+                ¿Te interesa y quieres saber cómo funciona? Pincha en el siguiente botón para probar la aplicación.
+              </p>
+
+              <%= link_to "Demo", demo_path, class: "btn btn-default" %>
+          </div>
+        </div>
       </section>
 
     </div><!-- /.container -->
