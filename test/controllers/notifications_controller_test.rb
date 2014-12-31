@@ -36,9 +36,12 @@ class NotificationsControllerTest < ActionController::TestCase
     end
   end
 
-  test "should redirect to root if not AJAX in read all" do
+  test "should redirect to index if not AJAX in read all" do
     post :read_all
-    assert_redirected_to root_path
+    @bob.notifications.each do |n|
+      assert n.read, "Notification is not read"
+    end
+    assert_redirected_to notifications_path
   end
 
 end
