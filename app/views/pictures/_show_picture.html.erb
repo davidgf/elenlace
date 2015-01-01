@@ -1,15 +1,20 @@
 
 <% if picture %>
-  <div class="col-md-8">
-    <div class="panel panel-default post">
-      <%= render partial: "shared/post_panel_heading", locals: {resource: picture} %>
-      <%= image_tag picture.image.url(:medium), class: 'media-picture', data: {original: picture.image.url(:big)} %>
-      <div class="panel-body">
-        <p><%= picture.name %></p>
+
+  <div class="row">
+    <div class="col-md-8 image-col">
+        <%= image_tag picture.image.url(:big), class: 'img-responsive', data: {original: picture.image.url(:big)} %>
+    </div>
+    <div class="col-md-4 image-data-col">
+      <div class="panel panel-default post">
+        <%= render partial: "shared/post_panel_heading", locals: {resource: picture} %>
+        <div class="panel-body">
+          <p><%= picture.name %></p>
+        </div>
+        <%= render partial: "shared/like", locals: {resource: picture} %>
+          <%= render partial: 'comments/load_comments', locals: { commentable: picture} %>
+        <%= render partial: 'comments/new_comment', locals: { commentable: picture } %>
       </div>
-      <%= render partial: "shared/like", locals: {resource: picture} %>
-        <%= render partial: 'comments/load_comments', locals: { commentable: picture} %>
-      <%= render partial: 'comments/new_comment', locals: { commentable: picture } %>
     </div>
   </div>
 <% end %>

@@ -41,6 +41,9 @@ body {
 .panel.post .panel-heading .media-body a { display: block; font-weight: 700; }
 .panel.post img.media-picture { width: 100%; }
 
+
+/* Pictures */
+.image-data-col, .image-col { padding: 0;}
 /* Comments */
 .input-group.new-comment { padding: 3px;}
 .view-all-comments {
