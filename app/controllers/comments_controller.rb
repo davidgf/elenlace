@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
     before_action :require_user
+    before_action :set_comment, only: :destroy
     authorize_resource only: :create
 
     def index
@@ -18,7 +19,20 @@ class CommentsController < ApplicationController
         flash[:notice] = 'Comentario enviado correctamente'
         redirect_to @commentable
     end
+
+    def destroy
+        resource = @comment.commentable
+        @comment.destroy
+        respond_to do |format|
+          format.html { redirect_to resource }
+          format.json { head :no_content }
+        end
+    end
 private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_comment
+      @comment = Comment.find(params[:id])
+    end
     
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params

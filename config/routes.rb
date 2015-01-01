@@ -15,7 +15,7 @@ Elenlace::Application.routes.draw do
   end
 
   resources :events
-  resources :comments, only: [:create, :index]
+  resources :comments, only: [:create, :index, :destroy]
   resources :notifications, only: [:index, :show] do
     member do
       post 'read'

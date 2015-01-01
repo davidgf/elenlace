@@ -16,7 +16,7 @@ class Ability
             can :update, Attendee do |guest|
                 guest == user
             end
-            can [:update, :destroy], [Message, Picture, Dance] do |message|
+            can [:update, :destroy], [Message, Picture, Dance, Comment] do |message|
                 message.try(:attendee) == user
             end
         end
