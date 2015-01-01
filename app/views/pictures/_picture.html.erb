@@ -6,7 +6,7 @@
             <%= image_tag picture.attendee.avatar.url(:thumb), class: "media-object", alt: picture.attendee.username %>
         <% end %>
         <div class="media-body">
-          <h3 class="media-heading"><%= link_to guest_path(picture.attendee) do %><%= picture.attendee.username %><% end %></h3>
+          <h3 class="media-heading"><%= link_to picture.attendee.username, guest_path(picture.attendee)  %></h3>
         </div>
       </div>
       <%= image_tag picture.image.url(:medium), class: 'media-picture', data: {original: picture.image.url(:big)} %>
@@ -38,4 +38,27 @@
       </div>
     </div>
   </div>
+
+  <div class="col-sm-6 col-md-4">
+    <div class="panel panel-default picture">
+      <div class="panel-heading">
+        <div class="media">
+          <%= link_to guest_path(picture.attendee), class: 'pull-left' do %>
+              <%= image_tag picture.attendee.avatar.url(:thumb), class: "media-object", alt: picture.attendee.username %>
+          <% end %>
+          <div class="media-body">
+              <%= link_to picture.attendee.username, guest_path(picture.attendee)  %>
+              <span><%= timeago_tag picture.created_at, :limit => 10.days.ago, :lang => :es %></span>
+          </div>
+        </div>
+      </div>
+      <%= image_tag picture.image.url(:medium), class: 'media-picture', data: {original: picture.image.url(:big)} %>
+      <div class="panel-body">
+        <p><%= picture.name %></p>
+      </div>
+      <%= render partial: 'comments/view_all', locals: { commentable: picture} %>
+      <%= render partial: 'comments/new_comment', locals: { commentable: picture } %>
+    </div>
+  </div>
 <% end %>
+

@@ -1,0 +1,13 @@
+<div>
+    <div class="view-all-comments">
+      <%= link_to comments_path(commentable_type: commentable.class.to_s, commentable_id: commentable.id), class: 'load-comments', role:'button' do %>
+        <i class="fa fa-comments-o"></i> Ver todos
+      <% end %>
+      <%= pluralize(commentable.comments.size, 'comentario') %>
+
+      <%= link_to 'Ocultar', 'javascript:void(0)', class: 'hide-comments btn btn-link', role:'button' %>
+    </div>
+
+    <div class="comments"></div>
+
+</div>

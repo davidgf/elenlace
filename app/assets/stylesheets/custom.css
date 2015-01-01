@@ -32,3 +32,22 @@ body {
 .map-container {
     height: 400px;
 }
+
+/* Pictures */
+.panel.picture { border-radius: 0;}
+.panel.picture .panel-heading { padding: 0; border-bottom: 0;}
+.panel.picture .panel-heading .media { padding: 0;}
+.panel.picture .media-body { display: 5px; }
+.panel.picture .media-body a { display: block; font-weight: 700; }
+.panel.picture img.media-picture { width: 100%; }
+
+/* Comments */
+.input-group.new-comment { padding: 3px;}
+.view-all-comments {
+    display: block;
+    padding: 3px 5px;
+    background: #f5f5f5;
+    font-weight: 500;
+    font-size: 12px;
+    color: #c2c2c2;
+}

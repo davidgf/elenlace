@@ -2,4 +2,3 @@
 <% commentable.comments.each do |comment| %>
   <%= render partial: 'comments/comment', object: comment %>
 <% end %>
-<%= render partial: 'comments/new_comment', locals: { commentable: commentable } %>
