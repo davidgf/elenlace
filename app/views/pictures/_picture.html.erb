@@ -1,17 +1,7 @@
 <% if picture %>
   <div class="col-sm-6 col-md-4">
     <div class="panel panel-default picture">
-      <div class="panel-heading">
-        <div class="media">
-          <%= link_to guest_path(picture.attendee), class: 'pull-left' do %>
-              <%= image_tag picture.attendee.avatar.url(:thumb), class: "media-object", alt: picture.attendee.username %>
-          <% end %>
-          <div class="media-body">
-              <%= link_to picture.attendee.username, guest_path(picture.attendee)  %>
-              <span><%= timeago_tag picture.created_at, :limit => 10.days.ago, :lang => :es %></span>
-          </div>
-        </div>
-      </div>
+      <%= render partial: "shared/post_panel_heading", locals: {resource: picture} %>
       <%= image_tag picture.image.url(:medium), class: 'media-picture', data: {original: picture.image.url(:big)} %>
       <div class="panel-body">
         <p><%= picture.name %></p>

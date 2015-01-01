@@ -1,0 +1,12 @@
+
+<div class="panel-heading">
+  <div class="media">
+    <%= link_to guest_path(resource.attendee), class: 'pull-left' do %>
+        <%= image_tag resource.attendee.avatar.url(:thumb), class: "media-object", alt: resource.attendee.username %>
+    <% end %>
+    <div class="media-body">
+        <%= link_to resource.attendee.username, guest_path(resource.attendee)  %>
+        <span><%= timeago_tag resource.created_at, :limit => 10.days.ago, :lang => :es %></span>
+    </div>
+  </div>
+</div>
