@@ -10,6 +10,7 @@ $(function(){
             success: function(data) {
                 $comments.html(data).show();
                 $link.hide();
+                $comments.find('time[data-time-ago]').timeago();
                 $hideComments.show();
             }
         })

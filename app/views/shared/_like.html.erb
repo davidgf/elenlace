@@ -1,13 +1,16 @@
-<p>
-<% disabled = current_attendee.voted_for?(resource) ? "disabled" : nil %>
+<div class="row like-buttons">
+    <% disabled = current_attendee.voted_for?(resource) ? "disabled" : nil %>
 
-<%= link_to url_for([:upvote, resource]), method: :post, class: "btn btn-primary",
-    role: "button", disabled: disabled do %>
-    <span class="glyphicon glyphicon-thumbs-up"></span> Me gusta <span class="badge"><%= resource.cached_votes_up %></span>
-<% end %>
-
-<%= link_to url_for([:downvote, resource]), method: :post, class: "btn btn-default",
-    role: "button", disabled: disabled do %>
-    <span class="glyphicon glyphicon-thumbs-down"></span> No me gusta <span class="badge"><%= resource.cached_votes_down %></span>
-<% end %>
-</p>
+    <div class="col-md-6 like-btn-container">
+    <%= link_to url_for([:upvote, resource]), method: :post, class: "btn btn-primary",
+        role: "button", disabled: disabled do %>
+        <span class="glyphicon glyphicon-thumbs-up"></span> Me gusta <span class="badge"><%= resource.cached_votes_up %></span>
+    <% end %>
+    </div>
+    <div class="col-md-6 like-btn-container">
+    <%= link_to url_for([:downvote, resource]), method: :post, class: "btn btn-default",
+        role: "button", disabled: disabled do %>
+        <span class="glyphicon glyphicon-thumbs-down"></span> No me gusta <span class="badge"><%= resource.cached_votes_down %></span>
+    <% end %>
+    </div>
+</div>
