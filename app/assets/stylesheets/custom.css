@@ -33,13 +33,13 @@ body {
     height: 400px;
 }
 
-/* Pictures */
-.panel.picture { border-radius: 0;}
-.panel.picture .panel-heading { padding: 0; border-bottom: 0;}
-.panel.picture .panel-heading .media { padding: 0;}
-.panel.picture .media-body { display: 5px; }
-.panel.picture .panel-heading .media-body a { display: block; font-weight: 700; }
-.panel.picture img.media-picture { width: 100%; }
+/* Posted content (messages and pictures) */
+.panel.post { border-radius: 0;}
+.panel.post .panel-heading { padding: 0; border-bottom: 0;}
+.panel.post .panel-heading .media { padding: 0;}
+.panel.post .media-body { display: 5px; }
+.panel.post .panel-heading .media-body a { display: block; font-weight: 700; }
+.panel.post img.media-picture { width: 100%; }
 
 /* Comments */
 .input-group.new-comment { padding: 3px;}

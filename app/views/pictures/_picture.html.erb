@@ -1,6 +1,6 @@
 <% if picture %>
   <div class="col-sm-6 col-md-4">
-    <div class="panel panel-default picture">
+    <div class="panel panel-default post">
       <%= render partial: "shared/post_panel_heading", locals: {resource: picture} %>
       <%= image_tag picture.image.url(:medium), class: 'media-picture', data: {original: picture.image.url(:big)} %>
       <div class="panel-body">

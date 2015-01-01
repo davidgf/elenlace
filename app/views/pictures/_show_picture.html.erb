@@ -1,14 +1,13 @@
 
 <% if picture %>
   <div class="col-md-8">
-    <div class="panel panel-default picture">
+    <div class="panel panel-default post">
       <%= render partial: "shared/post_panel_heading", locals: {resource: picture} %>
       <%= image_tag picture.image.url(:medium), class: 'media-picture', data: {original: picture.image.url(:big)} %>
       <div class="panel-body">
         <p><%= picture.name %></p>
       </div>
       <%= render partial: "shared/like", locals: {resource: picture} %>
-      <%= render partial: 'comments/view_all', locals: { commentable: picture} %>
         <%= render partial: 'comments/load_comments', locals: { commentable: picture} %>
       <%= render partial: 'comments/new_comment', locals: { commentable: picture } %>
     </div>
