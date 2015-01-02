@@ -1,12 +1,12 @@
 Elenlace::Application.routes.draw do
   get "demo" => "demo#show"
   get "home" => "pages#home", as: :home
-  get "wedding" => "pages#wedding"
   get "eventos" => "pages#events"
   get "gallery" => "pages#gallery"
   get "log_out" => "wedding_sessions#destroy"
   post 'wedding_sessions/:id' => 'wedding_sessions#create', as: :sessions
 
+  resource :wedding, only: [:edit, :update]
   resources :pictures do
     member do
       post 'upvote'

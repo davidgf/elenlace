@@ -11,7 +11,14 @@
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <%= f.label :cover_image, 'Escoger foto' %><br>
+    <%= f.file_field :cover_image %>
   </div>
+
+  <%= button_tag(type: 'submit', class: "btn btn-success botonSubmit") do %>
+   <span class="glyphicon glyphicon-cloud-upload"></span> Subir foto
+  <% end %>
+
+  <%= link_to 'Cancelar', home_path, class:"btn btn-link" %>
 <% end %>
