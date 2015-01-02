@@ -33,6 +33,42 @@ body {
     height: 400px;
 }
 
+/* Homepage */
+.home-col { padding:0;}
+.panel.new-post { border-radius: 0;}
+.new-post .panel-heading.title {
+    font-size: 18px;
+    padding: 10px;
+}
+.new-post.panel .share-text {
+    box-shadow: none;
+    border: none;
+    background: #fff;
+}
+.new-post.panel .share-buttons {
+    border-top-color: #efefef;
+    padding: 0;
+}
+.new-post.panel .panel-footer {background-color: #f9f9f9;}
+.panel .share-buttons button {
+    margin: 0;
+    border-radius: 0;
+    position: relative;
+    z-index: 1;
+    bottom: -1px;
+    left: -1px;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 10px;
+}
+.panel .share-buttons a {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+}
+
 /* Posted content (messages and pictures) */
 .panel.post { border-radius: 0;}
 .panel.post .panel-heading { padding: 0; border-bottom: 0;}
@@ -44,6 +80,9 @@ body {
 
 /* Pictures */
 .image-data-col, .image-col { padding: 0;}
+
+/* Messages */
+.message .panel-body { font-size: 1.2em;}
 /* Comments */
 .input-group.new-comment { padding: 3px;}
 .view-all-comments {

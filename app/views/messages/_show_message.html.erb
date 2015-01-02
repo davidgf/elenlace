@@ -1,6 +1,6 @@
  <% if message %>
   <div class="col-sm-6 col-md-4">
-    <div class="panel panel-default post">
+    <div class="panel panel-default post message">
         <%= render partial: "shared/post_panel_heading", locals: {resource: message} %>
         <div class="panel-body">
             <%= message.message_html %>

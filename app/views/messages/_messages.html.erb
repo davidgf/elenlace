@@ -1,7 +1,9 @@
 <% messages.each_slice(3) do |messages_group| %>
 	<div class="row">
 		<% messages_group.each do |message| %>
-      		<%= render partial: 'thumb_message', locals: {message: message} %>
+            <div class="col-sm-6 col-md-4">
+      		    <%= render partial: 'thumb_message', locals: {message: message} %>
+            </div>
       	<% end %>
     </div>
 <% end %>

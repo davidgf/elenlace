@@ -1,5 +1,4 @@
 <% if picture %>
-  <div class="col-sm-6 col-md-4">
     <div class="panel panel-default post">
       <%= render partial: "shared/post_panel_heading", locals: {resource: picture} %>
       <%= image_tag picture.image.url(:medium), class: 'media-picture', data: {original: picture.image.url(:big)} %>
@@ -10,6 +9,5 @@
       <%= render partial: 'comments/view_all', locals: { commentable: picture} %>
       <%= render partial: 'comments/new_comment', locals: { commentable: picture } %>
     </div>
-  </div>
 <% end %>
 

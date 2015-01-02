@@ -11,7 +11,13 @@
   </div>
 
 <div class="row container">
-<%= render partial: 'last_activity', locals: {resources: @resources} %>
+    <div class="col-md-3 home-col">
+        <%= render partial: 'messages/new_thumb', locals: {message: @message} %>    
+    </div>
+    <div class="col-md-9 container home-col">
+
+        <%= render partial: 'last_activity', locals: {resources: @resources} %>    
+    </div>
 </div>
 
 
