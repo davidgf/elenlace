@@ -13,15 +13,21 @@
           <nav class="navbar navbar-default">
             <div class="text-center">
                 <ul class="nav navbar-nav">
-                  <li class="col-md-4 col-xs-4"><a href="#">
-                    <span class="glyphicon glyphicon-camera"></span>&nbsp;<span class="hidden-xs">Sube una foto</span>&nbsp;
-                  </a></li>
-                  <li class="col-md-4 col-xs-4"><a href="#">
-                    <span class="glyphicon glyphicon-music"></span>&nbsp;<span class="hidden-xs">Sugiere una canción</span>&nbsp;
-                  </a></li>
-                  <li class="col-md-4 col-xs-4"><a href="#">
-                    <span class="glyphicon glyphicon-user"></span>&nbsp;<span class="hidden-xs">Invita a bailar</span>&nbsp;
-                  </a></li>
+                  <li class="col-md-4 col-xs-4">
+                    <%= link_to new_picture_path do %>
+                      <span class="glyphicon glyphicon-camera"></span>&nbsp;<span class="hidden-xs">Sube una foto</span>&nbsp;
+                    <% end %>
+                  </li>
+                  <li class="col-md-4 col-xs-4">
+                    <%= link_to new_song_path do %>
+                      <span class="glyphicon glyphicon-music"></span>&nbsp;<span class="hidden-xs">Sugiere una canción</span>&nbsp;
+                    <% end %>
+                  </li>
+                  <li class="col-md-4 col-xs-4">
+                    <%= link_to new_dance_path do %>
+                      <span class="glyphicon glyphicon-user"></span>&nbsp;<span class="hidden-xs">Invita a bailar</span>&nbsp;
+                    <% end %>
+                  </li>
                 </ul>
             </div>
           </nav>
@@ -29,9 +35,6 @@
   </div>
 
 <div class="row container-fluid home-main">
-    <div class="col-md-offset-3 col-md-9">        
-      <h2 class="text-center">¿Qué hacen los novios?</h2>
-    </div>
     <div class="col-md-3 home-col">
         <%= render partial: 'messages/new_thumb', locals: {message: @message} %>    
     </div>
