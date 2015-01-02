@@ -172,54 +172,7 @@
     Vota por las canciones que más te gusten y provoca que sean las más sonadas en la boda. Si no encuentras tu favorita, añádela!
 </div>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Artista</th>
-      <th>Canción</th>
-    </tr>
-  </thead>
-  <tbody>
-
-    <% @songs = @songs.sort_by {|s| s.cached_votes_down - s.cached_votes_up }
-      @songs.each_with_index do |song, index| %>
-      <% if cycle('odd', 'even') == 'odd' %>
-        <% @gris=true %>
-      <% else %>
-        <% @gris=false %>
-      <% end %>
-      <tr <% if @gris %>
-      class='active'
-      <% end %>>
-        <td rowspan="2"><%= index+1 %></td>
-        <td><%= song.artist %></td>
-        <td><%= song.title %></td>
-      </tr>
-      <tr <% if @gris %>
-      class='active'
-      <% end %>>
-        <td colspan="2">Propuesta por: <%= link_to guest_path(song.attendee) do %><%= song.attendee.username %><% end %></strong></td>
-      </tr>
-      <tr <% if @gris %>
-      class='active'
-      <% end %>>
-        <% disabled = current_attendee.voted_for?(song) ? "disabled" : nil %>
-        <td colspan="3">
-          <%= link_to upvote_song_path(song), method: :post, class: "btn btn-link",
-                role: "button", disabled: disabled do %>
-            <span class="glyphicon glyphicon-thumbs-up"></span> Me gusta (<%= song.cached_votes_up %>)
-          <% end %>
-          <%= link_to downvote_song_path(song), method: :post, class: "btn btn-link",
-                role: "button", disabled: disabled  do %>
-            <span class="glyphicon glyphicon-thumbs-down"></span> No me gusta (<%= song.cached_votes_down %>)
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<%= render partial: "songs/song_list", locals: {songs: @songs} %>
 
 <div class="row">
   <div class="col-md-12">

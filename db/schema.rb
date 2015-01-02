@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150102170330) do
+ActiveRecord::Schema.define(version: 20150102215751) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -158,6 +158,7 @@ ActiveRecord::Schema.define(version: 20150102170330) do
     t.integer  "cached_votes_down",  default: 0
     t.integer  "attendee_id"
     t.integer  "cached_votes_score", default: 0
+    t.string   "video_url"
   end
 
   add_index "songs", ["cached_votes_down"], name: "index_songs_on_cached_votes_down", using: :btree

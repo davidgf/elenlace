@@ -29,6 +29,10 @@
     <%= f.text_field :title, class: 'form-control', placeholder: 'Título' %>
   </div>
 
+  <div class="form-group">
+    <%= f.text_field :video_url, class: 'form-control', placeholder: 'Link a vídeo de Youtube' %>
+  </div>
+
   <%= button_tag(type: 'submit', class: "btn btn-success botonSubmit") do %>
    <span class="glyphicon glyphicon-cloud-upload"></span> Enviar canción
   <% end %>

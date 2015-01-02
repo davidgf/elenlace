@@ -183,6 +183,13 @@ body {
     font-size: 12px;
 }
 
+/* Songs */
+.song {
+    .song-data {
+        border-top: 1px solid #eee;
+    }
+}
+
 /* Like buttons */
 .like-buttons { margin:0;}
 .like-buttons .like-btn-container { padding:0;}

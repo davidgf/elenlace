@@ -1,0 +1,20 @@
+<div>
+  <% songs.each do |song| %>
+    <div class="row song">
+      <div class="col-md-6 song-data">
+        <div class="media">
+          <a class="media-left" href="#">
+          </a>
+          <div class="media-body">
+            <h4 class="media-heading"><%= song.title %></h4>
+            <%= song.artist %>
+          </div>
+        </div>
+        <%= render partial: "shared/like", locals: {resource: song} %>
+      </div>
+      <div class="col-md-6 song-video">
+        <%= song.video_url_html %>
+      </div>
+    </div>
+  <% end %>
+</div>
