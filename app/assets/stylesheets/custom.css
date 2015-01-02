@@ -35,6 +35,62 @@ body {
 
 /*.main-container {padding: 0;}*/
 /* Homepage */
+.home-cover {
+    position: relative;
+    background: #fff;
+    border: 1px solid #efefef;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.home-cover .wrapper {
+    position: relative;
+    overflow: hidden;
+    max-height: 250px;
+    border-bottom: 1px solid #efefef;
+}
+.home-cover .wrapper img {
+    width: 100%
+}
+.home-cover .cover-info .navbar { margin: 0; height:50px;}
+.home-cover .cover-info .navbar .container-fluid { height:50px;}
+.home-cover .cover-info .nav {
+    display:inline-block;
+    float: none;
+    width: 100%;
+}
+.home-cover .cover-info .nav li {
+    border-right: 1px solid #efefef!important;
+    border-left: 1px solid #efefef!important;
+}
+/*.home-cover .cover-info {
+    position: relative;
+    height: 57px;
+}
+.home-cover .cover-info .cover-nav {
+    position: absolute;
+    bottom: 0;
+    left: 140px;
+    list-style: none;
+    float: left;
+    margin: 0;
+    padding-left: 0;
+}
+.home-cover .cover-info .cover-nav li {
+    border-right: 1px solid #efefef!important;
+}
+.home-cover .cover-info .cover-nav li {
+    float: left;
+    display: block;
+}
+.home-cover .cover-info .cover-nav>li>a {
+    line-height: 20px;
+    padding: 18px 15px;
+    color: #bebebe;
+    font-size: 14px;
+    font-weight: 500;
+    display: block;
+}*/
+
 .home-col.last-activity { padding:0;}
 .home-main {padding: 0;}
 .panel.new-post { border-radius: 0;}
