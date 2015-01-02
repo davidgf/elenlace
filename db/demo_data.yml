@@ -42,10 +42,37 @@ groom:
     messages:
         - 
             message: No queda nada!
+        -
+            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+        -
+            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+        -
+            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+        -
+            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+        -
+            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+        -
+            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+        -
+            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+        -
+            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+        -
+            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+        -
+            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+        -
+            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+        -
+            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
     pictures:
         -
             image: novio.jpg
             name: Ese soy yo
+        -
+            image: sample1.jpg
+            name: Sample 1
     songs:
         -
             artist: Los Lobos
@@ -59,6 +86,34 @@ bride:
     messages:
         -
             message: Vaya invitados... https://www.youtube.com/watch?v=z7Wpoc682Zg
+        -
+            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+        -
+            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+        -
+            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+        -
+            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+        -
+            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+        -
+            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+        -
+            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+        -
+            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+        -
+            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+    pictures:
+        -
+            image: sample2.jpg
+            name: Sample 2
+        -
+            image: sample3.jpg
+            name: Sample 3
+        -
+            image: sample4.jpg
+            name: Sample 4
     songs:
         -
             artist: Gypsy Kings
@@ -75,6 +130,10 @@ guests:
             username: Fe
             description: La madrina
             password: fe
+        pictures:
+            -
+                image: sample5.jpg
+                name: Sample 5
     -
         attributes:
             username: Suso
@@ -92,11 +151,24 @@ guests:
             username: Nanda
             description: Madre de la novia
             password: nanda
+        pictures:
+            -
+                image: sample6.jpg
+                name: Sample 6
     -
         attributes:
             username: Inés
             description: Amiga de Diego y Sandra
             password: ines
+        messages:
+            -
+                message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+            -
+                message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+            -
+                message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+            -
+                message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
     -
         attributes:
             username: David

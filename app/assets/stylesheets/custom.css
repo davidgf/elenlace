@@ -33,8 +33,10 @@ body {
     height: 400px;
 }
 
+/*.main-container {padding: 0;}*/
 /* Homepage */
-.home-col { padding:0;}
+.home-col.last-activity { padding:0;}
+.home-main {padding: 0;}
 .panel.new-post { border-radius: 0;}
 .new-post .panel-heading.title {
     font-size: 18px;

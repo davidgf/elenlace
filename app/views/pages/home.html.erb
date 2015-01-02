@@ -2,20 +2,18 @@
   <%= javascript_include_tag "infinite_scroll" %>
 <% end %>
 
-<div class="page-header">
-	<h1>Los novios</h1>
-</div>
-
   <div class="alert alert-warning">
     <strong>¡Bienvenid@!</strong> Aquí verás siempre lo último que están haciendo los novios. El resto de opciones, en el menú superior.
   </div>
 
-<div class="row container">
+<div class="row container-fluid home-main">
+    <div class="col-md-offset-3 col-md-9">        
+      <h2 class="text-center">¿Qué hacen los novios?</h2>
+    </div>
     <div class="col-md-3 home-col">
         <%= render partial: 'messages/new_thumb', locals: {message: @message} %>    
     </div>
-    <div class="col-md-9 container home-col">
-
+    <div class="col-md-9 container-fluid home-col last-activity">
         <%= render partial: 'last_activity', locals: {resources: @resources} %>    
     </div>
 </div>
