@@ -1,0 +1,37 @@
+<div class="home-cover">
+    <div class="wrapper">
+        <div class="image overlay">
+          <% if can? :update, Wedding %>
+            <div class="cover-edit">
+              <%= link_to edit_wedding_path, class: "btn btn-cover" do %>
+                <i class="fa fa-pencil"></i>
+              <% end %>
+            </div>
+          <% end %>
+          <%= image_tag wedding.cover_image.url(:big) %>
+        </div>
+    </div>
+    <div class="cover-info">
+        <nav class="navbar navbar-default">
+          <div class="text-center">
+              <ul class="nav navbar-nav">
+                <li class="col-md-4 col-xs-4">
+                  <%= link_to new_picture_path do %>
+                    <span class="glyphicon glyphicon-camera"></span>&nbsp;<span class="hidden-xs">Sube una foto</span>&nbsp;
+                  <% end %>
+                </li>
+                <li class="col-md-4 col-xs-4">
+                  <%= link_to new_song_path do %>
+                    <span class="glyphicon glyphicon-music"></span>&nbsp;<span class="hidden-xs">Sugiere una canción</span>&nbsp;
+                  <% end %>
+                </li>
+                <li class="col-md-4 col-xs-4">
+                  <%= link_to new_dance_path do %>
+                    <span class="glyphicon glyphicon-user"></span>&nbsp;<span class="hidden-xs">Invita a bailar</span>&nbsp;
+                  <% end %>
+                </li>
+              </ul>
+          </div>
+        </nav>
+    </div>
+</div>

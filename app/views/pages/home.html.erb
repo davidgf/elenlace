@@ -2,44 +2,7 @@
   <%= javascript_include_tag "infinite_scroll" %>
 <% end %>
 
-
-<div class="home-cover">
-      <div class="wrapper">
-          <div class="image overlay">
-            <div class="overlay overlay-full overlay-hover overlay-bg-black">
-                <div class="v-center">
-                    <a class="btn btn-circle btn-lg btn-white" href=""><i class="fa fa-plus"></i></a>
-                    <br>
-                    <a href="" class="text-h3">Update cover</a>
-                </div>
-            </div>
-            <img src="images/wed.jpg" alt="people">
-          </div>
-      </div>
-      <div class="cover-info">
-          <nav class="navbar navbar-default">
-            <div class="text-center">
-                <ul class="nav navbar-nav">
-                  <li class="col-md-4 col-xs-4">
-                    <%= link_to new_picture_path do %>
-                      <span class="glyphicon glyphicon-camera"></span>&nbsp;<span class="hidden-xs">Sube una foto</span>&nbsp;
-                    <% end %>
-                  </li>
-                  <li class="col-md-4 col-xs-4">
-                    <%= link_to new_song_path do %>
-                      <span class="glyphicon glyphicon-music"></span>&nbsp;<span class="hidden-xs">Sugiere una canción</span>&nbsp;
-                    <% end %>
-                  </li>
-                  <li class="col-md-4 col-xs-4">
-                    <%= link_to new_dance_path do %>
-                      <span class="glyphicon glyphicon-user"></span>&nbsp;<span class="hidden-xs">Invita a bailar</span>&nbsp;
-                    <% end %>
-                  </li>
-                </ul>
-            </div>
-          </nav>
-      </div>
-  </div>
+<%= render partial: 'home_cover', locals: {wedding: @wedding} %>    
 
 <div class="row container-fluid home-main">
     <div class="col-md-3 home-col">

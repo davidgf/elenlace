@@ -1,18 +1,19 @@
 class WeddingsController < ApplicationController
   before_action :require_user
-  before_action :set_wedding
   load_and_authorize_resource
 
   # GET /weddings/1/edit
   def edit
+    @wedding = current_attendee.wedding
   end
 
   # PATCH/PUT /weddings/1
   # PATCH/PUT /weddings/1.json
   def update
+    @wedding = current_attendee.wedding
     respond_to do |format|
       if @wedding.update(wedding_params)
-        format.html { redirect_to @wedding, notice: 'Boda actualizada correctamente' }
+        format.html { redirect_to home_path }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

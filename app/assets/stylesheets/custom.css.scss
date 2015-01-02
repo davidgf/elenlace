@@ -1,0 +1,181 @@
+body {
+  min-height: 500px;
+  padding-top: 70px;
+}
+.media {
+    padding: 9px;
+}
+.row {
+    margin-bottom: 15px;
+}
+.page-header {
+    margin-top: 20px;
+}
+.navbar-brand{
+    padding: 0px;
+    display: block;
+    width: 260px;
+}
+.navbar-brand img{
+    float: left;
+}
+.navbar-brand span{
+    float: left;
+    font-size: 16px;
+    padding-top: 5px;
+}
+
+.show-map, .form-map {
+    height: 100%;
+}
+
+.map-container {
+    height: 400px;
+}
+
+/*.main-container {padding: 0;}*/
+/* Homepage */
+.home-cover {
+    position: relative;
+    background: #fff;
+    border: 1px solid #efefef;
+    overflow: hidden;
+    margin-bottom: 20px;
+
+    .cover-edit { 
+        position: absolute;
+        top: 12px;
+        right: 8px;
+
+        .btn-cover {
+            color: #fff;
+            background-color: rgba(0,0,0,.5);
+            border-color: transparent;
+            z-index: 2;
+            font-weight: 500;
+        }
+    }
+}
+
+.home-cover .wrapper {
+    position: relative;
+    overflow: hidden;
+    max-height: 250px;
+    border-bottom: 1px solid #efefef;
+}
+.home-cover .wrapper .image {
+    position: relative;
+    height: 250px;
+}
+
+.home-cover .wrapper img {
+    width: 100%
+}
+.home-cover .cover-info .navbar { margin: 0; height:50px;}
+.home-cover .cover-info .navbar .container-fluid { height:50px;}
+.home-cover .cover-info .nav {
+    display:inline-block;
+    float: none;
+    width: 100%;
+}
+.home-cover .cover-info .nav li {
+    border-right: 1px solid #efefef!important;
+    border-left: 1px solid #efefef!important;
+}
+
+.home-col.last-activity { padding:0;}
+.home-main {padding: 0;}
+.panel.new-post { border-radius: 0;}
+.new-post .panel-heading.title {
+    font-size: 18px;
+    padding: 10px;
+}
+.new-post.panel .share-text {
+    box-shadow: none;
+    border: none;
+    background: #fff;
+}
+.new-post.panel .share-buttons {
+    border-top-color: #efefef;
+    padding: 0;
+}
+.new-post.panel .panel-footer {background-color: #f9f9f9;}
+.panel .share-buttons button {
+    margin: 0;
+    border-radius: 0;
+    position: relative;
+    z-index: 1;
+    bottom: -1px;
+    left: -1px;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 10px;
+}
+.panel .share-buttons a {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+}
+
+/* Posted content (messages and pictures) */
+.panel.post { border-radius: 0;}
+.panel.post .panel-heading { padding: 0; border-bottom: 0;}
+.panel.post .panel-heading .media { padding: 0;}
+.panel.post .media-body { display: 5px; }
+.panel.post .panel-heading .media-body a { display: block; font-weight: 700; }
+.panel.post img.media-picture { width: 100%; }
+
+
+/* Pictures */
+.image-data-col, .image-col { padding: 0;}
+
+/* Messages */
+.message .panel-body { font-size: 1.2em;}
+/* Comments */
+.input-group.new-comment { padding: 3px;}
+.view-all-comments {
+    display: block;
+    padding: 3px 5px;
+    background: #f5f5f5;
+    font-weight: 500;
+    font-size: 12px;
+    color: #c2c2c2;
+}
+.comments ul {
+    list-style: none;
+    padding: 0;
+    border-top: 1px solid #efefef;
+    margin-bottom: 0;
+}
+
+.comments ul li {
+    border-bottom: 1px solid #f5f5f5;
+    background: #fff;
+    padding: 5px;
+}
+
+.comments li .media {
+    overflow: visible;
+}
+
+.comments li .media-body {
+    padding-top: 6px;
+    margin-bottom: 6px;
+}
+
+.comments a.comment-author {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.comments .comment-date {
+    color: #888;
+    font-size: 12px;
+}
+
+/* Like buttons */
+.like-buttons { margin:0;}
+.like-buttons .like-btn-container { padding:0;}
+.like-buttons .like-btn-container a { width: 100%; border-radius: 0;}
