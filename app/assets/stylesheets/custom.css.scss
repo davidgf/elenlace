@@ -1,6 +1,11 @@
+$navbar-color: #c3a961;
+$navbar-active-color: #b69845;
+$navbar-font-color: white;
+
 body {
   min-height: 500px;
   padding-top: 70px;
+  background-color: #f6f6f6;
 }
 .media {
     padding: 9px;
@@ -10,6 +15,23 @@ body {
 }
 .page-header {
     margin-top: 20px;
+}
+/* Navbar */
+.navbar-main { 
+    background-color: $navbar-color;
+    border: 0;
+
+    a { color: $navbar-font-color;}
+
+    li.active a, li a:hover { background-color: $navbar-active-color;}
+
+    .navbar-toggle { 
+        background-color: $navbar-active-color;
+
+        span {
+            background-color: #ede5d0;
+        }
+    }
 }
 .navbar-brand{
     padding: 0px;
@@ -79,13 +101,23 @@ body {
         }
 
         .nav {
-            display:inline-block;
+            display: inline-block;
             float: none;
             width: 100%;
 
-            li {
+            li:nth-child(even){
                 border-right: 1px solid #efefef!important;
                 border-left: 1px solid #efefef!important;
+            }
+
+            li {
+
+                a {color: #bebebe;}
+
+                :hover{
+                    background-color: white;
+                    color: #6c6c6c;
+                }
             }
         }
     }
@@ -97,24 +129,41 @@ body {
 .new-post .panel-heading.title {
     font-size: 18px;
     padding: 10px;
+    border-radius: 0;
+    background-color: $navbar-color;
+    color: $navbar-font-color;
 }
-.new-post.panel .share-text {
-    box-shadow: none;
-    border: none;
-    background: #fff;
+.new-post.panel {
+    .share-text {
+        box-shadow: none;
+        border: none;
+        background: #fff;
+    }
+
+    .share-buttons {
+        border-top-color: #efefef;
+        padding: 0;
+    }
+
+    .panel-footer {
+        background-color: #f9f9f9;
+        border: 0;
+
+        .btn {
+            background-color: $navbar-color;
+            color: $navbar-font-color;
+        }
+        .btn:hover { background-color: $navbar-active-color;}
+
+    }
 }
-.new-post.panel .share-buttons {
-    border-top-color: #efefef;
-    padding: 0;
-}
-.new-post.panel .panel-footer {background-color: #f9f9f9;}
 .panel .share-buttons button {
     margin: 0;
     border-radius: 0;
     position: relative;
     z-index: 1;
     bottom: -1px;
-    left: -1px;
+    right: -1px;
     height: 32px;
     line-height: 32px;
     padding: 0 10px;
@@ -128,12 +177,26 @@ body {
 }
 
 /* Posted content (messages and pictures) */
-.panel.post { border-radius: 0;}
-.panel.post .panel-heading { padding: 0; border-bottom: 0;}
-.panel.post .panel-heading .media { padding: 0;}
-.panel.post .media-body { display: 5px; }
-.panel.post .panel-heading .media-body a { display: block; font-weight: 700; }
-.panel.post img.media-picture { width: 100%; }
+.panel.post {
+    border-radius: 0;
+
+    .panel-heading { 
+        background-color: $navbar-color;
+        color: $navbar-font-color;
+        padding: 0;
+        border-bottom: 0;
+        border-radius: 0;
+
+        a { color: $navbar-font-color;}
+        .media { padding: 0;}
+
+        .media-body a { display: block; font-weight: 700; }
+    }
+
+    .media-body { display: 5px; }
+
+    img.media-picture { width: 100%; }
+}
 
 
 /* Pictures */
@@ -191,6 +254,27 @@ body {
 }
 
 /* Like buttons */
-.like-buttons { margin:0;}
-.like-buttons .like-btn-container { padding:0;}
-.like-buttons .like-btn-container a { width: 100%; border-radius: 0;}
+.like-buttons {
+    margin:0;
+
+    .like-btn-container { 
+        padding:0;
+        
+        a { 
+            width: 100%;
+            border-radius: 0;
+            border-width: 1px 0 1px 0;
+        }
+
+        a.btn-primary {
+            background-color: $navbar-color;
+            border-color: $navbar-color;
+
+            .badge { color: $navbar-color;}
+        }
+
+        a.btn-primary:hover {
+            background-color: $navbar-active-color;
+        }
+    }
+}
