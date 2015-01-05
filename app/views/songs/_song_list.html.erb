@@ -7,7 +7,7 @@
           </a>
           <div class="media-body">
             <h4 class="media-heading"><%= song.title %></h4>
-            <%= song.artist %>
+            <span><%= song.artist %></span>
           </div>
         </div>
         <%= render partial: "shared/like", locals: {resource: song} %>

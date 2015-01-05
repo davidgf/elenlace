@@ -1,6 +1,8 @@
 $navbar-color: #c3a961;
 $navbar-active-color: #b69845;
 $navbar-font-color: white;
+$media-light-color: #9e9e9e;
+$border-light-color: #eee;
 
 body {
   min-height: 500px;
@@ -305,13 +307,35 @@ body {
 
 /* Dances */
 .dances-list-container {
+    .media {
+        background-color: white;
+        padding:0;
+        height: 50px;
+        border-top: 1px solid $border-light-color;
+        margin-top: 0;
+
+        .media-body {
+            font-size: 0.8em;
+            color: $media-light-color;
+            .media-heading {
+                h5 { margin-top: 5px; margin-bottom: 0; font-weight: bold; font-size: 1.3em;}
+            }
+        }
+
+    }
 }
 
 /* Songs */
 .song {
     .song-data {
-        border-top: 1px solid #eee;
-        padding: 0;
+        border-top: 1px solid $border-light-color;
+        /*padding: 0;*/
+
+        .media {
+            background-color: white;
+
+            .media-body span {color: rgb(158, 158, 158);}
+        }
     }
 }
 

@@ -9,7 +9,7 @@ class DancesController < ApplicationController
     @dances = current_attendee.dances
     @partner_of = Dance.where(:partner => current_attendee)
     @matches = Dance.matches_of current_attendee
-    @songs = @wedding.songs
+    @songs = @wedding.songs.sort_by {|s| s.cached_votes_down - s.cached_votes_up }
   end
 
   # GET /dances/1
