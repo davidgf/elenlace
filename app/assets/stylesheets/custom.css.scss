@@ -246,13 +246,6 @@ body {
     font-size: 12px;
 }
 
-/* Songs */
-.song {
-    .song-data {
-        border-top: 1px solid #eee;
-    }
-}
-
 /* Like buttons */
 .like-buttons {
     margin:0;
@@ -277,4 +270,51 @@ body {
             background-color: $navbar-active-color;
         }
     }
+}
+
+/* Youtube videos */
+.video-container {
+    max-width: 600px;
+    margin: 0px auto;
+
+
+    > div {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0px;
+    }
+
+    iframe {
+        top: 0px;
+        position: absolute;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+/* Buttons */
+.btn.btn-success {
+    background-color: $navbar-color;
+    border-color: $navbar-color;
+
+}
+.btn.btn-success:hover {
+    background-color: $navbar-active-color;
+}
+
+/* Dances */
+.dances-list-container {
+}
+
+/* Songs */
+.song {
+    .song-data {
+        border-top: 1px solid #eee;
+        padding: 0;
+    }
+}
+
+.songs-list-container {
+    border-left: 1px solid #ddd;
 }
