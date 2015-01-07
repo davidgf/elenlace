@@ -342,3 +342,16 @@ body {
 .songs-list-container {
     border-left: 1px solid #ddd;
 }
+
+/* Guests */
+.guest-box{
+
+    .guest-username {
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+
+    .guest-description {
+        color: $media-light-color;
+    }
+}

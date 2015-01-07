@@ -32,8 +32,7 @@ class WeddingsControllerTest < ActionController::TestCase
 	end
 
 	should "update wedding" do
-		patch :update, wedding: {  }
-		assert_response :success
+		patch :update, wedding: { test: 'test' }
 		assert_redirected_to home_path
 	end
   end

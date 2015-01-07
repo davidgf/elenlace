@@ -2,21 +2,19 @@
   <%= javascript_include_tag "infinite_scroll" %>
 <% end %>
 
-<div class="page-header">
-  <h1>Lista de invitados</h1>
+<div class="page-header row">
+  <h1 class="pull-left">Lista de invitados</h1>
+  <% if can? :create, Attendee %>
+    <%= link_to new_guest_path, class: "pull-right" do %>
+      <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Nuevo invitado</button>
+    <% end %>
+  <% end %>
 </div>
 
-<table class="table">
-  <thead>
-    <tr>
-            <th>Foto</th>
-            <th>Invitado</th>
-    </tr>
-  </thead>
-  <tbody>
-    <%= render partial: 'guests', object: @guests %>
-  </tbody>
-</table>
+<div class="row">
+  <%= render partial: 'guests', object: @guests %>  
+</div>
+
 
 <div id="spinner" class="row">
     <%= image_tag "spinner.gif", class: "center-block" %>
@@ -24,12 +22,3 @@
 
 
 <br>
-<% if can? :create, Attendee %>
-  <div class="row">
-    <div class="col-md-12">
-      <%= link_to new_guest_path do %>
-        <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Nuevo invitado</button>
-      <% end %>
-    </div>
-  </div>
-<% end %>
