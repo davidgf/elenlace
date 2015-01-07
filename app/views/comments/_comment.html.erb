@@ -1,1 +1,24 @@
-<p class="yeah"><strong><%= link_to guest_path(comment.attendee) do %><%= comment.attendee.username %><% end %></strong>: <%= comment.comment_html %></p>
+<li>
+    <div class="media">
+        <%= link_to guest_path(comment.attendee), class: 'pull-left' do %>
+            <%= image_tag comment.attendee.avatar.url(:thumb), class: "media-object", alt: comment.attendee.username %>
+        <% end %>
+        <% if can? :manage, comment %>
+            <div class="pull-right dropdown" data-show-hover="li">
+                <a href="#" data-toggle="dropdown" class="toggle-button">
+                    <i class="fa fa-pencil"></i>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                    <li>
+                        <%= link_to 'Eliminar', comment, method: :delete, data: { confirm: '¿Estás seguro?' } %>
+                    </li>
+                </ul>
+            </div>
+        <% end %>
+        <div class="media-body">
+            <%= link_to comment.attendee.username, guest_path(comment.attendee), class: "comment-author" %>
+            <span><%= comment.comment_html %></span>
+            <div class="comment-date"><%= timeago_tag comment.created_at, :limit => 10.days.ago, :lang => :es %></div>
+        </div>
+    </div>
+</li>

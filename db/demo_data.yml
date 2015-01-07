@@ -42,14 +42,42 @@ groom:
     messages:
         - 
             message: No queda nada!
+        -
+            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+        -
+            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+        -
+            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+        -
+            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+        -
+            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+        -
+            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+        -
+            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+        -
+            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+        -
+            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+        -
+            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+        -
+            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+        -
+            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
     pictures:
         -
             image: novio.jpg
             name: Ese soy yo
+        -
+            image: sample1.jpg
+            name: Sample 1
     songs:
         -
             artist: Los Lobos
             title: La bamba
+            video_url: https://www.youtube.com/watch?v=nLAWPrCUQQ0
 bride:
     attributes:
         username: Sandra
@@ -59,10 +87,39 @@ bride:
     messages:
         -
             message: Vaya invitados... https://www.youtube.com/watch?v=z7Wpoc682Zg
+        -
+            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+        -
+            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+        -
+            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+        -
+            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+        -
+            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+        -
+            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+        -
+            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+        -
+            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+        -
+            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+    pictures:
+        -
+            image: sample2.jpg
+            name: Sample 2
+        -
+            image: sample3.jpg
+            name: Sample 3
+        -
+            image: sample4.jpg
+            name: Sample 4
     songs:
         -
-            artist: Gypsy Kings
+            artist: Los Manolos
             title: Amigos para siempre
+            video_url: https://www.youtube.com/watch?v=CEB5SacFVLI
 
 guests:
     -
@@ -70,11 +127,17 @@ guests:
             username: Ángel
             description: Padre del novio
             password: angel
+            avatar: anxo.jpg
     -
         attributes:
             username: Fe
             description: La madrina
             password: fe
+            avatar: fe.jpg
+        pictures:
+            -
+                image: sample5.jpg
+                name: Sample 5
     -
         attributes:
             username: Suso
@@ -84,27 +147,45 @@ guests:
             -
                 artist: Los del Río
                 title: La Macarena
+                video_url: https://www.youtube.com/watch?v=anzzNp8HlVQ
             -
                 artist: Demis Roussos
                 title: Una paloma blanca
+                video_url: https://www.youtube.com/watch?v=uaI4mXFMENs
     -
         attributes:
             username: Nanda
             description: Madre de la novia
             password: nanda
+        pictures:
+            -
+                image: sample6.jpg
+                name: Sample 6
     -
         attributes:
             username: Inés
             description: Amiga de Diego y Sandra
             password: ines
+            avatar: ines.jpg
+        messages:
+            -
+                message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+            -
+                message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+            -
+                message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+            -
+                message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
     -
         attributes:
             username: David
             description: Primo de Diego
             password: david
+            avatar: david.jpg
     -
         attributes:
-            username: Lucita
-            description: Familiar de Diego
-            password: lucita
+            username: Lucia
+            description: Casi-prima de Diego
+            password: lucia
+            avatar: lucia.jpg
 

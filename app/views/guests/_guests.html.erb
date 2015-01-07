@@ -1,12 +1,11 @@
 
 
-
     <% guests.each do |guest| %>
-      <%= render partial: 'guest', object: guest %>
+    	<div class="col-md-3">
+			<%= render partial: 'guest', object: guest %>    		
+    	</div>
     <% end %>
 
-<tr id="infinite-scrolling">
-  <td>
+<div id="infinite-scrolling">
     <%= will_paginate guests %>
-  </td>
-</tr>
+</div>

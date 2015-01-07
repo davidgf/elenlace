@@ -11,8 +11,10 @@
  *= require_self
  *= require custom
  *= require sessions
+ *= require font-awesome
  */
 
+$grid-float-breakpoint:     1200px;
 @import "bootstrap";
 
 .hide-comments, #infinite-scrolling, #spinner { display: none }
@@ -82,14 +84,6 @@ body .modal .modal-dialog { width: 95%; max-width: 1250px; }
     .twitter-typeahead {
         display: none !important;
     }
-}
-
-.divElegirPareja{
-    margin-bottom:30px;
-    padding: 5px;
-    text-align: center;
-}.divElegirPareja img{
-    padding-bottom: 10px;
 }
 
 .flotanteArriba{

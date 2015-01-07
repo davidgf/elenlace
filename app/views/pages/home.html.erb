@@ -2,16 +2,15 @@
   <%= javascript_include_tag "infinite_scroll" %>
 <% end %>
 
-<div class="page-header">
-	<h1>Los novios</h1>
-</div>
+<%= render partial: 'home_cover', locals: {wedding: @wedding} %>    
 
-  <div class="alert alert-warning">
-    <strong>¡Bienvenid@!</strong> Aquí verás siempre lo último que están haciendo los novios. El resto de opciones, en el menú superior.
-  </div>
-
-<div class="row container">
-<%= render partial: 'last_activity', locals: {resources: @resources} %>
+<div class="row container-fluid home-main">
+    <div class="col-md-3 home-col">
+        <%= render partial: 'messages/new_thumb', locals: {message: @message} %>    
+    </div>
+    <div class="col-md-9 container-fluid home-col last-activity">
+        <%= render partial: 'last_activity', locals: {resources: @resources} %>    
+    </div>
 </div>
 
 

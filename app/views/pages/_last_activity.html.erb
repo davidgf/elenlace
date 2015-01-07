@@ -1,13 +1,13 @@
-    <% resources.each_slice(3) do |resources_group| %>
-        <div class="row">
-            <% resources_group.each do |resource|
-                if resource.trackable.is_a? Message %>
-                    <%= render partial: 'messages/thumb_message', locals: {message: resource.trackable} %>
-                <% else %>
-                    <%= render partial: 'pictures/picture', object: resource.trackable %>
-                <% end %>
+    <% resources.each_slice(2) do |resources_group| %>
+            <% resources_group.each do |resource| %>
+                <div class="col-sm-6 col-md-6">
+                    <% if resource.trackable.is_a? Message %>
+                            <%= render partial: 'messages/thumb_message', locals: {message: resource.trackable} %>
+                    <% else %>
+                            <%= render partial: 'pictures/picture', object: resource.trackable %>
+                    <% end %>
+                </div>
             <% end %>
-        </div>
     <% end %>
 
     <div id="infinite-scrolling">

@@ -1,17 +1,13 @@
-<%= form_for(@wedding) do |f| %>
-  <% if @wedding.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@wedding.errors.count, "error") %> prohibited this wedding from being saved:</h2>
 
-      <ul>
-      <% @wedding.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
+<%= form_for @wedding, url: {action: "update", method: "patch"}, html: {method: "patch"} do |f| %>
+  <div class="form-group">
+    <%= f.label :cover_image, 'Escoge tu foto de portada' %><br>
+    <%= f.file_field :cover_image %>
+  </div>
+
+  <%= button_tag(type: 'submit', class: "btn btn-success botonSubmit") do %>
+   <span class="glyphicon glyphicon-cloud-upload"></span> Subir foto
   <% end %>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= link_to 'Cancelar', home_path, class:"btn btn-link" %>
 <% end %>

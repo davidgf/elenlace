@@ -9,6 +9,7 @@ class Comment < ActiveRecord::Base
   default_scope -> { order('created_at ASC') }
 
   belongs_to :attendee
+  delegate :wedding, to: :attendee
   auto_html_for :comment do
     html_escape
     youtube(:width => "100%", :height => "100%", :autoplay => false)

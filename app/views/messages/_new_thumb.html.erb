@@ -1,0 +1,15 @@
+<div class="panel panel-default new-post">
+    <div class="panel-heading title">
+        Publica un mensaje
+    </div>
+    <%= form_for(@message) do |f| %>
+
+        <div class="panel-body">
+            <%= f.text_area :message, class:'form-control share-text', rows:'3', placeholder: "Escribe tu mensaje..." %>
+        </div>
+        <div class="panel-footer share-buttons text-right">
+            <%= f.button "Enviar", class: "btn btn-xs" %>
+        </div>
+
+    <% end %>
+</div>

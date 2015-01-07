@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141219160609) do
+ActiveRecord::Schema.define(version: 20150102215751) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -158,6 +158,7 @@ ActiveRecord::Schema.define(version: 20141219160609) do
     t.integer  "cached_votes_down",  default: 0
     t.integer  "attendee_id"
     t.integer  "cached_votes_score", default: 0
+    t.string   "video_url"
   end
 
   add_index "songs", ["cached_votes_down"], name: "index_songs_on_cached_votes_down", using: :btree
@@ -210,6 +211,10 @@ ActiveRecord::Schema.define(version: 20141219160609) do
     t.string   "groom_name"
     t.string   "bride_surname"
     t.string   "groom_surname"
+    t.string   "cover_image_file_name"
+    t.string   "cover_image_content_type"
+    t.integer  "cover_image_file_size"
+    t.datetime "cover_image_updated_at"
   end
 
   add_index "weddings", ["slug"], name: "index_weddings_on_slug", length: {"slug"=>191}, using: :btree

@@ -15,6 +15,7 @@ class PagesController < ApplicationController
 
   def home
     @resources = PublicActivity::Activity.where(owner_id: [@wedding.bride.id, @wedding.groom.id]).order("created_at desc").page(params[:page]).per_page(15)
+    @message = Message.new
     respond_to do |format|
       format.html {
           if request.xhr?

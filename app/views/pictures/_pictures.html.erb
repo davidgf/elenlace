@@ -1,7 +1,9 @@
 <% pictures.each_slice(3) do |pictures_group| %>
 	<div class="row">
 		<% pictures_group.each do |picture| %>
-      		<%= render partial: 'picture', locals: {picture: picture} %>
+            <div class="col-sm-6 col-md-4">
+      		    <%= render partial: 'picture', locals: {picture: picture} %>
+            </div>
       	<% end %>
 	</div>
 <% end %>

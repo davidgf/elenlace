@@ -1,230 +1,87 @@
+<div class="col-md-4 dances-list-container">
+  <h1>Elige a tu pareja</h1>
 
 
-<div class="page-header">
-  <h1>Parejas correspondidas</h1>
-</div>
-
-
-<div class="row">
-  <div class="col-md-12">
-    <%= link_to new_dance_path do %>
-      <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Elegir pareja</button>
-    <% end %>
+  <div class="row">
+    <div class="col-md-12">
+      <%= link_to new_dance_path do %>
+        <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Invita a bailar</button>
+      <% end %>
+    </div>
   </div>
-</div>
 
   <div class="alert alert-warning">
     <strong>¡Elige a tu pareja!</strong> Busca entre los invitados y elige la pareja (o parejas) con la que te gustaría bailar. Si te elige...¡tendréis vuestro gran momento!
   </div>
+    
+  <h3>Parejas correspondidas</h3>
   
-<table class="table">
-  <thead>
-    <tr>
-      <th>Foto</th>
-      <th>Nombre</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @matches.each do |dance| %>
-      <% if cycle('odd', 'even') == 'odd' %>
-        <% @gris=true %>
-      <% else %>
-        <% @gris=false %>
+    <% if @matches.size > 0
+      @matches.each do |m| %>
+        <%= render(partial: "partner", locals: { partner: m.partner}) %>
       <% end %>
-      
-      <tr <% if @gris %>
-      class='active'
-      <% end %>>
-        <td rowspan="2"><div class="media">
-          <a class="pull-left" href="<%= guest_path(dance.partner) %>">
-            <%= image_tag dance.partner.avatar.url(:thumb), class: "media-object", alt: dance.partner.username %>
-          </a>
-        </div></td>
-        <td><a href="<%= guest_path(dance.partner) %>" class="btn btn-link"><%= dance.partner.username %></a></td>
-      </tr>
-      <tr <% if @gris %>
-      class='active'
-      <% end %>>
-        <td <% if @gris %>
-      class='active'
-      <% end %>><%= dance.partner.description %></td>
-      </tr>
+    <% else %>
+      <p>
+        No tienes pareja... de momento!
+      </p>
     <% end %>
-  </tbody>
-</table>
-
-<br><br>
-  <div class="page-header">
-    <h1>¿Quién me ha elegido?</h1>
-  </div>
+  
 
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Foto</th>
-      <th>Nombre</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @partner_of.each do |dance| %>
-      <% if cycle('odd', 'even') == 'odd' %>
-        <% @gris=true %>
-      <% else %>
-        <% @gris=false %>
+  <h3>¿Quién te ha elegido?</h3>
+  
+    <% if @partner_of.size > 0 
+      @partner_of.each do |p| %>
+        <%= render(partial: "partner", locals: { partner: p.attendee}) %>
       <% end %>
-      
-      <tr <% if @gris %>
-      class='active'
-      <% end %>>
-        <td rowspan="2"><div class="media">
-          <a class="pull-left" href="<%= guest_path(dance.attendee) %>">
-            <%= image_tag dance.attendee.avatar.url(:thumb), class: "media-object", alt: dance.attendee.username %>
-          </a>
-        </div></td>
-        <td><a href="<%= guest_path(dance.attendee) %>" class="btn btn-link"><%= dance.attendee.username %></a></td>
-      </tr>
-      <tr <% if @gris %>
-      class='active'
-      <% end %>>
-        <td <% if @gris %>
-      class='active'
-      <% end %>><%= dance.attendee.description %> <%= link_to 'Borrar', dance, class:"btn btn-link", method: :delete, data: { confirm: '¿Estás seguro?' } %></td>
-      </tr>
+    <% else %>
+      <p>
+        Nadie te ha elegido aún
+      </p>
     <% end %>
-  </tbody>
-</table>
+  
 
-
-
-
-<br><br>
-  <div class="page-header">
-    <h1>¿A quién he elegido?</h1>
-  </div>
-
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>Foto</th>
-      <th>Nombre</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @dances.each do |dance| %>
-      <% if cycle('odd', 'even') == 'odd' %>
-        <% @gris=true %>
-      <% else %>
-        <% @gris=false %>
+  
+  <h3>¿A quién has elegido?</h3>
+  
+    <% if @dances.size > 0
+      @dances.each do |p| %>
+        <%= render(partial: "partner", locals: { partner: p.partner}) %>
       <% end %>
-      
-      <tr <% if @gris %>
-      class='active'
-      <% end %>>
-        <td rowspan="2"><div class="media">
-          <a class="pull-left" href="<%= guest_path(dance.partner) %>">
-            <%= image_tag dance.partner.avatar.url(:thumb), class: "media-object", alt: dance.partner.username %>
-          </a>
-        </div></td>
-        <td><a href="<%= guest_path(dance.partner) %>" class="btn btn-link"><%= dance.partner.username %></a></td>
-      </tr>
-      <tr <% if @gris %>
-      class='active'
-      <% end %>>
-        <td <% if @gris %>
-      class='active'
-      <% end %>><%= dance.partner.description %> <%= link_to 'Borrar', dance, class:"btn btn-link", method: :delete, data: { confirm: '¿Estás seguro?' } %></td>
-      </tr>
+    <% else %>
+      <p>
+        Aún no has invitado a nadie a bailar... !A qué esperas!
+      </p>
     <% end %>
-  </tbody>
-</table>
 
+  <br />
+  
 
-<br>
-<div class="row">
-  <div class="col-md-12">
-    <%= link_to new_dance_path do %>
-      <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Elegir pareja</button>
-    <% end %>
+  <div class="row">
+    <div class="col-md-12">
+      <%= link_to new_dance_path do %>
+        <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Invita a bailar</button>
+      <% end %>
+    </div>
   </div>
 </div>
-<br><br>
 
 
-<div class="page-header">
+<div class="col-md-8 songs-list-container">
   <h1>Vota las canciones</h1>
-</div>
 
-<div class="row">
-  <div class="col-md-12">
-    <%= link_to new_song_path do %>
-      <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Proponer canción</button>
-    <% end %>
-  </div>
-</div>
-
-<div class="alert alert-warning">
-    <strong>¡Pincha a tu gusto!</strong> 
-    Vota por las canciones que más te gusten y provoca que sean las más sonadas en la boda. Si no encuentras tu favorita, añádela!
-</div>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Artista</th>
-      <th>Canción</th>
-    </tr>
-  </thead>
-  <tbody>
-
-    <% @songs = @songs.sort_by {|s| s.cached_votes_down - s.cached_votes_up }
-      @songs.each_with_index do |song, index| %>
-      <% if cycle('odd', 'even') == 'odd' %>
-        <% @gris=true %>
-      <% else %>
-        <% @gris=false %>
+  <div class="row">
+    <div class="col-md-12">
+      <%= link_to new_song_path do %>
+        <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Proponer canción</button>
       <% end %>
-      <tr <% if @gris %>
-      class='active'
-      <% end %>>
-        <td rowspan="2"><%= index+1 %></td>
-        <td><%= song.artist %></td>
-        <td><%= song.title %></td>
-      </tr>
-      <tr <% if @gris %>
-      class='active'
-      <% end %>>
-        <td colspan="2">Propuesta por: <%= link_to guest_path(song.attendee) do %><%= song.attendee.username %><% end %></strong></td>
-      </tr>
-      <tr <% if @gris %>
-      class='active'
-      <% end %>>
-        <% disabled = current_attendee.voted_for?(song) ? "disabled" : nil %>
-        <td colspan="3">
-          <%= link_to upvote_song_path(song), method: :post, class: "btn btn-link",
-                role: "button", disabled: disabled do %>
-            <span class="glyphicon glyphicon-thumbs-up"></span> Me gusta (<%= song.cached_votes_up %>)
-          <% end %>
-          <%= link_to downvote_song_path(song), method: :post, class: "btn btn-link",
-                role: "button", disabled: disabled  do %>
-            <span class="glyphicon glyphicon-thumbs-down"></span> No me gusta (<%= song.cached_votes_down %>)
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-
-<div class="row">
-  <div class="col-md-12">
-    <%= link_to new_song_path do %>
-      <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Proponer canción</button>
-    <% end %>
+    </div>
   </div>
+
+  <div class="alert alert-warning">
+      <strong>¡Pincha a tu gusto!</strong> 
+      Vota por las canciones que más te gusten y provoca que sean las más sonadas en la boda. Si no encuentras tu favorita, añádela!
+  </div>
+
+  <%= render partial: "songs/song_list", locals: {songs: @songs} %>
 </div>

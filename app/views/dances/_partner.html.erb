@@ -1,0 +1,11 @@
+    <div class="media">
+        <%= link_to guest_path(partner), class: "pull-left" do %>
+            <%= image_tag partner.avatar.url(:thumb), class: "media-object", alt: partner.username %>
+        <% end %>
+        <div class="media-body">
+            <div class="media-heading">
+                <h5><%= link_to partner.username, guest_path(partner) %></h5>
+            </div>
+            <%= partner.description %>
+        </div>
+    </div>
