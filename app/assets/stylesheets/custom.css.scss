@@ -325,6 +325,14 @@ body {
     }
 }
 
+.new-dance-box.panel {
+    border-radius: 0;
+
+    label {padding: 0;}
+
+    .panel-heading { padding: 0}
+}
+
 /* Songs */
 .song {
     .song-data {
