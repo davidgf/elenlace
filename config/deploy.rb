@@ -1,8 +1,8 @@
 # config valid only for Capistrano 3.1
-lock '3.2.1'
+lock '>=3.2.1'
 
-set :application, 'bodorrio'
-set :repo_url, 'git@bitbucket.org:davidgf/bodorrio.git'
+set :application, 'elenlace'
+set :repo_url, 'git@bitbucket.org:davidgf/elenlace.git'
 # Default branch is :master
 ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 

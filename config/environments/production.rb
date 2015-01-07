@@ -47,7 +47,7 @@ Elenlace::Application.configure do
 
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
-  config.assets.precompile += %w( autocompletion.js autocompletion_dance.js infinite_scroll.js gallery.js gallery.css )
+  config.assets.precompile += %w( autocompletion.js autocompletion_dance.js infinite_scroll.js gallery.js gallery.css landing.css landing.js)
 
   # Use a different logger for distributed setups.
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
