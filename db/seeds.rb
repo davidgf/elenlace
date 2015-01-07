@@ -5,7 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-wedding = Wedding.new(groom_name: "Diego Mesi", bride_name: "Sandra Brandariz")
+wedding = Wedding.new(groom_name: "Diego", groom_surname: "Mesi", bride_name: "Sandra", bride_surname: "Brandariz")
 wedding.save
 groom = Groom.new({username: "Diego", password: "lopezbrandariz",description: "El novio"})
 groom.wedding = wedding

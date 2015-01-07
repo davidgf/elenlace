@@ -1,7 +1,9 @@
 <div class="panel panel-default guest-box">
   <div class="panel-body">
     <div class="media">
-        <%= image_tag guest.avatar.url(:thumb), class: "media-object img-circle pull-left", alt: guest.username %>
+        <%= link_to guest_path(guest), class: "pull-left" do %>
+          <%= image_tag guest.avatar.url(:thumb), class: "media-object img-circle", alt: guest.username %>
+        <% end %>
         <div class="media-body">
           <%= link_to guest.username, guest_path(guest), class: "guest-username" %>
             <div class="guest-description">
