@@ -15,6 +15,7 @@
  */
 
 $grid-float-breakpoint:     1200px;
+@import "bootstrap-sprockets";
 @import "bootstrap";
 
 .hide-comments, #infinite-scrolling, #spinner { display: none }
