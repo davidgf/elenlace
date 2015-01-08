@@ -1,0 +1,32 @@
+<div class="panel panel-default guest-pictures">
+	<div class="panel-heading">
+		<i class="glyphicon glyphicon-picture"></i> Fotos
+	</div>
+	<div class="panel-body">
+		<div class="row">
+			<div class="col-md-12 col-xs-12 pictures-list-wrapper">
+				<div class="pictures-list">
+					<% pictures = guest.pictures.order('id DESC').limit(5)
+						if pictures.size >0
+							pictures.each do |picture| %>
+								<%= link_to picture_path(picture), class: 'pull-left' do %>
+							        <%= image_tag picture.image.url(:thumb), class: "img-responsive", alt: picture.name %>
+								<% end %>
+							<% end %>
+						<% else %>
+							<div class="no-pictures">
+								Este usuario todavía no ha publicado fotos.
+							</div>
+						<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+	<% if pictures.size == 5 %>
+		<div class="panel-footer">
+			<%= link_to pictures_path, class: "btn btn-default" do %>
+				<i class="glyphicon glyphicon-plus"></i>
+			<% end %>
+		</div>
+	<% end %>
+</div>

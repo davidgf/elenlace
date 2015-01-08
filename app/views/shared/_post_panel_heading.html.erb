@@ -1,7 +1,7 @@
 
 <div class="panel-heading">
   <div class="media">
-    <%= link_to guest_path(resource.attendee), class: 'pull-left' do %>
+    <%= link_to guest_path(resource.attendee), class: 'media-left' do %>
         <%= image_tag resource.attendee.avatar.url(:thumb), class: "media-object", alt: resource.attendee.username %>
     <% end %>
     <div class="media-body">

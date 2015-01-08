@@ -1,15 +1,18 @@
-<div class="panel panel-default guest-box">
-  <div class="panel-body">
-    <div class="media">
-        <%= link_to guest_path(guest), class: "pull-left" do %>
-          <%= image_tag guest.avatar.url(:thumb), class: "media-object img-circle", alt: guest.username %>
-        <% end %>
-        <div class="media-body">
-          <%= link_to guest.username, guest_path(guest), class: "guest-username" %>
-            <div class="guest-description">
-                <%= guest.description %>
-            </div>
-        </div>
-    </div>
-  </div>
+<div class="col-md-7">
+	<div class="panel panel-default guest-profile">
+		<%= image_tag guest.avatar.url(:big), class: "media-picture center-block img-responsive", alt: guest.username, data: {original: guest.avatar.url(:big)} %>
+		<div class="panel-body text-center">
+		  <h2><%= guest.username %></h2>
+		  <p><small><strong>¿Quién es?</strong> <%= guest.description.to_s %></small></p>
+		</div>
+	</div>	
+</div>
+
+<div class="col-md-5">
+	<%= render partial: "guest_pictures", locals: { guest: guest } %>
+</div>
+
+
+<div class="col-md-5">
+	<%= render partial: "guest_messages", locals: { guest: guest } %>
 </div>

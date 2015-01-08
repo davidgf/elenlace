@@ -2,7 +2,7 @@
 
     <% guests.each do |guest| %>
     	<div class="col-md-3">
-			<%= render partial: 'guest', object: guest %>    		
+			<%= render partial: 'guest_thumb', locals: {guest: guest} %>    		
     	</div>
     <% end %>
 

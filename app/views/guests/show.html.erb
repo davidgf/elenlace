@@ -1,26 +1,10 @@
-
-
-<div class="row">
-  <div class="col-md-12">
-    <%= link_to guests_path do %>
-      <button type="button" class="btn"><span class="glyphicon glyphicon-arrow-left"></span> Ver todos</button>
-    <% end %>
-  </div>
-</div>
-
       <div class="page-header">
         <h1>Perfil de <%= @guest.username %></h1>
       </div>
 
 <div class="row">
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
-        <%= image_tag @guest.avatar.url(:medium), class: "img-rounded media-picture", alt: @guest.username, data: {original: @guest.avatar.url(:big)} %>
-        <div class="caption">
-          <h2><%= @guest.username %></h2>
-          <p><small><strong>¿Quién es?</strong> <%= @guest.description.to_s %></small></p>
-        </div>
-      </div>
+    <div class="col-md-12">
+      <%= render partial: "guest", object: @guest %>
     </div>
 </div>
 
