@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require commentable
+//= require event_form_map
 //= require rails-timeago
 //= require locales/jquery.timeago.es.js
 //= require image_modal
