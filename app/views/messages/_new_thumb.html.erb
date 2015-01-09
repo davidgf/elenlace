@@ -5,7 +5,7 @@
     <%= form_for(@message) do |f| %>
 
         <div class="panel-body">
-            <%= f.text_area :message, class:'form-control share-text', rows:'3', placeholder: "Escribe tu mensaje..." %>
+            <%= f.text_area :message, class:'form-control share-text', rows:'1', placeholder: "Escribe tu mensaje..." %>
         </div>
         <div class="panel-footer share-buttons text-right">
             <%= f.button "Enviar", class: "btn btn-xs" %>

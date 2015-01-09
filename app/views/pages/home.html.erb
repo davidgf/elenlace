@@ -7,6 +7,7 @@
 <div class="row container-fluid home-main">
     <div class="col-md-3 home-col">
         <%= render partial: 'messages/new_thumb', locals: {message: @message} %>    
+        <%= render partial: 'notifications/notifications_thumb' %>    
     </div>
     <div class="col-md-9 container-fluid home-col last-activity">
         <%= render partial: 'last_activity', locals: {resources: @resources} %>    

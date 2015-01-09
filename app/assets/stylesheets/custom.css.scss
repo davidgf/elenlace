@@ -159,7 +159,7 @@ body {
 
     }
 }
-.panel .share-buttons button {
+.panel .share-buttons button, .panel .share-buttons a {
     margin: 0;
     border-radius: 0;
     position: relative;
@@ -170,13 +170,13 @@ body {
     line-height: 32px;
     padding: 0 10px;
 }
-.panel .share-buttons a {
+/*.panel .share-buttons a {
     display: inline-block;
     width: 30px;
     height: 30px;
     text-align: center;
     line-height: 30px;
-}
+}*/
 
 /* Posted content (messages and pictures) */
 .panel.post {
