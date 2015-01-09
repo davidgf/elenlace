@@ -1,0 +1,14 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "infinite_scroll" %>
+<% end %>
+
+<div class="page-header">
+	<h1>Mensajes de <%= @guest.username %></h1>
+</div>
+
+<div class="row container">
+	<%= render partial: 'messages/messages', object: @messages %>
+</div>
+<div id="spinner" class="row">
+    <%= image_tag "spinner.gif", class: "center-block" %>
+</div>

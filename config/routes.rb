@@ -42,7 +42,12 @@ Elenlace::Application.routes.draw do
   resources :dances
 
 
-  resources :guests
+  resources :guests do
+    member do
+      get 'messages'
+      get 'pictures'
+    end
+  end
 
   resources :tables
 

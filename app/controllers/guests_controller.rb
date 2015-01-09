@@ -22,6 +22,30 @@ class GuestsController < ApplicationController
   def show
   end
 
+  def messages
+    @messages = @guest.messages.order('created_at DESC').page(params[:page])
+
+    respond_to do |format|
+      format.html {
+          if request.xhr?
+            render partial: 'messages/messages', object: @messages, layout: false
+          end
+        }
+    end
+  end
+
+  def pictures
+    @pictures = @guest.pictures.order('created_at DESC').page(params[:page])
+
+    respond_to do |format|
+      format.html {
+          if request.xhr?
+            render partial: 'pictures/pictures', object: @pictures, layout: false
+          end
+        }
+    end
+  end
+
   # GET /guests/new
   def new
     @guest = Guest.new

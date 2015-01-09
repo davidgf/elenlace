@@ -2,7 +2,7 @@
 	<div class="row">
 		<% messages_group.each do |message| %>
             <div class="col-sm-6 col-md-4">
-      		    <%= render partial: 'thumb_message', locals: {message: message} %>
+      		    <%= render partial: 'messages/thumb_message', locals: {message: message} %>
             </div>
       	<% end %>
     </div>
