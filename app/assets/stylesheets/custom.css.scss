@@ -79,10 +79,18 @@ body {
         }
     }
 
+    @media(max-width: 767px) {
+        .wrapper { max-height: 150px; }
+    }
+
+    @media(min-width: 768px) {
+        .wrapper { max-height: 250px; }
+    }
+
+
     .wrapper{
         position: relative;
         overflow: hidden;
-        max-height: 250px;
         border-bottom: 1px solid #efefef;
 
         .image {
@@ -157,6 +165,27 @@ body {
         }
         .btn:hover { background-color: $navbar-active-color;}
 
+    }
+}
+
+.panel.notifications-box{
+    padding: 0;
+
+    .panel-body {
+        padding: 0;
+
+        p { padding: 15px;}
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+    
+            li {
+                padding: 15px;
+                border-bottom: 1px solid $border-light-color;
+            }
+        }
     }
 }
 .panel .share-buttons button, .panel .share-buttons a {

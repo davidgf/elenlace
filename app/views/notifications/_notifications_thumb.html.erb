@@ -1,13 +1,61 @@
-<div class="panel panel-default new-post">
+<div class="panel panel-default new-post notifications-box hidden-xs">
     <div class="panel-heading title">
         Tus notificaciones
     </div>
 
+
     <div class="panel-body">
-        <p>No tienes nuevas notificaciones</p>
-    </div>
-    <div class="panel-footer share-buttons text-right">
-        <%= link_to "Ver todas", notifications_path, class: "btn btn-xs" %>
+
+
+    <% notifications = @current_attendee.notifications.order('id DESC').limit(3)
+        if notifications.size > 0 %>
+            <ul>
+            <%notifications.each do |notification| %>
+                <%= render partial: 'notifications/notification', locals: {notification: notification} %>
+            <% end %>
+            </ul>
+
+            <div class="panel-footer share-buttons text-right">
+                <%= link_to "Ver todas", notifications_path, class: "btn btn-xs" %>
+            </div>
+
+            </div>
+        <% else %>
+            <p>No tienes nuevas notificaciones</p>
+        </div>
+    <% end %>
+</div>
+
+
+<div class="panel panel-default new-post notifications-box visible-xs" id="notifications-box">
+
+    <div class="panel-heading title" aria-expanded="false">
+        Tus notificaciones
+        <div class="pull-right">
+            <span class="glyphicon glyphicon-chevron-right notifications-body collapse in"></span> 
+            <span class="glyphicon glyphicon-chevron-down notifications-body collapse"></span>
+        </div>
     </div>
 
+
+    <div class="panel-body collapse notifications-body" id="notifications-body">
+
+
+    <% notifications = @current_attendee.notifications.order('id DESC').limit(3)
+        if notifications.size > 0 %>
+            <ul>
+            <%notifications.each do |notification| %>
+                <%= render partial: 'notifications/notification', locals: {notification: notification} %>
+            <% end %>
+            </ul>
+
+            <div class="panel-footer share-buttons text-right">
+                <%= link_to "Ver todas", notifications_path, class: "btn btn-xs" %>
+            </div>
+
+            </div>
+        <% else %>
+            <p>No tienes nuevas notificaciones</p>
+        </div>
+    <% end %>
 </div>
