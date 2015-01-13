@@ -380,6 +380,14 @@ body {
     border-left: 1px solid #ddd;
 }
 
+/* Guests / Tables */
+.guests-tables-container {
+    padding: 0 10px;
+    .guests-tables-box {
+        .tab-content { margin-top: 25px;}
+    }
+}
+
 /* Guests */
 .guest-box{
 

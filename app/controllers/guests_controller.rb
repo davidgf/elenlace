@@ -8,6 +8,7 @@ class GuestsController < ApplicationController
   # GET /guests.json
   def index
     @guests = current_attendee.wedding.guests.page(params[:page])
+    @tables = current_attendee.wedding.tables
     respond_to do |format|
       format.html {
           if request.xhr?

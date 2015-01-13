@@ -11,39 +11,11 @@
   </div>
   <div id="collapseOne-<%= table.name %>" class="panel-collapse collapse in">
     <div class="panel-body">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Foto</th>
-            <th>Invitado</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% table.attendees.each do |attendee| %>
-            <% if cycle('odd', 'even') == 'odd' %>
-              <% @gris=true %>
-            <% else %>
-              <% @gris=false %>
-            <% end %>
-            
-            <tr <% if @gris %>
-            class='active'
-            <% end %>>
-              <td rowspan="2"><div class="media">
-                  <a class="pull-left" href="<%= guest_path(attendee) %>">
-                    <%= image_tag attendee.avatar.url(:thumb), class: "media-object", alt: attendee.username %>
-                  </a>
-                </div></td>
-              <td><a href="<%= guest_path(attendee) %>"><%= attendee.username %></a></td>
-            </tr>
-            <tr <% if @gris %>
-            class='active'
-            <% end %>>
-              <td><%= attendee.description %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+      <% table.attendees.each do |attendee| %>
+        <div class="col-md-3">
+          <%= render partial: 'guests/guest_thumb', locals: {guest: attendee} %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

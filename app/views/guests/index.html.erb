@@ -3,7 +3,6 @@
 <% end %>
 
 <div class="page-header row">
-  <h1 class="pull-left">Lista de invitados</h1>
   <% if can? :create, Attendee %>
     <%= link_to new_guest_path, class: "pull-right" do %>
       <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Nuevo invitado</button>
@@ -11,8 +10,32 @@
   <% end %>
 </div>
 
-<div class="row">
-  <%= render partial: 'guests', object: @guests %>  
+<div class="row guests-tables-container">
+
+	<div role="tabpanel" class="guests-tables-box">
+
+	  <!-- Nav tabs -->
+	  <ul class="nav nav-tabs" role="tablist">
+	    <li role="presentation" class="active"><a href="#guests" aria-controls="guests" role="tab" data-toggle="tab">Invitados</a></li>
+	    <li role="presentation"><a href="#tables" aria-controls="tables" role="tab" data-toggle="tab">Mesas</a></li>
+	  </ul>
+
+	  <!-- Tab panes -->
+	  <div class="tab-content">
+	    <div role="tabpanel" class="tab-pane active" id="guests">
+  			<%= render partial: 'guests', object: @guests %>
+	    </div>
+
+	    <div role="tabpanel" class="tab-pane" id="tables">
+	    	<div class="panel-group" id="accordion">
+				<% @tables.each do |table| %>
+					<%= render partial: 'tables/table', object: table %>
+				<% end %>
+			</div>
+	    </div>
+	  </div>
+
+	</div>
 </div>
 
 
