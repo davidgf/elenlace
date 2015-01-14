@@ -72,7 +72,7 @@ class TablesController < ApplicationController
     end
 
     def set_autocomplete_data
-      @autocomplete_data = current_attendee.wedding.attendees.map { |a| {label: a.username, value: a.id} }
+      @autocomplete_data = current_attendee.wedding.attendees.map { |a| {label: "#{a.username} - #{a.description}", value: a.id} }
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -2,14 +2,6 @@
   <%= javascript_include_tag "infinite_scroll" %>
 <% end %>
 
-<div class="page-header row">
-  <% if can? :create, Attendee %>
-    <%= link_to new_guest_path, class: "pull-right" do %>
-      <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Nuevo invitado</button>
-    <% end %>
-  <% end %>
-</div>
-
 <div class="row guests-tables-container">
 
 	<div role="tabpanel" class="guests-tables-box">
@@ -23,10 +15,26 @@
 	  <!-- Tab panes -->
 	  <div class="tab-content">
 	    <div role="tabpanel" class="tab-pane active" id="guests">
+
+
+			<div class="row">
+			  <% if can? :create, Attendee %>
+			    <%= link_to new_guest_path, class: "pull-right" do %>
+			      <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Nuevo invitado</button>
+			    <% end %>
+			  <% end %>
+			</div>
   			<%= render partial: 'guests', object: @guests %>
 	    </div>
 
 	    <div role="tabpanel" class="tab-pane" id="tables">
+	    	<div class="row">
+				<% if can? :create, Table %>
+					<%= link_to new_table_path, class: "pull-right" do %>
+					  <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Nueva mesa</button>
+					<% end %>
+				<% end %>
+	    	</div>
 	    	<div class="panel-group" id="accordion">
 				<% @tables.each do |table| %>
 					<%= render partial: 'tables/table', object: table %>
