@@ -25,5 +25,15 @@ function loadMap(){
             map: map,
             draggable: false
         });
+
+        var contentString = '<a href="https://www.google.com/maps/place/'+mapCenter.lat()+','+mapCenter.lng()+'">'+
+          'Ver en Google Maps</a> ';
+
+      var infowindow = new google.maps.InfoWindow({
+          content: contentString
+      });
+      google.maps.event.addListener(marker, 'click', function() {
+        infowindow.open(map,marker);
+      });
     }
 }
