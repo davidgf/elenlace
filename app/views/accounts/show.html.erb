@@ -4,14 +4,8 @@
       </div>
 
 <div class="row">
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
-        <%= image_tag current_attendee.avatar.url(:medium), class: "img-rounded media-picture", alt: current_attendee.username, data: {original: current_attendee.avatar.url(:big)} %>
-        <div class="caption">
-          <h2><%= current_attendee.username %></h2>
-          <p><small><strong>¿Quién es?</strong> <%= current_attendee.description %></small></p>
-        </div>
-      </div>
+    <div class="col-md-12">
+      <%= render partial: "guests/guest", locals: {guest: current_attendee } %>
     </div>
 </div>
 
