@@ -22,7 +22,7 @@ ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 # set :pty, true
 
 # Default value for :linked_files is []
-set :linked_files, %w{config/database.yml config/initializers/secret_token.rb db/staging.sqlite3}
+set :linked_files, %w{config/database.yml config/initializers/secret_token.rb db/staging.sqlite3 config/app_config.yml}
 
 # Default value for linked_dirs is []
 set :linked_dirs, %w{tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}

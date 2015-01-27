@@ -273,25 +273,36 @@
     </div><!-- /.container -->
 
       <section id="contact" class="callout text-center container">
-        <div>
+        <div class="description">
           <h1>¿Quieres más información?</h1>
           <p class="lead">Rellena este formulario con tu correo electrónico y/o teléfono y nos pondremos en contacto contigo</p>
         </div>
         <div class="row">
           <div class="col-lg-6 col-lg-offset-3 text-center">
-            <form role="form">
-              <div class="form-group">¡
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+
+            <%= form_tag("/info", method: "post", role: "form", id: "formularioContacto") do %>
+              <div class="form-group">
+                <%= text_field_tag :email, "", class: "form-control", placeholder: "Email", type: "email" %>
               </div>
               <div class="form-group">
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Teléfono">
+                <%= text_field_tag :phone, "", class: "form-control", placeholder: "Teléfono" %>
               </div>
-              <button type="submit" class="btn btn-default">Enviar</button>
-            </form>
+
+              <div id="errorFormulario" class="alert alert-danger hidden">
+                <strong>Lo sentimos</strong> <span>Algo ha ido mal. Puedes localizarnos directamente en el teléfono 650 084 345</span>
+              </div>
+              <div id="enviandoFormulario" class="alert alert-warning hidden">
+                <strong>Enviando...</strong>
+              </div>
+              <div id="okFormulario" class="alert alert-success hidden">
+                <strong>Enviado</strong> <span>Muchas gracias por contactar con Faceboda. Te llamaremos o te escribiremos un mail lo antes posible.</span>
+              </div>
+
+              <%= submit_tag("Enviar", class: "btn btn-default") %>
+            <% end %>
           </div>
         </div>
       </section>
-
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -314,6 +325,31 @@
                       // return false;
                   }
               }
+          });
+
+          $('#formularioContacto').submit(function(){
+              $('#errorFormulario').addClass('hidden');
+              $('#okFormulario').addClass('hidden');
+              $('#enviandoFormulario').removeClass('hidden');
+
+              $.ajax({
+                type: "POST",
+                url: $(this).attr('action'),
+                data: $(this).serialize(),
+                dataType: 'json'
+              }).done(function(json) {
+                  if (json.ok){
+                      $('#enviandoFormulario').addClass('hidden');
+                      $('#okFormulario').removeClass('hidden');
+                  }else{
+                      $('#enviandoFormulario').addClass('hidden');
+                      $('#errorFormulario').removeClass('hidden');
+                  }
+                }).fail(function( jqXHR, textStatus, errorThrown){
+                      $('#enviandoFormulario').addClass('hidden');
+                      $('#errorFormulario').removeClass('hidden');
+                });
+              return false;
           });
       });
     </script>

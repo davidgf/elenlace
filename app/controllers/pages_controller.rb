@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
 
-  before_action :require_user, except: :landing
-  before_action :set_wedding, except: :landing
+  before_action :require_user, except: [:landing, :info]
+  before_action :set_wedding, except: [:landing, :info]
 
   def landing
     if current_attendee
@@ -12,6 +12,15 @@ class PagesController < ApplicationController
       render layout: false
     end
   end
+
+  def info
+    PurchaseMailer.info_mail(params).deliver
+    respond_to do |format|
+      format.html {render layout: false}
+      format.json {render json: '{"ok": true}'}
+    end
+  end
+
 
   def home
     @resources = PublicActivity::Activity.where(owner_id: [@wedding.bride.id, @wedding.groom.id]).order("created_at desc").page(params[:page]).per_page(15)

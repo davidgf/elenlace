@@ -51,3 +51,4 @@ config/database.yml
 sftp-config.json
 
 .vagrant/
+config/app_config.yml
