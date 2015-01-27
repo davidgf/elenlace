@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
 
-  before_action :require_user, except: [:landing, :info]
-  before_action :set_wedding, except: [:landing, :info]
+  before_action :require_user, except: [:landing, :info, :buy]
+  before_action :set_wedding, except: [:landing, :info, :buy]
 
   def landing
     if current_attendee
@@ -19,6 +19,10 @@ class PagesController < ApplicationController
       format.html {render layout: false}
       format.json {render json: '{"ok": true}'}
     end
+  end
+
+  def buy
+    render layout: false
   end
 
 

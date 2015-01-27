@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Faceboda.net</title>
+
+    <!-- Bootstrap core CSS -->
+    <%= stylesheet_link_tag    "landing", media: "all" %>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<!-- NAVBAR
+================================================== -->
+  <body>
+    <div class="container" style="background: rgba(0,0,0,0.3)">
+              <a class="navbar-brand" href="/" style="">
+                <span class="faceboda-logo" style="color:white;font-size:1.1em;font-weight: bold">face<span>boda</span>.net</span>
+              </a>
+    </div>
+
+    <div class="container">
+          <div class="col-lg-12">
+
+            <h3 class="text-muted">Para poder procesar tu compra, rellena este formulario y nuestro departamento comercial se pondrá en contacto contigo.</h3>
+
+            <%= form_tag("/buy", method: "post", role: "form", id: "formularioContacto") do %>
+              <div class="form-group">
+                <%= text_field_tag :email, "", class: "form-control", placeholder: "Email", type: "email" %>
+              </div>
+              <div class="form-group">
+                <%= text_field_tag :phone, "", class: "form-control", placeholder: "Teléfono" %>
+              </div>
+              <div class="form-group">
+                <%= text_field_tag :bride_name, "", class: "form-control", placeholder: "Nombre de la novia" %>
+              </div>
+              <div class="form-group">
+                <%= text_field_tag :bride_surname, "", class: "form-control", placeholder: "Apellidos de la novia" %>
+              </div>
+              <div class="form-group">
+                <%= text_field_tag :groom_name, "", class: "form-control", placeholder: "Nombre del novio" %>
+              </div>
+              <div class="form-group">
+                <%= text_field_tag :groom_surname, "", class: "form-control", placeholder: "Apellidos del novio" %>
+              </div>
+              <div class="form-group">
+                <%= label_tag :wedding_date, "Fecha de la boda" %>
+                <%= date_field_tag :wedding_date, "", class: "form-control" %>
+              </div>
+
+              <div id="errorFormulario" class="alert alert-danger hidden">
+                <strong>Lo sentimos</strong> <span>Algo ha ido mal. Puedes localizarnos directamente en el teléfono 650 084 345</span>
+              </div>
+              <div id="enviandoFormulario" class="alert alert-warning hidden">
+                <strong>Enviando...</strong>
+              </div>
+              <div id="okFormulario" class="alert alert-success hidden">
+                <strong>Enviado</strong> <span>Muchas gracias por contactar con Faceboda. Te llamaremos o te escribiremos un mail lo antes posible.</span>
+              </div>
+
+              <%= submit_tag("Enviar", class: "btn btn-default") %>
+            <% end %>
+          </div>
+    </div>
+</body>
+</html>
