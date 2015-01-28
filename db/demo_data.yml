@@ -43,36 +43,14 @@ groom:
         - 
             message: No queda nada!
         -
-            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
-        -
-            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
-        -
-            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
-        -
-            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
-        -
-            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
-        -
-            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
-        -
-            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
-        -
-            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
-        -
-            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
-        -
-            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
-        -
-            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
-        -
-            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+            message: La ceremonia estará repleta de sorpresas...
     pictures:
         -
             image: novio.jpg
             name: Ese soy yo
         -
             image: sample1.jpg
-            name: Sample 1
+            name: Relaxing té al limón antes de la boda :)
     songs:
         -
             artist: Los Lobos
@@ -88,30 +66,14 @@ bride:
         -
             message: Vaya invitados... https://www.youtube.com/watch?v=z7Wpoc682Zg
         -
-            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
-        -
-            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
-        -
-            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
-        -
-            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
-        -
-            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
-        -
-            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
-        -
-            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
-        -
-            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
-        -
-            message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+            message: Me caso? No me caso? Me caso
     pictures:
         -
             image: sample2.jpg
-            name: Sample 2
+            name: ¿Qué os parece una luna de miel aquí?
         -
             image: sample3.jpg
-            name: Sample 3
+            name: ¿Os gusta este vestido?
         -
             image: sample4.jpg
             name: Sample 4
@@ -169,13 +131,7 @@ guests:
             avatar: ines.jpg
         messages:
             -
-                message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
-            -
-                message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
-            -
-                message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
-            -
-                message: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac elit lacinia, lacinia metus non, tincidunt velit. Vestibulum non ex tortor. Fusce vulputate, quam quis maximus tincidunt,
+                message: Prometo que no voy a llorar!! 
     -
         attributes:
             username: David

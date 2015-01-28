@@ -21,9 +21,13 @@ namespace :demo do
 
   	demo_data["guests"].each do |g|
 	    save_attendee(Guest, g, wedding)
-	end
+  	end
 
-	save_events(wedding, demo_data["events"])
+  	save_events(wedding, demo_data["events"])
+
+    comment_bride_pictures(wedding)
+
+    create_table(wedding)
   end
 
   desc "Sets up demo data"
@@ -87,6 +91,20 @@ namespace :demo do
   		s.attendee = attendee
   		s.save
   	end
+  end
+
+  def comment_bride_pictures(wedding)
+    bride_pictures = wedding.bride.pictures
+    bride_pictures.each do |p|
+      comment = Comment.new({comment: "Comentario de ejemplo", commentable: p, attendee: wedding.guests.last})
+      comment.save
+    end
+  end
+
+  def create_table(wedding)
+    table = Table.new({name: "Mesa nupcial", wedding: wedding})
+    table.attendees << wedding.attendees
+    table.save
   end
 
 end
