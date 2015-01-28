@@ -61,6 +61,15 @@
                     <% end %>
                 <% end %>
             </li>
+
+
+            <li>
+                <% if current_attendee.wedding.is_demo_wedding? %>
+                  <%= link_to log_out_path do %>
+                    <span class="glyphicon glyphicon-log-out"></span> Salir
+                  <% end %>
+                <% end %>
+            </li>
           </ul>
 
         </div><!--/.nav-collapse -->

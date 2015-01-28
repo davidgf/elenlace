@@ -31,4 +31,8 @@ class Wedding < ActiveRecord::Base
     def wedding_title
         return "#{self.groom_name} &<br /> #{self.bride_name}"
     end
+
+    def is_demo_wedding?
+        return self.slug == "demo"
+    end
 end

@@ -25,6 +25,8 @@ body {
 
     a { color: $navbar-font-color;}
 
+    .navbar-collapse { max-height: 380px;}
+
     li.active a, li a:hover { background-color: $navbar-active-color;}
 
     .navbar-toggle { 
