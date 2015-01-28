@@ -33,6 +33,10 @@
           <div class="col-lg-12">
 
             <h3 class="text-muted">Para poder procesar tu compra, rellena este formulario y nuestro departamento comercial se pondrá en contacto contigo.</h3>
+    
+            <% if notice != nil %>
+              <p id="notice" class="alert alert-danger"><%= notice %></p>
+            <% end %>
 
             <%= form_tag("/buy", method: "post", role: "form", id: "formularioContacto") do %>
               <div class="form-group">
@@ -56,16 +60,6 @@
               <div class="form-group">
                 <%= label_tag :wedding_date, "Fecha de la boda" %>
                 <%= date_field_tag :wedding_date, "", class: "form-control" %>
-              </div>
-
-              <div id="errorFormulario" class="alert alert-danger hidden">
-                <strong>Lo sentimos</strong> <span>Algo ha ido mal. Puedes localizarnos directamente en el teléfono 650 084 345</span>
-              </div>
-              <div id="enviandoFormulario" class="alert alert-warning hidden">
-                <strong>Enviando...</strong>
-              </div>
-              <div id="okFormulario" class="alert alert-success hidden">
-                <strong>Enviado</strong> <span>Muchas gracias por contactar con Faceboda. Te llamaremos o te escribiremos un mail lo antes posible.</span>
               </div>
 
               <%= submit_tag("Enviar", class: "btn btn-default") %>

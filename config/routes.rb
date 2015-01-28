@@ -7,6 +7,7 @@ Elenlace::Application.routes.draw do
   post 'wedding_sessions/:id' => 'wedding_sessions#create', as: :sessions
   post "info" => "pages#info"
   get "buy" => "pages#buy"
+  post "buy" => "pages#purchase"
 
   resource :wedding, only: [:edit, :update]
   resources :pictures do

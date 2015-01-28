@@ -19,7 +19,7 @@ class Admin::WeddingsControllerTest < ActionController::TestCase
       end
 
       should "get redirected on create" do
-        post :create, wedding: { bride_name: 'bride', groom_name: 'groom'  }
+        post :create, wedding: { bride_name: 'bride', groom_name: 'groom', bride_surname: 'sur', groom_surname: 'sur', date: '2015-05-05' }
         assert_redirected_to admin_log_in_path
       end
 
@@ -69,7 +69,8 @@ class Admin::WeddingsControllerTest < ActionController::TestCase
         assert_difference('Wedding.count') do
           post :create, wedding: { groom_attributes: {username: @groom.username, password: @groom.password},
                                    bride_attributes: {username: @bride.username, password: @bride.password},
-                                   bride_name: 'bride', groom_name: 'groom' }
+                                   bride_name: 'bride', groom_name: 'groom', bride_surname: 'sur', groom_surname: 'sur', date: '2015-05-05' }
+                                   
         end
 
         assert_redirected_to admin_wedding_path(assigns(:wedding))

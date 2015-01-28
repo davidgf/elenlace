@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
 
-  before_action :require_user, except: [:landing, :info, :buy]
-  before_action :set_wedding, except: [:landing, :info, :buy]
+  before_action :require_user, except: [:landing, :info, :buy, :purchase]
+  before_action :set_wedding, except: [:landing, :info, :buy, :purchase]
 
   def landing
     if current_attendee
@@ -22,7 +22,19 @@ class PagesController < ApplicationController
   end
 
   def buy
-    render layout: false
+    render(layout: false)
+  end
+
+  def purchase
+    respond_to do |format|
+      if not blank_purchase_params
+        PurchaseMailer.purchase_mail(params).deliver
+        format.html { render layout: false }
+      else
+        flash[:notice] = "Por favor, rellena todos los campos"
+        format.html { render action: 'buy', layout: false }
+      end
+    end
   end
 
 
@@ -53,4 +65,15 @@ class PagesController < ApplicationController
 
     render layout: false
   end
+
+private
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def blank_purchase_params
+      required_params = [:bride_name, :bride_surname, :groom_name, :groom_surname, :wedding_date, :email, :phone]
+      required_params.each do |p|
+        return true if params[p].blank?
+      end
+      return false
+    end
 end

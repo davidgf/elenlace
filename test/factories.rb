@@ -2,12 +2,18 @@ FactoryGirl.define do
     
     factory :wedding do
         groom_name "groom name"
+        groom_surname "groom surname"
+        bride_surname "bride surname"
         bride_name "bride name"
+        date "2018-05-22"
     end
 
     factory :demo_wedding, class: Wedding do
         groom_name "groom name"
+        groom_surname "groom surname"
+        bride_surname "bride surname"
         bride_name "bride name"
+        date "2018-05-22"
         slug "demo"
     end
     

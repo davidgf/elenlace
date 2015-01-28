@@ -6,4 +6,9 @@ class PurchaseMailer < ActionMailer::Base
   	@phone = contact_details[:phone] || ""
   	mail(to: "facebodanet@gmail.com", subject: 'Información Faceboda')
   end
+
+  def purchase_mail(details)
+  	@details = details
+  	mail(to: "facebodanet@gmail.com", subject: 'Compra Faceboda')
+  end
 end

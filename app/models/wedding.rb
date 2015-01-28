@@ -17,7 +17,7 @@ class Wedding < ActiveRecord::Base
     has_attached_file :cover_image, :styles => { :big => "1200x1200>" }, :convert_options => { :all => '-auto-orient' }, :default_url => "/images/default_cover.jpg"
     validates_attachment_content_type :cover_image, :content_type => /\Aimage\/.*\Z/
 
-    validates :groom_name, :bride_name, presence: true
+    validates :groom_name, :bride_name, :groom_surname, :bride_surname, presence: true
 
     def slug_candidates
         [
